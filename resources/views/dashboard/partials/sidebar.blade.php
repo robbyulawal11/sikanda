@@ -144,25 +144,6 @@
             <!--end:Menu item-->
         </div>
         <!--end::Sidebar menu-->
-        <!--begin::Footer-->
-        <div class="app-sidebar-project-default app-sidebar-project-minimize text-center min-h-lg-400px flex-column-auto d-flex flex-column justify-content-end"
-            id="kt_app_sidebar_footer">
-            <!--begin::Title-->
-            <h2 class="fw-bold text-gray-800">Selamat Datang di Sikanda</h2>
-            <!--end::Title-->
-            <!--begin::Description-->
-            <div class="fw-semibold text-gray-700 fs-7 lh-2 px-7 mb-1">Bergabunglah dalam gerakan, buatlah sesuatu yang
-                berbeda</div>
-            <!--end::Description-->
-            <!--begin::Illustration-->
-            <img class="mx-auto h-150px h-lg-175px mb-4" src="assets/media/misc/saul-welcome.png" alt="" />
-            <!--end::Illustration-->
-            <div class="text-center mb-lg-5 pb-lg-3">
-                <a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal"
-                    data-bs-target="#kt_modal_create_account">Mulai Sekarang</a>
-            </div>
-        </div>
-        <!--end::Footer-->
     </div>
     <!--end::Main-->
 </div>

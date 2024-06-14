@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://keenthemes.com/products/saul-html-pro" />
     <meta property="og:site_name" content="Keenthemes | Saul HTML Free" />
     <link rel="canonical" href="https://preview.keenthemes.com/saul-html-free" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="assets/media/images/logo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -81,10 +81,16 @@
                         </div>
                         <!--end::Sidebar mobile toggle-->
                         <!--begin::Logo-->
-                        <a href="../dist/index.html" class="app-sidebar-logo">
-                            <img alt="Logo" src="assets/media/logos/default.svg" class="h-30px theme-light-show" />
-                            <img alt="Logo" src="assets/media/logos/default-dark.svg"
-                                class="h-30px theme-dark-show" />
+                        <a href="../dist/index.html" class="app-sidebar-logo d-flex flex-row align-items-center">
+                            <img alt="Logo" src="assets/media/images/logo.png" class="h-60px theme-light-show" />
+                            <img alt="Logo" src="assets/media/images/logo.png" class="h-60px theme-dark-show" />
+                            <div class="h-full d-flex justify-content-center align-items-center">
+                                <p class="fw-bold fs-1 text-black mb-0 pe-3 theme-light-show">
+                                    SIKANDA</p>
+                                <p class="fw-bold fs-1 text-white mb-0 pe-3 theme-dark-show">
+                                    SIKANDA</p>
+                            </div>
+
                         </a>
                         <!--end::Logo-->
                         <!--begin::Sidebar toggle-->
