@@ -81,7 +81,7 @@
                         </div>
                         <!--end::Sidebar mobile toggle-->
                         <!--begin::Logo-->
-                        <a href="../dist/index.html" class="app-sidebar-logo d-flex flex-row align-items-center">
+                        <a href="/dashboard" class="app-sidebar-logo d-flex flex-row align-items-center">
                             <img alt="Logo" src="assets/media/images/logo.png" class="h-60px theme-light-show" />
                             <img alt="Logo" src="assets/media/images/logo.png" class="h-60px theme-dark-show" />
                             <div class="h-full d-flex justify-content-center align-items-center">

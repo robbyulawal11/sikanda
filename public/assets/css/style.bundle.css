@@ -49175,7 +49175,7 @@ body,
   }
 }
 [data-bs-theme=light] {
-  --bs-app-sidebar-link-bg-color: #F1EAE2;
+  --bs-app-sidebar-link-bg-color: #EEEEEE;
   --bs-app-separator-border: 1px solid #E1E3EA;
   --bs-app-content-bg-color: #ffffff;
 }

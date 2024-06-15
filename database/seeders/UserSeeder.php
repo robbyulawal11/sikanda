@@ -18,7 +18,8 @@ class userSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@sikanda.store',
             'email_verified_at' => now(),
-            'password' => Hash::make('admin123'), // password
+            'password' => Hash::make('admin123'),
+            'role' => 'admin', // password
             'remember_token' => Str::random(10),
         ]);
     }

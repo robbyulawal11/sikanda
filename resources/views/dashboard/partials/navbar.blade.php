@@ -56,7 +56,7 @@
                 <div class="menu-sub menu-sub-dropdown w-175px py-4">
                     <!--begin::Menu item-->
                     <div class="menu-item px-3">
-                        <a href="#" class="menu-link px-5">Galeri</a>
+                        <a href="{{ route('galery.index') }}" class="menu-link px-5">Galeri</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
