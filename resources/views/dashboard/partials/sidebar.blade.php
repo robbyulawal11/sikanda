@@ -72,7 +72,7 @@
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Katalog</span>
+                            <span class="menu-title"><a href="{{ route('index') }}">Katalog</a></span>
                         </span>
                         <!--end:Menu link-->
                     </div>
