@@ -68,7 +68,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link">
+                        <a class="menu-link" href="{{ route('catalog.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -112,10 +112,9 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link"
-                            href="https://preview.keenthemes.com/html/saul-html-pro/docs/base/utilities" target="_blank"
-                            title="Check out over 200 in-house components" data-bs-toggle="tooltip"
-                            data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                        <a class="menu-link" href="/dashboard" title="Check out over 200 in-house components"
+                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                            data-bs-placement="right">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -127,9 +126,9 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="https://preview.keenthemes.com/html/saul-html-pro/docs"
-                            target="_blank" title="Check out the complete documentation" data-bs-toggle="tooltip"
-                            data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                        <a class="menu-link" href="/dashboard" title="Check out the complete documentation"
+                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                            data-bs-placement="right">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>

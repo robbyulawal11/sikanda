@@ -11,19 +11,25 @@ class GaleryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $title = "Galeri Produk";
+        $path = $request->path();
+        $path = explode("/", $path);
         $data = Galery::all();
         // dd($data);
-        return view('dashboard/pages/GaleryManagement/show', compact('data'));
+        return view('dashboard/pages/GaleryManagement/show', compact('data', 'path', 'title'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('dashboard/pages/GaleryManagement/create');
+        $title = "Tambah Galeri";
+        $path = $request->path();
+        $path = explode("/", $path);
+        return view('dashboard/pages/GaleryManagement/create', compact('path', 'title'));
     }
 
     /**
@@ -55,11 +61,13 @@ class GaleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
+        $title = "Edit Galeri";
+        $path = $request->path();
+        $path = explode("/", $path);
         $data = Galery::find($id);
-
-        return view('dashboard.pages.GaleryManagement.edit', compact('data'));
+        return view('dashboard.pages.GaleryManagement.edit', compact('data', 'path', 'title'));
     }
 
     /**

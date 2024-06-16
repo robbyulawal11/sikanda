@@ -21,8 +21,11 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard.pages.Dashboard.dashboard');
+        $title = "Dasbor";
+        $path = $request->path();
+        $path = explode("/", $path);
+        return view('dashboard.pages.Dashboard.dashboard', compact('path', 'title'));
     }
 }

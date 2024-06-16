@@ -17,8 +17,7 @@
                 <span class="path6"></span>
             </i>
         </a>
-        <a href="../dist/account/overview.html"
-            class="btn btn-icon btn-color-warning bg-hover-body h-45px w-45px flex-shrink-0 mb-4"
+        <a href="/dashboard" class="btn btn-icon btn-color-warning bg-hover-body h-45px w-45px flex-shrink-0 mb-4"
             data-bs-toggle="tooltip" title="Profile" data-bs-custom-class="tooltip-inverse">
             <i class="ki-duotone ki-message-add fs-2qx">
                 <span class="path1"></span>
@@ -26,7 +25,7 @@
                 <span class="path3"></span>
             </i>
         </a>
-        <a href="../dist/apps/ecommerce/catalog/products.html"
+        <a href="{{ route('catalog.index') }}"
             class="btn btn-icon btn-color-info bg-hover-body h-45px w-45px flex-shrink-0 mb-4" data-bs-toggle="tooltip"
             title="Products" data-bs-custom-class="tooltip-inverse">
             <i class="ki-duotone ki-devices-2 fs-2qx">
