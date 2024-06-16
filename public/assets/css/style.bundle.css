@@ -333,7 +333,7 @@ sup {
 }
 
 a {
-  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  color: rgba(var(--bs-dark), var(--bs-dark, 1));
   text-decoration: none;
 }
 a:hover {
@@ -49175,7 +49175,7 @@ body,
   }
 }
 [data-bs-theme=light] {
-  --bs-app-sidebar-link-bg-color: #F1EAE2;
+  --bs-app-sidebar-link-bg-color: #EEEEEE;
   --bs-app-separator-border: 1px solid #E1E3EA;
   --bs-app-content-bg-color: #ffffff;
 }

@@ -5,7 +5,7 @@
         <div class="cursor-pointer symbol symbol-30px symbol-lg-40px"
             data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
             data-kt-menu-placement="bottom-end">
-            <img src="assets/media/avatars/300-2.jpg" alt="user" />
+            <img src="{{ asset('assets/media/avatars/300-2.jpg') }}" alt="user" />
         </div>
         <!--begin::User account menu-->
         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
@@ -15,7 +15,7 @@
                 <div class="menu-content d-flex align-items-center px-3">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img alt="Logo" src="assets/media/avatars/300-2.jpg" />
+                        <img alt="Logo" src="{{ asset('assets/media/avatars/300-2.jpg') }}" />
                     </div>
                     <!--end::Avatar-->
                     <!--begin::Username-->
@@ -35,12 +35,12 @@
             <!--end::Menu separator-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="../dist/account/overview.html" class="menu-link px-5">Profil Saya</a>
+                <a href="/dashboard" class="menu-link px-5">Profil Saya</a>
             </div>
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="../dist/apps/projects/list.html" class="menu-link px-5">
+                <a href="/dashboard" class="menu-link px-5">
                     <span class="menu-text">Artikel Saya</span>
                 </a>
             </div>
@@ -56,12 +56,12 @@
                 <div class="menu-sub menu-sub-dropdown w-175px py-4">
                     <!--begin::Menu item-->
                     <div class="menu-item px-3">
-                        <a href="#" class="menu-link px-5">Galeri</a>
+                        <a href="{{ route('galery.index') }}" class="menu-link px-5">Galeri</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-3">
-                        <a href="#" class="menu-link px-5">Katalog</a>
+                        <a href="{{ route('catalog.index') }}" class="menu-link px-5">Katalog</a>
                     </div>
                     <!--end::Menu item-->
                 </div>
@@ -153,7 +153,7 @@
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-5 my-1">
-                <a href="../dist/account/settings.html" class="menu-link px-5">Account
+                <a href="/dashboard" class="menu-link px-5">Account
                     Settings</a>
             </div>
             <!--end::Menu item-->

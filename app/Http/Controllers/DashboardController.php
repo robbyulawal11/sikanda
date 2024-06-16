@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,8 +21,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard.pages.Dashboard.dashboard');
+        $title = "Dasbor";
+        $path = $request->path();
+        $path = explode("/", $path);
+        return view('dashboard.pages.Dashboard.dashboard', compact('path', 'title'));
     }
 }
