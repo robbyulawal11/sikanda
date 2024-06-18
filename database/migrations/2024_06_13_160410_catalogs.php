@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('seller');
             $table->integer('harga');
-            $table->text('deskripsi');
+            $table->text('deskripsi')->nullable();
             $table->string('wa');
-            $table->string('ig');
+            $table->string('ig')->nullable();
             $table->string('image');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalog');
+        Schema::dropIfExists('catalogs');
     }
 };
