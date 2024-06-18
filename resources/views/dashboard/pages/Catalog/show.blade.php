@@ -25,7 +25,7 @@
                     </td>
                     <td>{{ $c->nama }}</td>
                     <td>{{ $c->seller }}</td>
-                    <td>{{ $c->harga }}</td>
+                    <td>Rp. {{ number_format($c->harga, 0, ',', '.') }}</td>
                     <td>{{ $c->deskripsi }}</td>
                     <td>{{ $c->wa }}</td>
                     <td>{{ $c->ig }}</td>

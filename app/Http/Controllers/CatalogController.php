@@ -39,9 +39,9 @@ class CatalogController extends Controller
             'seller' => 'required',
             'harga' => 'numeric|required',
             'deskripsi' => 'nullable|string',
-            'wa' => 'nullable|string',
+            'wa' => 'required',
             'ig' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if ($request->hasFile('image')) {
