@@ -10,7 +10,7 @@
             </td>
             <label for="exampleInputEmail1" class="form-label">Upload Gambar</label>
             <br>
-            <input type="file" name="gambar">
+            <input type="file" name="gambar">ss
         </div>
         <div class="form-group">
             <label class="w-100" id="deskripsi">Deskripsi

@@ -51,6 +51,7 @@ class GaleryController extends Controller
             $validator['gambar'] = $filename;
         }
 
+
         Galery::create($validator);
         return redirect('galery')->with('success', 'Data berhasil diinput');
     }

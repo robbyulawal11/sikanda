@@ -4,7 +4,7 @@
     <form class="container d-flex flex-column justify-content-center mb-5" action="{{ route('galery.store') }}" method="POST"
         enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('POST')ss
 
         <div class="form-group mb-3">
             <label for="exampleInputEmail1" class="form-label">Upload Gambar</label>
