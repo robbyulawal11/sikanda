@@ -43,10 +43,15 @@ class GaleryController extends Controller
             'deskripsi' => 'required',
             'author' => 'required'
         ]);
-        $galery->gambar = $validator["gambar"];
-        $galery->deskripsi = $validator["deskripsi"];
-        $galery->author = $validator["author"];
-        $galery->save();
+
+        if ($request->hasFile('gambar')) {
+            $filename = time().'.'.$request->gambar->extension();
+            $request->gambar->move(public_path('images/galeries'), $filename);
+            $validator['gambar'] = $filename;
+        }
+
+
+        Galery::create($validator);
         return redirect('galery')->with('success', 'Data berhasil diinput');
     }
 
