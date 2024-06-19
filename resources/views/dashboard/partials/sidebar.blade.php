@@ -84,6 +84,17 @@
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
+                            <span class="menu-title">Profil</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <div class="menu-item menu-accordion">
+                        <!--begin:Menu link-->
+                        <a class="menu-link">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
                             <span class="menu-title">Pengguna</span>
                         </a>
                         <!--end:Menu link-->
