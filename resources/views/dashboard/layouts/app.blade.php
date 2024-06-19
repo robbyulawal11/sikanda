@@ -16,17 +16,20 @@
     <meta property="og:url" content="https://keenthemes.com/products/saul-html-pro" />
     <meta property="og:site_name" content="Keenthemes | Saul HTML Free" />
     <link rel="canonical" href="https://preview.keenthemes.com/saul-html-free" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('assets/media/images/logo.png') }}" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Vendor Stylesheets(used for this page only)-->
-    <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+        type="text/css" />
     <!--end::Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+
     <!--end::Global Stylesheets Bundle-->
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
@@ -81,10 +84,18 @@
                         </div>
                         <!--end::Sidebar mobile toggle-->
                         <!--begin::Logo-->
-                        <a href="../dist/index.html" class="app-sidebar-logo">
-                            <img alt="Logo" src="assets/media/logos/default.svg" class="h-30px theme-light-show" />
-                            <img alt="Logo" src="assets/media/logos/default-dark.svg"
-                                class="h-30px theme-dark-show" />
+                        <a href="/dashboard" class="app-sidebar-logo d-flex flex-row align-items-center">
+                            <img alt="Logo" src="{{ asset('assets/media/images/logo.png') }}"
+                                class="h-60px theme-light-show" />
+                            <img alt="Logo" src="{{ asset('assets/media/images/logo.png') }}"
+                                class="h-60px theme-dark-show" />
+                            <div class="h-full d-flex justify-content-center align-items-center">
+                                <p class="fw-bold fs-1 text-black mb-0 pe-3 theme-light-show">
+                                    SIKANDA</p>
+                                <p class="fw-bold fs-1 text-white mb-0 pe-3 theme-dark-show">
+                                    SIKANDA</p>
+                            </div>
+
                         </a>
                         <!--end::Logo-->
                         <!--begin::Sidebar toggle-->
@@ -132,7 +143,7 @@
                                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
-                                                <a href="../dist/index.html" class="text-gray-500">
+                                                <a href="/dashboard" class="text-gray-500">
                                                     <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
                                                 </a>
                                             </li>
@@ -143,7 +154,9 @@
                                             </li>
                                             <!--end::Item-->
                                             <!--begin::Item-->
-                                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Dashboards</li>
+                                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1 text-capitalize">
+                                                {{ $path[0] }}
+                                            </li>
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item">
@@ -157,15 +170,17 @@
                                         <!--end::Breadcrumb-->
                                         <!--begin::Title-->
                                         <h1
-                                            class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">
-                                            Dashboard</h1>
+                                            class="page-heading d-flex flex-column justify-content-center text-dark text-capitalize fw-bolder fs-1 lh-0">
+                                            {{ $title }}</h1>
                                         <!--end::Title-->
                                     </div>
                                     <!--end::Page title-->
                                     <!--begin::Actions-->
-                                    <a href="#" class="btn btn-sm btn-success ms-3 px-4 py-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create
-                                        Project</a>
+                                    @if ($path[0] != 'dashboard')
+                                        <a href="{{ route($path[0] . '.create') }}"
+                                            class="btn btn-sm btn-primary ms-3 px-4 py-3 text-capitalize">Create
+                                            {{ $path[0] }}</a>
+                                    @endif
                                     <!--end::Actions-->
                                 </div>
                                 <!--end::Toolbar wrapper-->
@@ -229,11 +244,11 @@
         var hostUrl = "assets/";
     </script>
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="assets/plugins/global/plugins.bundle.js"></script>
-    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used for this page only)-->
-    <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
@@ -245,16 +260,16 @@
     <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <!--end::Vendors Javascript-->
     <!--begin::Custom Javascript(used for this page only)-->
-    <script src="assets/js/widgets.bundle.js"></script>
-    <script src="assets/js/custom/widgets.js"></script>
-    <script src="assets/js/custom/apps/chat/chat.js"></script>
-    <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-    <script src="assets/js/custom/utilities/modals/create-account.js"></script>
-    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
-    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+    <script src="{{ asset('assets/js/widgets.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/widgets.j') }}s"></script>
+    <script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/utilities/modals/create-account.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>

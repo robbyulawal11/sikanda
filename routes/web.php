@@ -1,27 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-// Route::get('/article', function () {
-//     return view('/dashboard/pages/Article/show');
-// });
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Middleware\Status;
 
 Route::get('/', function () {
     return view('/landing-page/layouts/app');
 });
 
+Route::middleware(['auth', Status::class])->prefix('/')->group(function () {
+    Route::resource('galery', GaleryController::class);
+    Route::resource('catalog', CatalogController::class);
+    Route::resource('article', ArticleController::class);
+
+});
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/article', [App\Http\Controllers\ArticleController::class, 'index'])->name('index');
-
-Route::get('/create', [App\Http\Controllers\ArticleController::class, 'create'])->name('create');
-
-Route::post('/create', [App\Http\Controllers\ArticleController::class, 'store'])->name('store');
-
-Route::get('/{article}/edit', [App\Http\Controllers\ArticleController::class, 'edit'])->name('edit');
-
-Route::post('/{article}/update', [App\Http\Controllers\ArticleController::class, 'update'])->name('update');
-
-Route::delete('/article/{article}', [App\Http\Controllers\ArticleController::class, 'destroy'])->name('delete');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
