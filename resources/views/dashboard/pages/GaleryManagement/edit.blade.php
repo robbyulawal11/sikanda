@@ -1,6 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
+    <h1>Welcome in Galery Edit</h1>
     <form class="container d-flex flex-column justify-content-center mb-5"
         action="{{ route('galery.update', ['galery' => $galery]) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -10,7 +11,7 @@
             </td>
             <label for="exampleInputEmail1" class="form-label">Upload Gambar</label>
             <br>
-            <input type="file" name="gambar">ss
+            <input type="file" name="gambar">
         </div>
         <div class="form-group">
             <label class="w-100" id="deskripsi">Deskripsi

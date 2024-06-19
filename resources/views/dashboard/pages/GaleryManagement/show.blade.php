@@ -20,7 +20,7 @@
                     <td><img src="{{ asset('images/galeries/' . $item->gambar) }}" alt="{{ $item->id }}" width="75">
                     </td>
                     <td>{{ $item->deskripsi }}</td>
-                    <td>{{ $item->author }}</td>ss
+                    <td>{{ $item->author }}</td>
                     <td><button type="button" class="btn btn-warning"><a
                                 href="{{ route('galery.edit', $item->id) }}">Edit</a></button></td>
                     <td>
