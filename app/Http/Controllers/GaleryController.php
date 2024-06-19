@@ -26,8 +26,6 @@ class GaleryController extends Controller
      */
     public function create(Request $request)
     {
-
-
         $title = "Tambah Galeri";
         $path = $request->path();
         $path = explode("/", $path);
@@ -39,19 +37,16 @@ class GaleryController extends Controller
      */
     public function store(Request $request)
     {
+        $galery = new Galery;
         $validator = $request->validate([
             'gambar' => 'required',
             'deskripsi' => 'required',
             'author' => 'required'
         ]);
-
-        if ($request->hasFile('gambar')) {
-            $filename = time().'.'.$request->gambar->extension();
-            $request->gambar->move(public_path('images/galeries'), $filename);
-            $validator['gambar'] = $filename;
-        }
-
-        Galery::create($validator);
+        $galery->gambar = $validator["gambar"];
+        $galery->deskripsi = $validator["deskripsi"];
+        $galery->author = $validator["author"];
+        $galery->save();
         return redirect('galery')->with('success', 'Data berhasil diinput');
     }
 
@@ -66,12 +61,13 @@ class GaleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, Galery $galery)
+    public function edit(Request $request, string $id)
     {
         $title = "Edit Galeri";
         $path = $request->path();
         $path = explode("/", $path);
-        return view('dashboard.pages.GaleryManagement.edit', compact('galery', 'path', 'title'));
+        $data = Galery::find($id);
+        return view('dashboard.pages.GaleryManagement.edit', compact('data', 'path', 'title'));
     }
 
     /**
@@ -79,27 +75,18 @@ class GaleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $galery = Galery::find($id);
+        $data = Galery::find($id);
+
         $validator = $request->validate([
-            'gambar' => 'nullable',
+            'gambar' => 'required',
             'deskripsi' => 'required',
             'author' => 'required'
         ]);
 
-        if ($request->hasFile('gambar')) {
-            //menghapus gambar lama
-            $imagePath = public_path('images/galeries/' . $galery->gambar);
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
-
-            //menyimpan gambar baru
-            $fileName = time().'.'.$request->gambar->extension();
-            $request->gambar->move(public_path('images/galeries/'), $fileName);
-            $validator['gambar'] = $fileName;
-        }
-
-        $galery->update($validator);
+        $galery->gambar = $validator["gambar"];
+        $galery->deskripsi = $validator["deskripsi"];
+        $galery->author = $validator["author"];
+        $galery->save();
         return redirect('galery')->with('success', 'Data berhasil diinput');
     }
 
@@ -108,11 +95,6 @@ class GaleryController extends Controller
      */
     public function destroy(string $id)
     {
-        $galery = Galery::find($id);
-        $imagePath = public_path('images/galeries/' . $galery->gambar);
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
         Galery::destroy($id);
         return redirect('galery')->with('success', 'Data berhasil dihapus');
     }
