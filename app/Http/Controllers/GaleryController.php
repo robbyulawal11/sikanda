@@ -71,8 +71,8 @@ class GaleryController extends Controller
         $title = "Edit Galeri";
         $path = $request->path();
         $path = explode("/", $path);
-        $data = Galery::find($id);
-        return view('dashboard.pages.GaleryManagement.edit', compact('data', 'path', 'title'));
+        $galery = Galery::find($id);
+        return view('dashboard.pages.GaleryManagement.edit', compact('galery', 'path', 'title'));
     }
 
     /**
@@ -80,18 +80,28 @@ class GaleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = Galery::find($id);
+        $gallery = Galery::find($id);
 
         $validator = $request->validate([
-            'gambar' => 'required',
+            'gambar' => 'nullable',
             'deskripsi' => 'required',
             'author' => 'required'
         ]);
 
-        $galery->gambar = $validator["gambar"];
-        $galery->deskripsi = $validator["deskripsi"];
-        $galery->author = $validator["author"];
-        $galery->save();
+        if ($request->hasFile('gambar')) {
+            //menghapus gambar lama
+            $imagePath = public_path('images/galeries/' . $gallery->gambar);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            //menyimpan gambar baru
+            $fileName = time().'.'.$request->gambar->extension();
+            $request->gambar->move(public_path('images/galeries/'), $fileName);
+            $validator['gambar'] = $fileName;
+        }
+
+        $gallery->update($validator);
         return redirect('galery')->with('success', 'Data berhasil diinput');
     }
 
@@ -100,6 +110,11 @@ class GaleryController extends Controller
      */
     public function destroy(string $id)
     {
+        $galery = Galery::find($id);
+        $imagePath = public_path('images/galeries/' . $galery->gambar);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
         Galery::destroy($id);
         return redirect('galery')->with('success', 'Data berhasil dihapus');
     }
