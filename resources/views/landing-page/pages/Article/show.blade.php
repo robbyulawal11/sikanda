@@ -1,6 +1,6 @@
 @extends('landing-page.layouts.app')
 
-@section('body')
+@section('content')
 
 <div class="container-fluid py-5">
     <div class="container">
@@ -20,8 +20,8 @@
                         <div class="article-title-area">
                             <h3>{{ $showArticle->title }}</h3>
                             <div class="article-meta big-meta">
-                                <small>{{ $showArticle->updated_at->format('d M, Y') }} | </small>
-                                <small><a href="blog-author.html" title="">by {{ $showArticle->author }}</a></small>
+                                <small>{{ $showArticle->updated_at->format('d M, Y') }} | by </small>
+                                <small><a href="{{ route('search.articles') }}?query={{ $showArticle->author }}" title="">{{ $showArticle->author }}</a></small>
                             </div><!-- end meta -->
                         </div><!-- end title -->
 
@@ -44,7 +44,7 @@
                 <div class="sidebar">
                     <div class="widget pb-3 mb-4 border-bottom border-gray-300">
                         <h2 class="widget-title">Search</h2>
-                        <form action="{{ route('article.search') }}" method="GET" class="form-inline search-form">
+                        <form action="{{ route('search.articles') }}" method="GET" class="form-inline search-form">
                             <div class="form-group">
                                 <input type="text" name="query" class="form-control" placeholder="Search articles...">
                             </div>

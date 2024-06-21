@@ -11,7 +11,7 @@
             <!--begin:Menu item-->
             <div class="menu-item here show">
                 <!--begin:Menu link-->
-                <a class="menu-link active " href="{{ route('dashboard') }}">
+                <a class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-element-11 fs-1">
                             <span class="path1"></span>
@@ -28,7 +28,7 @@
             <!--begin:Menu item-->
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                 <!--begin:Menu link-->
-                <a class="menu-link active">
+                <a class="menu-link {{ Request::is('admin/article', 'admin/gallery', 'admin/catalog') ? 'active' : '' }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-some-files fs-1">
                             <span class="path1"></span>
@@ -44,7 +44,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link active" href="{{ route('article.index') }}">
+                        <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}" href="{{ route('article.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -56,7 +56,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('galery.index') }}">
+                        <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}" href="{{ route('gallery.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -72,7 +72,18 @@
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Katalog</span>
+                            <span class="menu-title" {{ Request::is('admin/catalog') ? 'active' : '' }}>Katalog</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <div class="menu-item menu-accordion">
+                        <!--begin:Menu link-->
+                        <a class="menu-link">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Profil</span>
                         </a>
                         <!--end:Menu link-->
                     </div>

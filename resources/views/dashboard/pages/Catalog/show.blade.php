@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1>SIKANDA Catalog</h1>
     <table class="table table-striped table-hover">
         <thead>
             <tr>

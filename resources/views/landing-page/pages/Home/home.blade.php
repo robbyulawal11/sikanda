@@ -1,6 +1,5 @@
-@extends('landing-page.layouts.app')
-
-@section('body')
+    @extends('landing-page.layouts.app')
+    @section('content')
     <!-- Hero Start -->
     <div class="container-fluid bg-primary py-5 mb-5 hero-header">
         <div class="container py-5">
@@ -51,7 +50,7 @@
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100 rounded" src="{{ asset('assets/img/about.jpg') }}" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -88,73 +87,7 @@
     </div>
     <!-- About End -->
     
-    <!-- Products Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Products</h6>
-                <h1 class="display-5 text-uppercase mb-0">Products For Your Best Friends</h1>
-            </div>
-            <div class="owl-carousel product-carousel">
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-3.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-4.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Products End -->
+    @include('landing-page.pages.Catalog.catalog')
 
     <!-- Testimonial Start -->
     <div class="container-fluid bg-testimonial py-5" style="margin: 45px 0;">
@@ -164,7 +97,7 @@
                     <div class="owl-carousel testimonial-carousel bg-white p-5">
                         <div class="testimonial-item text-center">
                             <div class="position-relative mb-4">
-                                <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" alt="">
+                                <img class="img-fluid mx-auto" src="{{ asset('assets/img/testimonial-1.jpg') }}" alt="">
                                 <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
                                     <i class="bi bi-chat-square-quote text-primary"></i>
                                 </div>
@@ -176,7 +109,7 @@
                         </div>
                         <div class="testimonial-item text-center">
                             <div class="position-relative mb-4">
-                                <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" alt="">
+                                <img class="img-fluid mx-auto" src="{{ asset('assets/img/testimonial-2.jpg') }}" alt="">
                                 <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
                                     <i class="bi bi-chat-square-quote text-primary"></i>
                                 </div>
@@ -206,7 +139,7 @@
                     <div class="blog-item">
                         <div class="row g-0 bg-light overflow-hidden">
                             <div class="col-12 col-sm-5 h-100">
-                                <img class="img-fluid h-100" src="img/blog-1.jpg" style="object-fit: cover;">
+                                <img class="img-fluid h-100" src="{{ asset('assets/img/blog-1.jpg') }}" style="object-fit: cover;">
                             </div>
                             <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
                                 <div class="p-4">
@@ -226,7 +159,7 @@
                     <div class="blog-item">
                         <div class="row g-0 bg-light overflow-hidden">
                             <div class="col-12 col-sm-5 h-100">
-                                <img class="img-fluid h-100" src="img/blog-2.jpg" style="object-fit: cover;">
+                                <img class="img-fluid h-100" src="{{ asset('assets/img/blog-2.jpg') }}" style="object-fit: cover;">
                             </div>
                             <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
                                 <div class="p-4">
@@ -246,4 +179,4 @@
         </div>
     </div>
     <!-- Blog End -->
-@endsection
+    @endsection

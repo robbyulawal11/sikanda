@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
     <a href="/" class="navbar-brand ms-lg-5">
-        <h1 class="m-0 text-uppercase text-dark"><img src="logo.png" height=62 width=62 alt="SIKANDA"></i> SIKANDA</h1>
+        <h1 class="m-0 text-uppercase text-dark"><img src="{{ asset('assets/img/logo.png') }}" height=62 width=62 alt="SIKANDA"></i> SIKANDA</h1>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -19,10 +19,10 @@
                     <a href="demografis" class="dropdown-item">Demografis</a>
                 </div>
             </div>
-            <a href="article" class="nav-item nav-link {{ Request::is('article') ? 'active' : '' }}">Artikel</a>
+            <a href="article" class="nav-item nav-link {{ Request::is('article', 'article/show', 'article/search') ? 'active' : '' }}">Artikel</a>
             <a href="gallery" class="nav-item nav-link {{ Request::is('gallery') ? 'active' : '' }}">Galeri</a>
             <a href="catalog" class="nav-item nav-link {{ Request::is('catalog') ? 'active' : '' }}">Katalog</a>
-            <a href="/dashboard" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Login <i
+            <a href="{{ route('dashboard') }}" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Login <i
                     class="bi bi-arrow-right"></i></a>
         </div>
     </div>

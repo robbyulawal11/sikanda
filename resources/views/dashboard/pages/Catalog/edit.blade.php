@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1>Edit a Product</h1>
     <section id="create_catalog">
         <div class="container">
             <form method="POST" action="{{ route('catalog.update', ['catalog' => $catalog]) }}" enctype="multipart/form-data">

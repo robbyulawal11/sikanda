@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1>Create a Product</h1>
     <section id="create_catalog">
         <div class="container">
             <form method="post" action="{{ route('catalog.store') }}" enctype="multipart/form-data">

@@ -1,6 +1,6 @@
 @extends('landing-page.layouts.app')
 
-@section('body')
+@section('content')
 
 <div class="container-fluid py-5">
     <div class="container">
@@ -21,13 +21,13 @@
                         <div class="article-title-area">
                             <h3>{{ $pa->title }}</h3>
                             <div class="article-meta big-meta">
-                                <small>{{ $pa->updated_at->format('d M, Y') }} | </small>
-                                <small><a href="blog-author.html" title="">by {{ $pa->author }}</a></small>
+                                <small>{{ $pa->updated_at->format('d M, Y') }} | by </small>
+                                <small><a href="{{ route('search.articles') }}?query={{ $pa->author }}" title="">{{ $pa->author }}</a></small>
                             </div><!-- end meta -->
                         </div><!-- end title -->
 
                         <div class="single-post-media mb-3 mt-3">
-                            <img src="{{ asset('/images/articles/' . $pa->image) }}" alt="{{ $pa->title }}" class="img-fluid">
+                            <img src="{{ asset('/images/articles/' . $pa->image) }}" alt="{{ $pa->title }}" class="img-fluid" width="2000" height="1200">
                         </div><!-- end media -->
 
                         <div class="article-content">

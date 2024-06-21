@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Middleware\Status;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('/landing-page/pages/Home/home');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
+
+Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
 
 
 // Landing page route for articles
@@ -26,7 +27,7 @@ Route::get('/article/show/{id}', [ArticleController::class, 'show'])->name('land
 Route::middleware(['auth', Status::class])->prefix('/admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('article', ArticleController::class);
-    Route::resource('galery', GaleryController::class);
+    Route::resource('gallery', GalleryController::class);
     Route::resource('catalog', CatalogController::class);
 });
 

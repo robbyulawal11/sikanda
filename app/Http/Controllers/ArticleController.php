@@ -51,10 +51,16 @@ class ArticleController extends Controller
         // Perform search query
         $searchArticles = Article::where('title', 'LIKE', "%$query%")
                             ->orWhere('body', 'LIKE', "%$query%")
+                            ->orWhere('author', 'LIKE', "%$query%")
                             ->orderBy('created_at', 'desc')
                             ->paginate(10);
 
-        return view('landing-page.pages.Article.search', compact('searchArticles', 'query'));
+        $countArticles = Article::where('title', 'LIKE', "%$query%")
+                            ->orWhere('body', 'LIKE', "%$query%")
+                            ->orWhere('author', 'LIKE', "%$query%")
+                            ->count();
+
+        return view('landing-page.pages.Article.search', compact('searchArticles', 'query', 'countArticles'));
     }
 
     
@@ -184,7 +190,7 @@ class ArticleController extends Controller
         //mengupdate data
         $article->update($data);
 
-        return redirect('article');
+        return redirect('admin/article');
     }
 
     /**
@@ -201,7 +207,7 @@ class ArticleController extends Controller
         //menghapus data
         $article->delete();
 
-        return redirect('article');
+        return redirect('admin/article');
     }
     
     // public function deleteImage(Request $request)

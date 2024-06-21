@@ -84,7 +84,7 @@
                         </div>
                         <!--end::Sidebar mobile toggle-->
                         <!--begin::Logo-->
-                        <a href="/dashboard" class="app-sidebar-logo d-flex flex-row align-items-center">
+                        <a href="{{ route('dashboard') }}" class="app-sidebar-logo d-flex flex-row align-items-center">
                             <img alt="Logo" src="{{ asset('assets/media/images/logo.png') }}"
                                 class="h-60px theme-light-show" />
                             <img alt="Logo" src="{{ asset('assets/media/images/logo.png') }}"
@@ -143,7 +143,7 @@
                                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
-                                                <a href="/dashboard" class="text-gray-500">
+                                                <a href="{{ route('dashboard') }}" class="text-gray-500">
                                                     <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
                                                 </a>
                                             </li>
@@ -164,7 +164,18 @@
                                             </li>
                                             <!--end::Item-->
                                             <!--begin::Item-->
-                                            <li class="breadcrumb-item text-gray-700">Default</li>
+                                            <li class="breadcrumb-item text-gray-700">
+                                                @if ((isset($path[0]) && $path[0] == 'gallery'))
+                                                    Home
+                                                @elseif (isset($path[2]) && $path[2] == 'create')
+                                                    Create
+                                                @elseif (isset($path[3]) && $path[3] == 'edit')
+                                                    Edit
+                                                @else
+                                                    <!-- Handle other cases if necessary -->
+                                                    Home
+                                                @endif
+                                            </li>
                                             <!--end::Item-->
                                         </ul>
                                         <!--end::Breadcrumb-->
