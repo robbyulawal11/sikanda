@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1>Manajemen Artikel</h1>
     <div class="d-flex justify-content-between mb-3">
       <form class="form-inline" method="GET" action="{{ route('article.index') }}">
           {{-- <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" value="{{ request()->search }}">
@@ -21,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($article as $article)
+          @foreach ($paginateArticles as $article)
           <tr>
             <th scope="row">{{ $article->id }}</th>
             <td>
@@ -33,16 +32,40 @@
             </td>
             <td>{{ $article->title }}</td>
             <td>{{ $article->author }}</td>
-            <td>{{ Str::limit(($article->body),150) }}</td>
-            <td><button type="button" class="btn btn-success"><a href="{{ route('article.edit', ['article' => $article->id]) }}">Edit</a></button></td>
-            <td><form action="{{ route('article.destroy', $article->id) }}" method="POST">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-danger">Delete</button>
-          </form></td>
+            <td>{!! Str::limit(($article->body),150) !!}</td>
+            <td><button type="button" class="btn btn-success"><a href="{{ route('article.edit', ['article' => $article->id]) }}"><i class="bi bi-pencil-square fs-3"></i></a></td>
+            <td>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
+          </td>
           </tr>
           @endforeach
         </tbody>
       </table>
-    
+    <!-- Pagination Links -->
+    <div class="pagination-links">
+      {{ $paginateArticles->links() }}
+  </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <h3>Apakah kamu yakin ingin menghapus data ini?</h3>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                <form action="{{ route('catalog.destroy', $article->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                <button type="submit" class="btn btn-primary">Ya! Saya yakin</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
 @endsection

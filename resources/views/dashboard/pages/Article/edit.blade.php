@@ -35,12 +35,12 @@
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Artikel</label>
           <div id="editor">{!! $article->body !!}</div>
-          <textarea class="form-control d-none" name="body" id="body"></textarea>
+          <textarea class="form-control d-none" name="body" id="body" required></textarea>
         </div>
         <div class="mb-3 form-group">
           <label for="images" class="form-label">Upload Gambar</label>
           <br>
-          <input type="file" name="image" id="images" class="form-control">
+          <input type="file" name="image" id="images" class="form-control" required>
           <div id="image_preview" style="width:30%" class="mb-3">
             @if($article->image)
               <div class='img-div' id='existing-img'>

@@ -16,20 +16,54 @@ class ArticleController extends Controller
         $path = $request->path();
         $path = explode("/", $path);
         $article = Article::all();
-        $query = Article::query();
-        // $article = Article::samplePaginate(10);
+        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
 
-        if ($request->has('search')) {
-            $query->where('title', 'like', '%' . $request->search . '%')
-                  ->orWhere('author', 'like', '%' . $request->search . '%')
-                  ->orWhere('body', 'like', '%' . $request->search . '%');
-        }
+        return view('dashboard.pages.Article.show', ['article' => $article], compact('title', 'path', 'paginateArticles'));
+    }
     
-        $articles = $query->paginate(10);
+    public function showArticle($id)
+    {
+        $showArticle = Article::findOrFail($id); // Fetch article by ID
 
-        return view('dashboard.pages.Article.show', ['article' => $article], compact('title', 'path'));
+        return view('landing-page.pages.Article.show', compact('showArticle'));
     }
 
+    public function paginateArticles(Request $request)
+    {
+        // Fetch the latest 5 articles sorted by ID in descending order
+        $path = $request->path();
+        $path = explode("/", $path);
+        $article = Article::all();
+
+        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
+    
+        // Pass the articles to the view
+        return view('landing-page.pages.Article.article', [
+            'paginateArticles' => $paginateArticles,
+            'path' => $path
+        ]);
+    }
+
+    public function searchArticles(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Perform search query
+        $searchArticles = Article::where('title', 'LIKE', "%$query%")
+                            ->orWhere('body', 'LIKE', "%$query%")
+                            ->orWhere('author', 'LIKE', "%$query%")
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(10);
+
+        $countArticles = Article::where('title', 'LIKE', "%$query%")
+                            ->orWhere('body', 'LIKE', "%$query%")
+                            ->orWhere('author', 'LIKE', "%$query%")
+                            ->count();
+
+        return view('landing-page.pages.Article.search', compact('searchArticles', 'query', 'countArticles'));
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -108,8 +142,12 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $showArticle = Article::findOrFail($id); // Fetch article by ID
+
+        return view('landing-page.pages.Article.show', compact('showArticle'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -152,7 +190,7 @@ class ArticleController extends Controller
         //mengupdate data
         $article->update($data);
 
-        return redirect('article');
+        return redirect('admin/article');
     }
 
     /**
@@ -169,7 +207,7 @@ class ArticleController extends Controller
         //menghapus data
         $article->delete();
 
-        return redirect('article');
+        return redirect('admin/article');
     }
     
     // public function deleteImage(Request $request)

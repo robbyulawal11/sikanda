@@ -40,7 +40,7 @@
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="/dashboard" class="menu-link px-5">
+                <a href="{{ route('article.index') }}" class="menu-link px-5">
                     <span class="menu-text">Artikel Saya</span>
                 </a>
             </div>
@@ -48,7 +48,7 @@
             <!--begin::Menu item-->
             <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                 data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                <a href="#" class="menu-link px-5">
+                <a href="{{ route('catalog.index') }}" class="menu-link px-5">
                     <span class="menu-title">Produk Saya</span>
                     <span class="menu-arrow"></span>
                 </a>
@@ -56,7 +56,7 @@
                 <div class="menu-sub menu-sub-dropdown w-175px py-4">
                     <!--begin::Menu item-->
                     <div class="menu-item px-3">
-                        <a href="{{ route('galery.index') }}" class="menu-link px-5">Galeri</a>
+                        <a href="{{ route('gallery.index') }}" class="menu-link px-5">Galeri</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->

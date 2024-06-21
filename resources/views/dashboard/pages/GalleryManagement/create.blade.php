@@ -1,8 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1>Welcome in Galery Create</h1>
-    <form class="container d-flex flex-column justify-content-center mb-5" action="{{ route('galery.store') }}" method="POST"
+    <form class="container d-flex flex-column justify-content-center mb-5" action="{{ route('gallery.store') }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -35,7 +34,7 @@
         </div>
         <div class="d-flex gap-3 justify-content-end">
             <button type="submit" class="btn btn-success">Submit</button>
-            <a href="{{ route('galery.index') }}" class="btn btn-secondary">Cancel</a>
+            <a href="{{ route('gallery.index') }}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 @endsection
