@@ -1,3 +1,6 @@
+@extends('landing-page.layouts.app')
+
+@section('body')
     <!-- Hero Start -->
     <div class="container-fluid bg-primary py-5 mb-5 hero-header">
         <div class="container py-5">
@@ -195,8 +198,8 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Latest Blog</h6>
-                <h1 class="display-5 text-uppercase mb-0">Latest Articles From Our Blog Post</h1>
+                <h6 class="text-primary text-uppercase">Artikel Terbaru</h6>
+                <h1 class="display-5 text-uppercase mb-0">Artikel Terbaru Dekranasda <br>Kota Sukabumi</h1>
             </div>
             <div class="row g-5">
                 <div class="col-lg-6">
@@ -243,3 +246,4 @@
         </div>
     </div>
     <!-- Blog End -->
+@endsection

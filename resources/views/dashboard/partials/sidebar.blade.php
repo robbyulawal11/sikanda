@@ -11,7 +11,7 @@
             <!--begin:Menu item-->
             <div class="menu-item here show">
                 <!--begin:Menu link-->
-                <a class="menu-link active " href="/dashboard">
+                <a class="menu-link active " href="{{ route('dashboard') }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-element-11 fs-1">
                             <span class="path1"></span>

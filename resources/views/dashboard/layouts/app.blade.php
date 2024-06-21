@@ -155,7 +155,7 @@
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item text-gray-700 fw-bold lh-1 text-capitalize">
-                                                {{ $path[0] }}
+                                                {{ $path[1] }}
                                             </li>
                                             <!--end::Item-->
                                             <!--begin::Item-->
@@ -176,10 +176,10 @@
                                     </div>
                                     <!--end::Page title-->
                                     <!--begin::Actions-->
-                                    @if ($path[0] != 'dashboard')
-                                        <a href="{{ route($path[0] . '.create') }}"
+                                    @if ($path[1] != 'dashboard')
+                                        <a href="{{ route($path[1] . '.create') }}"
                                             class="btn btn-sm btn-primary ms-3 px-4 py-3 text-capitalize">Create
-                                            {{ $path[0] }}</a>
+                                            {{ $path[1] }}</a>
                                     @endif
                                     <!--end::Actions-->
                                 </div>

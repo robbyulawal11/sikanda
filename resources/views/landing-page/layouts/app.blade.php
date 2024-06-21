@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PET SHOP - Pet Shop Website Template</title>
+    <title>SIKANDA - Sistem Informasi Kerajinan Tangan Daerah Kota Sukabumi</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="Deskripsi" name="Website Kerajinan Tangan Kota Sukabumi">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -33,7 +32,7 @@
     
     @include('landing-page.partials.navbar')
 
-    @include('landing-page.pages.Home.home')
+    @yield('body')
 
     @include('landing-page.partials.footer')
     

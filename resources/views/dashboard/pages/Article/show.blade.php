@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($article as $article)
+          @foreach ($paginateArticles as $article)
           <tr>
             <th scope="row">{{ $article->id }}</th>
             <td>
@@ -33,7 +33,7 @@
             </td>
             <td>{{ $article->title }}</td>
             <td>{{ $article->author }}</td>
-            <td>{{ Str::limit(($article->body),150) }}</td>
+            <td>{!! Str::limit(($article->body),150) !!}</td>
             <td><button type="button" class="btn btn-success"><a href="{{ route('article.edit', ['article' => $article->id]) }}">Edit</a></button></td>
             <td><form action="{{ route('article.destroy', $article->id) }}" method="POST">
               @csrf
@@ -44,5 +44,8 @@
           @endforeach
         </tbody>
       </table>
-    
+    <!-- Pagination Links -->
+    <div class="pagination-links">
+      {{ $paginateArticles->links() }}
+  </div>
 @endsection

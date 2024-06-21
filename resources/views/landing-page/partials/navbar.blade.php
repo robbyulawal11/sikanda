@@ -8,9 +8,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-            <a href="/" class="nav-item nav-link active">Home</a>
+            <a href="/" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
+                <a href="#" class="nav-link dropdown-toggle" {{ Request::is('about', 'visimisi', 'sejarah', 'geografis', 'demografis') ? 'active' : '' }}" data-bs-toggle="dropdown">Profil</a>
                 <div class="dropdown-menu m-0">
                     <a href="about" class="dropdown-item">Tentang</a>
                     <a href="visimisi" class="dropdown-item">Visi Misi</a>
@@ -19,9 +19,9 @@
                     <a href="demografis" class="dropdown-item">Demografis</a>
                 </div>
             </div>
-            <a href="article" class="nav-item nav-link">Artikel</a>
-            <a href="gallery" class="nav-item nav-link">Galeri</a>
-            <a href="catalog" class="nav-item nav-link">Katalog</a>
+            <a href="article" class="nav-item nav-link {{ Request::is('article') ? 'active' : '' }}">Artikel</a>
+            <a href="gallery" class="nav-item nav-link {{ Request::is('gallery') ? 'active' : '' }}">Galeri</a>
+            <a href="catalog" class="nav-item nav-link {{ Request::is('catalog') ? 'active' : '' }}">Katalog</a>
             <a href="/dashboard" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Login <i
                     class="bi bi-arrow-right"></i></a>
         </div>
