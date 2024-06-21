@@ -21,7 +21,7 @@
             </div>
             <a href="article" class="nav-item nav-link">Artikel</a>
             <a href="gallery" class="nav-item nav-link">Galeri</a>
-            <a href="catalog" class="nav-item nav-link">Katalog</a>
+            <a href="/katalog" class="nav-item nav-link">Katalog</a>
             <a href="/dashboard" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Login <i
                     class="bi bi-arrow-right"></i></a>
         </div>
