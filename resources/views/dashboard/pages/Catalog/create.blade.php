@@ -23,9 +23,12 @@
                     <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Produk</label>
                     <textarea class="form-control" name="deskripsi" rows="3" required></textarea>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="exampleFormControlInput1" class="form-label">Whatsapp</label>
-                    <input type="text" name="wa" class="form-control" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">+62</span>
+                    <input type="text" name="wa" id="wa" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Instagram</label>
@@ -42,6 +45,12 @@
     </section>
     <script>
         document.getElementById('harga').addEventListener('input', function (e) {
+            if (e.target.value.match(/[^0-9.]/)) {
+                e.target.value = e.target.value.replace(/[^0-9.]/g, '');
+            }
+        });
+
+        document.getElementById('wa').addEventListener('input', function (e) {
             if (e.target.value.match(/[^0-9.]/)) {
                 e.target.value = e.target.value.replace(/[^0-9.]/g, '');
             }
