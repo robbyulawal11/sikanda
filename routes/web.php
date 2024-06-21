@@ -6,6 +6,7 @@ use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\Status;
 
 Route::get('/', function () {
@@ -17,6 +18,7 @@ Route::middleware(['auth', Status::class])->prefix('/')->group(function () {
     Route::resource('catalog', CatalogController::class);
     Route::resource('article', ArticleController::class);
     Route::resource('profile', ProfileController::class);
+    Route::resource('category', CategoryController::class);
 });
 
 Auth::routes();
