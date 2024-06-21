@@ -8,7 +8,7 @@
                         <h6 class="text-uppercase">{{ $c->nama }}</h6>
                         <h5 class="text-primary mb-0">Rp. {{ number_format($c->harga, 0, ',', '.') }}</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href="https://wa.me/{{ $c->wa }}"><i class="bi bi-whatsapp"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href="https://wa.me/+62{{ $c->wa }}"><i class="bi bi-whatsapp"></i></a>
                             <a class="btn btn-primary py-2 px-3" href="{{ $c->id }}" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-image="{{ asset('images/catalogs/' . $c->image) }}" data-id="{{ $c->id }}" data-bs-toggle="modal" 
                               data-bs-target="#staticBackdrop" 
                               data-image="{{ asset('images/catalogs/' . $c->image) }}" 
@@ -92,10 +92,10 @@
                   modalImage.src = image;
                   modalImage.alt = id;
                   modalNama.textContent = nama;
-                  modalHarga.textContent = 'Rp. ' + harga; 
+                  modalHarga.textContent = 'Rp. ' + harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); 
                   modalDeskripsi.textContent = '' + deskripsi;
                   modalSeller.textContent = 'Penjual: ' + seller;
-                  modalWa.href = 'https://wa.me/' + wa;
+                  modalWa.href = 'https://wa.me/+62' + wa;
                   modalIg.href = 'https://instagram.com/' + ig;
   });
               });

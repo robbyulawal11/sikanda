@@ -23,9 +23,12 @@
                     <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Produk</label>
                     <textarea class="form-control" name="deskripsi" rows="3" required>{{ $catalog->deskripsi }}</textarea>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="exampleFormControlInput1" class="form-label">Whatsapp</label>
-                    <input type="text" name="wa" class="form-control" value="{{ $catalog->wa }}" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">+62</span>
+                    <input type="text" name="wa" id="wa" class="form-control" value="{{ $catalog->wa }}" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Instagram</label>
@@ -36,7 +39,7 @@
                     </td>
                     <label for="exampleInputEmail1" class="form-label">Upload Gambar</label>
                     <br>
-                    <input type="file" name="image" required>
+                    <input type="file" name="image">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -44,6 +47,12 @@
     </section>
     <script>
         document.getElementById('harga').addEventListener('input', function (e) {
+            if (e.target.value.match(/[^0-9.]/)) {
+                e.target.value = e.target.value.replace(/[^0-9.]/g, '');
+            }
+        });
+
+        document.getElementById('wa').addEventListener('input', function (e) {
             if (e.target.value.match(/[^0-9.]/)) {
                 e.target.value = e.target.value.replace(/[^0-9.]/g, '');
             }
