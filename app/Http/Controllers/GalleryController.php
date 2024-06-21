@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Galery;
+use App\Models\Gallery;
 
-class GaleryController extends Controller
+class galleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class GaleryController extends Controller
         $title = "Galeri Produk";
         $path = $request->path();
         $path = explode("/", $path);
-        $data = Galery::all();
+        $data = Gallery::all();
         // dd($data);
-        return view('dashboard/pages/GaleryManagement/show', compact('data', 'path', 'title'));
+        return view('dashboard/pages/GalleryManagement/show', compact('data', 'path', 'title'));
     }
 
     /**
@@ -29,7 +29,7 @@ class GaleryController extends Controller
         $title = "Tambah Galeri";
         $path = $request->path();
         $path = explode("/", $path);
-        return view('dashboard/pages/GaleryManagement/create', compact('path', 'title'));
+        return view('dashboard/pages/GalleryManagement/create', compact('path', 'title'));
     }
 
     /**
@@ -37,7 +37,7 @@ class GaleryController extends Controller
      */
     public function store(Request $request)
     {
-        $galery = new Galery;
+        $gallery = new gallery;
         $validator = $request->validate([
             'gambar' => 'required',
             'deskripsi' => 'required',
@@ -51,8 +51,8 @@ class GaleryController extends Controller
         }
 
 
-        Galery::create($validator);
-        return redirect('galery')->with('success', 'Data berhasil diinput');
+        Gallery::create($validator);
+        return redirect('admin/gallery')->with('success', 'Data berhasil diinput');
     }
 
     /**
@@ -71,8 +71,8 @@ class GaleryController extends Controller
         $title = "Edit Galeri";
         $path = $request->path();
         $path = explode("/", $path);
-        $galery = Galery::find($id);
-        return view('dashboard.pages.GaleryManagement.edit', compact('galery', 'path', 'title'));
+        $gallery = Gallery::find($id);
+        return view('dashboard.pages.galleryManagement.edit', compact('gallery', 'path', 'title'));
     }
 
     /**
@@ -80,7 +80,7 @@ class GaleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $gallery = Galery::find($id);
+        $gallery = Gallery::find($id);
 
         $validator = $request->validate([
             'gambar' => 'nullable',
@@ -102,7 +102,7 @@ class GaleryController extends Controller
         }
 
         $gallery->update($validator);
-        return redirect('galery')->with('success', 'Data berhasil diinput');
+        return redirect('admin/gallery')->with('success', 'Data berhasil diinput');
     }
 
     /**
@@ -110,12 +110,12 @@ class GaleryController extends Controller
      */
     public function destroy(string $id)
     {
-        $galery = Galery::find($id);
-        $imagePath = public_path('images/galeries/' . $galery->gambar);
+        $gallery = Gallery::find($id);
+        $imagePath = public_path('images/galeries/' . $gallery->gambar);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }
-        Galery::destroy($id);
-        return redirect('galery')->with('success', 'Data berhasil dihapus');
+        Gallery::destroy($id);
+        return redirect('admin/gallery')->with('success', 'Data berhasil dihapus');
     }
 }

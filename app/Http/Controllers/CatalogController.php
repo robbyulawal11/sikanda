@@ -52,7 +52,7 @@ class CatalogController extends Controller
 
         Catalog::create($data);
 
-        return redirect('catalog');
+        return redirect('admin/catalog');
     }
 
     /**
@@ -106,7 +106,7 @@ class CatalogController extends Controller
         //mengupdate data
         $catalog->update($data);
 
-        return redirect('catalog');
+        return redirect('admin/catalog');
     }
 
     /**
@@ -122,6 +122,6 @@ class CatalogController extends Controller
         //menhapus data
         $catalog->delete();
 
-        return redirect('catalog');
+        return redirect('admin/catalog');
     }
 }
