@@ -37,7 +37,7 @@ class galleryController extends Controller
      */
     public function store(Request $request)
     {
-        $gallery = new gallery;
+        $gallery = new Gallery;
         $validator = $request->validate([
             'gambar' => 'required',
             'deskripsi' => 'required',
@@ -58,9 +58,27 @@ class galleryController extends Controller
     /**
      * Display the specified resource.
      */
+    public function paginateGalleries(Request $request)
+    {
+        // Fetch the latest 5 articles sorted by ID in descending order
+        $path = $request->path();
+        $path = explode("/", $path);
+        $gallery = Gallery::all();
+
+        $paginateGalleries = Gallery::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
+
+        // Pass the articles to the view
+        return view('landing-page.pages.Gallery.galleries', [
+            'paginateGalleries' => $paginateGalleries,
+            'path' => $path
+        ]);
+    }
+
     public function show(string $id)
     {
-        //
+        $showGallery = Gallery::findOrFail($id); // Fetch article by ID
+
+        return view('landing-page.pages.Gallery.show', compact('showGallery'));
     }
 
     /**

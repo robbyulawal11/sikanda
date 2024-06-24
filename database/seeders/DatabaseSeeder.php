@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\Catalog;
 use App\Models\Profile;
+use App\Models\Gallery;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,9 +20,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call([
-            UserSeeder::class,
-            ArticleSeeder::class,
-            CatalogSeeder::class
+            // UserSeeder::class,
+            // ArticleSeeder::class,
+            // CatalogSeeder::class,
+            // GalerySeeder::class,
             // ProfileSeeder::class
         ]);
     }
