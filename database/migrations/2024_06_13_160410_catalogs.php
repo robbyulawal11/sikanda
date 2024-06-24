@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('seller');
             $table->integer('harga');
             $table->text('deskripsi')->nullable();
-            $table->integer('wa');
+            $table->string('wa');
             $table->string('ig')->nullable();
             $table->string('image');
             $table->timestamps();

@@ -21,8 +21,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             ArticleSeeder::class,
-            CatalogSeeder::class
-            // ProfileSeeder::class
+            CatalogSeeder::class,
+            ProfileSeeder::class,
+            GalerySeeder::class
         ]);
     }
 }
