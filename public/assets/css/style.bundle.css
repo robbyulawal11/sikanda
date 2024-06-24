@@ -47417,14 +47417,14 @@ a:hover {
 }
 
 [data-bs-theme=light] {
-  --bs-app-bg-color: #dbd9d9;
+  --bs-app-bg-color: #F5F7F8;
   --bs-app-blank-bg-color: #ffffff;
-  --bs-app-header-base-bg-color: #dbd9d9;
+  --bs-app-header-base-bg-color: #F5F7F8;
   --bs-app-toolbar-base-bg-color: #ffffff;
-  --bs-app-sidebar-base-bg-color: #dbd9d9;
+  --bs-app-sidebar-base-bg-color: #F5F7F8;
   --bs-app-sidebar-base-box-shadow: none;
-  --bs-app-sidebar-minimize-bg-color: #dbd9d9;
-  --bs-app-aside-base-bg-color: #dbd9d9;
+  --bs-app-sidebar-minimize-bg-color: #F5F7F8;
+  --bs-app-aside-base-bg-color: #F5F7F8;
   --bs-app-aside-base-box-shadow: none;
 }
 

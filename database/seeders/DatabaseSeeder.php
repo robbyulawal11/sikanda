@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Article;
+use App\Models\Catalog;
+use App\Models\Profile;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +20,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
+            ArticleSeeder::class,
+            CatalogSeeder::class
+            // ProfileSeeder::class
         ]);
     }
 }

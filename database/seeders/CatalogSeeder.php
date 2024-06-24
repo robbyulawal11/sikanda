@@ -17,7 +17,7 @@ class CatalogSeeder extends Seeder
             [
                 'id' => 1,
                 'nama' => 'Mobil',
-                'seller' => 'Ujang',
+                'seller' => 'Katun',
                 'harga' => 2000000,
                 'deskripsi' => 'Mobil-mobilan',
                 'wa' => '86738282728',

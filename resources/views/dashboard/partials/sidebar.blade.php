@@ -11,7 +11,8 @@
             <!--begin:Menu item-->
             <div class="menu-item here show">
                 <!--begin:Menu link-->
-                <a class="menu-link active " href="/dashboard">
+                <a class="menu-link {{ Request::is('admin/dashboard') ? 'active' : '' }}"
+                    href="{{ route('dashboard') }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-element-11 fs-1">
                             <span class="path1"></span>
@@ -28,7 +29,8 @@
             <!--begin:Menu item-->
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                 <!--begin:Menu link-->
-                <a class="menu-link active">
+                <a
+                    class="menu-link {{ Request::is('admin/article', 'admin/gallery', 'admin/catalog', 'admin/category', 'admin/profile/1/edit') ? 'active' : '' }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-some-files fs-1">
                             <span class="path1"></span>
@@ -44,7 +46,8 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link active">
+                        <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}"
+                            href="{{ route('article.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -56,7 +59,8 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('galery.index') }}">
+                        <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}"
+                            href="{{ route('gallery.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -68,11 +72,36 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('catalog.index') }}">
+                        <a class="menu-link {{ Request::is('admin/catalog') ? 'active' : '' }}"
+                            href="{{ route('catalog.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
                             <span class="menu-title">Katalog</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <div class="menu-item menu-accordion">
+                        <!--begin:Menu link-->
+                        <a class="menu-link {{ Request::is('admin/profile/1/edit') ? 'active' : '' }}"
+                            href="{{ route('profile.edit', 1) }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Profil</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <div class="menu-item menu-accordion">
+                        <!--begin:Menu link-->
+                        <a class="menu-link {{ Request::is('admin/category') ? 'active' : '' }}"
+                            href="{{ route('category.index') }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title ">Kategori</span>
                         </a>
                         <!--end:Menu link-->
                     </div>

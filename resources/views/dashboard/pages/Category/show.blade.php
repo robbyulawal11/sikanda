@@ -1,34 +1,31 @@
 @extends('dashboard.layouts.app')
-
 @section('content')
     <div class="d-flex flex-direction-row justify-content-end mb-3">
         <input class="form-control me-2 w-25" id="search" type="search" placeholder="Search" aria-label="Search">
     </div>
-    <table class="table table-striped table-hover">
+    <table class="table mt-3">
         <thead>
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Gambar</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Seller</th>
-                <th scope="col">Harga</th>
+                <th scope="col">Nama Kategori</th>
+                <th scope="col">Deskripsi</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($catalog as $c)
+            @foreach ($data as $item)
                 <tr>
-                    <th scope="row">{{ $c->id }}</th>
-                    <td><img src="{{ asset('images/catalogs/' . $c->image) }}" alt="{{ $c->id }}" width="75">
-                    </td>
-                    <td>{{ $c->nama }}</td>
-                    <td>{{ $c->seller }}</td>
-                    <td>Rp. {{ number_format($c->harga, 0, ',', '.') }}</td>
-                    <td><button type="button" class="btn btn-success"><a
-                                href="{{ route('catalog.edit', ['catalog' => $c->id]) }}"><i class="bi bi-pencil-square fs-3"></i></a></button></td>
+                    <th scope="row">{{ $item->id }}</th>
+                    <td>{{ $item->namaKategori }}</td>
+                    <td>{{ $item->descKategori }}</td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
+                        <a href="{{ route('category.edit', $item->id) }}" class="btn btn-success"><i
+                                class="bi bi-pencil-square fs-3"></i></a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
                     </td>
                 </tr>
             @endforeach
@@ -47,7 +44,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Tidak</button>
-                    <form action="{{ route('catalog.destroy', $c->id) }}" method="POST">
+                    <form action="{{ route('category.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Ya! Saya yakin</button>
@@ -56,7 +53,6 @@
             </div>
         </div>
     </div>
-
     <script>
         const find = document.getElementById("search");
         const contents = document.querySelectorAll("tbody tr");

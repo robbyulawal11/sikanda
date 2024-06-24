@@ -9,26 +9,25 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Gambar</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Seller</th>
-                <th scope="col">Harga</th>
+                <th scope="col">Deskripsi</th>
+                <th scope="col">Author</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($catalog as $c)
+            @foreach ($data as $item)
                 <tr>
-                    <th scope="row">{{ $c->id }}</th>
-                    <td><img src="{{ asset('images/catalogs/' . $c->image) }}" alt="{{ $c->id }}" width="75">
+                    <th scope="row">{{ $item->id }}</th>
+                    <td><img src="{{ asset('images/galeries/' . $item->gambar) }}" alt="{{ $item->id }}" width="75">
                     </td>
-                    <td>{{ $c->nama }}</td>
-                    <td>{{ $c->seller }}</td>
-                    <td>Rp. {{ number_format($c->harga, 0, ',', '.') }}</td>
-                    <td><button type="button" class="btn btn-success"><a
-                                href="{{ route('catalog.edit', ['catalog' => $c->id]) }}"><i class="bi bi-pencil-square fs-3"></i></a></button></td>
+                    <td>{{ $item->deskripsi }}</td>
+                    <td>{{ $item->author }}</td>
+                    <td><button type="button" class="btn btn-success"><a href="{{ route('gallery.edit', $item->id) }}"><i
+                                    class="bi bi-pencil-square fs-3"></i></a></button></td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
                     </td>
                 </tr>
             @endforeach
@@ -46,17 +45,16 @@
                     <h3>Apakah kamu yakin ingin menghapus data ini?</h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Tidak</button>
-                    <form action="{{ route('catalog.destroy', $c->id) }}" method="POST">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                    <form action="{{ route('gallery.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Ya! Saya yakin</button>
+                        <button type="submit" class="btn btn-primary">Ya! Saya yakin</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
         const find = document.getElementById("search");
         const contents = document.querySelectorAll("tbody tr");
