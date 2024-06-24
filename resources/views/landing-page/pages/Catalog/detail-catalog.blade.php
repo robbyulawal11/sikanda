@@ -1,10 +1,26 @@
 @extends('landing-page.layouts.app')
 @section('content')
+
+<div class="border-start border-5 border-primary ps-5 mt-3 ms-4 mb-2" style="max-width: 600px;">
+  <h6 class="text-primary text-uppercase">Katalog</h6>
+  <h1 class="display-5 text-uppercase mb-0">Barang Kerajinan Tangan dari Sukabumi</h1>
+</div>
             <div class="row">
                 @foreach ($catalog as $c)
                 <div class="col-12 col-sm-4 pb-5">
                     <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                      <a data-bs-toggle="modal" 
+                           data-bs-target="#staticBackdrop"
+                           data-image="{{ asset('images/catalogs/' . $c->image) }}" 
+                           data-id="{{ $c->id }}" 
+                           data-nama="{{ $c->nama }}"
+                           data-harga="{{ $c->harga }}"
+                           data-seller="{{ $c->seller }}"
+                           data-deskripsi="{{ $c->deskripsi }}"
+                           data-wa="{{ $c->wa }}"
+                           data-ig="{{ $c->ig }}">  
                         <img class="img-fluid mb-4" src="{{ asset('images/catalogs/' . $c->image) }}" alt="{{ $c->id }}">
+                      </a>
                         <h6 class="text-uppercase">{{ $c->nama }}</h6>
                         <h5 class="text-primary mb-0">Rp. {{ number_format($c->harga, 0, ',', '.') }}</h5>
                         <div class="btn-action d-flex justify-content-center">
