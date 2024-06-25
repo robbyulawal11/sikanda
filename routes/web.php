@@ -12,7 +12,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
 
-Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
+Route::get('/catalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
 
 // Landing page route for articles
 Route::get('/article', [ArticleController::class, 'paginateArticles'])->name('paginate.articles');
