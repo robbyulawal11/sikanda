@@ -4,7 +4,7 @@
 
 <head>
     <base href="" />
-    <title>Sikanda</title>
+    <title>Admin SIKANDA</title>
     <meta charset="utf-8" />
     <meta name="description" content="Website Kerajinan Tangan Kota Sukabumi" />
     <meta name="keywords"
@@ -26,6 +26,8 @@
     <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
         type="text/css" />
     <!--end::Vendor Stylesheets-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -34,6 +36,29 @@
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
     </script>
+    <style>
+        .separatorSideBar {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 0 0;
+        }
+
+        .separatorSideBar::before,
+        .separatorSideBar::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .separatorSideBar::before {
+            margin-right: 10px;
+        }
+
+        .separatorSideBar::after {
+            margin-left: 0px;
+        }
+    </style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->

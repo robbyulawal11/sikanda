@@ -12,9 +12,6 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Seller</th>
                 <th scope="col">Harga</th>
-                <th scope="col">Deskripsi</th>
-                <th scope="col">Whatsapp</th>
-                <th scope="col">Instagram</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -28,15 +25,10 @@
                     <td>{{ $c->nama }}</td>
                     <td>{{ $c->seller }}</td>
                     <td>Rp. {{ number_format($c->harga, 0, ',', '.') }}</td>
-                    <td>{{ $c->deskripsi }}</td>
-                    <td>{{ $c->wa }}</td>
-                    <td>{{ $c->ig }}</td>
-                    <td><button type="button" class="btn btn-secondary"><a
-                                href="{{ route('catalog.edit', ['catalog' => $c->id]) }}"><i
-                                    class="bi bi-pencil-square fs-3"></i></a></button></td>
+                    <td><button type="button" class="btn btn-success"><a
+                                href="{{ route('catalog.edit', ['catalog' => $c->id]) }}"><i class="bi bi-pencil-square fs-3"></i></a></button></td>
                     <td>
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash fs-3"></i></button>
                     </td>
                 </tr>
             @endforeach

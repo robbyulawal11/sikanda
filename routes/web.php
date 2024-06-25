@@ -28,6 +28,12 @@ Route::get('/article/search', [ArticleController::class, 'searchArticles'])->nam
 // Landing page route for show
 Route::get('/article/show/{id}', [ArticleController::class, 'show'])->name('landing.article.show');
 
+// Landing page route for articles
+Route::get('/gallery', [GalleryController::class, 'paginateGalleries'])->name('paginate.galleries');
+
+// Landing page route for show
+Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('landing.gallery.show');
+
 
 // Dashboard routes for authenticated users with status middleware
 Route::middleware(['auth', Status::class])->prefix('/admin')->group(function () {
