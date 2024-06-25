@@ -229,11 +229,6 @@
                             <!--begin::Content container-->
                             <div id="kt_app_content_container" class="app-container container-fluid">
                                 <!--begin::Row-->
-                                <div class="row gx-5 gx-xl-10">
-                                    <!--begin::Col-->
-                                    <div class="col-xxl-6 mb-5 mb-xl-10">
-                                        <!--begin::Chart widget 8-->
-                                        <div class="card card-flush h-xl-100">
                                             <!--begin::Header-->
 
                                             <!--end::Header-->
