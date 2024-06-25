@@ -29,10 +29,12 @@
             <div>
                 <ul>
                     <li class="separatorSideBar theme-light-show">
-                        <div class="w-auto h-auto px-3 fw-medium fs-4" style="background-color: #F5F7F8">Manajemen</div>
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #F5F7F8">
+                            Manajemen</div>
                     </li>
                     <li class="separatorSideBar theme-dark-show">
-                        <div class="w-auto h-auto px-3 fw-medium fs-4" style="background-color: #000000">Manajemen</div>
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #000000">
+                            Manajemen</div>
                     </li>
                 </ul>
             </div>
@@ -119,11 +121,13 @@
             <div>
                 <ul>
                     <li class="separatorSideBar theme-light-show">
-                        <div class="w-auto h-auto px-3 fw-medium fs-4" style="background-color: #F5F7F8">Pengaturan
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #F5F7F8">
+                            Pengaturan
                         </div>
                     </li>
                     <li class="separatorSideBar theme-dark-show">
-                        <div class="w-auto h-auto px-3 fw-medium fs-4" style="background-color: #000000">Pengaturan
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #000000">
+                            Pengaturan
                         </div>
                     </li>
                 </ul>
