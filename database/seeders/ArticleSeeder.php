@@ -37,15 +37,17 @@ class ArticleSeeder extends Seeder
                             <p>Galeri Dekranasda bukan hanya sekadar ruang pameran, melainkan juga menjadi simbol dari dedikasi dan kerja keras para pengrajin lokal. “Kerajinan tangan adalah aset budaya yang harus kita lestarikan dan kembangkan. Melalui galeri ini, kita tidak hanya mempromosikan produk lokal, tetapi juga menginspirasi generasi muda untuk melestarikan dan mengembangkan kerajinan tangan dengan sentuhan kreativitas yang modern,” tambahnya.</p>',
                 'id_user' => '124',
                 'created_at' => now(),
-                'updated_at' => now()            ],
+                'updated_at' => now()            
+            ],
             [
                 'id' => 3,
                 'title' => 'Halalbihalal Dekranasda Kota Sukabumi',
                 'image' => 'article03.jpg',
                 'author' => 'H. Komeng',
                 'slug' => 'halalbihalal-dekranasda-kota-sukabumi',
-                'body' => '<p>Penjabat Ketua Dekranasda Kota Sukabumi, Diana Rahesti, menjelaskan bahwa Galeri Dekranasda berfungsi sebagai media pemasaran berbagai produk unggulan yang dihasilkan oleh para pengrajin binaan Dekranasda.</p><br>
-                            <p>“Galeri Dekranasda menjadi etalase produk unggulan yang diharapkan bisa menarik wisatawan lokal hingga mancanegara. Meningkatkan PAD dan memacu semangat para pengrajin untuk terus berkreasi, sehingga kesejahteraan pelaku IKM dan UKM meningkat, dan warisan budaya leluhur kita tetap lestari," kata Diana, Selasa (28/5/2024).</p>',
+                'body' => '<p>Dekranasda Kota Sukabumi menggelar acara Halalbihalal Idulfitri 1445 H dan Penyerahan Penghargaan Lomba Desain Batik Kota Sukabumi Tahun 2024 pada Selasa, 30 April 2024 di Sekretariat Dekranasda Kota Sukabumi.</p><br>
+                            <p>Acara ini dihadiri oleh Penjabat Wali Kota Sukabumi, Kusmana Hartadji, Ketua Dekranasda Kota Sukabumi, Diana Rahesti, para pengurus Dekranasda, dan beberapa pengrajin batik Kota Sukabumi.</p><br>
+                            <p>Dalam sambutannya, Ketua Harian Dekranasda Kota Sukabumi, Agus Wawan Gunawan, menyampaikan rencana Dekranasda untuk mengikuti pameran di Solo yang diinisiasi oleh Dekranasda Jawa Barat.</p>',
                 'id_user' => '125',
                 'created_at' => now(),
                 'updated_at' => now()

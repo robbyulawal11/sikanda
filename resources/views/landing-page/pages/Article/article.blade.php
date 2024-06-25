@@ -19,7 +19,7 @@
                     @foreach($paginateArticles as $pa)
                     <div class="article-wrapper pb-3 mb-4 border-bottom border-gray-300">
                         <div class="article-title-area">
-                            <h3>{{ $pa->title }}</h3>
+                            <h3><a href="{{ route('landing.article.show' , ['id' => $pa->id]) }}" class="read-more" style="color:black">{{ $pa->title }}</a></h3>
                             <div class="article-meta big-meta">
                                 <small>{{ $pa->updated_at->format('d M, Y') }} | by </small>
                                 <small><a href="{{ route('search.articles') }}?query={{ $pa->author }}" title="">{{ $pa->author }}</a></small>
@@ -40,9 +40,9 @@
                     @endforeach
 
                     <!-- Pagination Links -->
-                    <div class="pagination-links">
-                        {{ $paginateArticles->links() }}
-                    </div>
+                <div class="pagination-links">
+                    {{ $paginateArticles->links() }}
+                </div>
 
                 </div><!-- end page-wrapper -->
             </div><!-- end col-lg-9 -->
@@ -50,45 +50,32 @@
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="sidebar">
                     <div class="widget pb-3 mb-4 border-bottom border-gray-300">
-                        <h2 class="widget-title">Search</h2>
-                        <form action="{{ route('search.articles') }}" method="GET" class="form-inline search-form">
-                            <div class="form-group">
-                                <input type="text" name="query" class="form-control" placeholder="Search articles...">
-                            </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <h3 class="widget-title">Search</h3>
+                        <form action="{{ route('search.articles') }}" method="GET" class="search-form d-flex">
+                            <input type="text" name="query" class="form-control me-2" placeholder="Search articles...">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                         </form>
                     </div><!-- end widget -->
 
                     <div class="widget pb-3 mb-4 border-bottom border-gray-300">
                         <h2 class="widget-title">Recent Posts</h2>
                         <div class="blog-list-widget">
+                            @foreach($articleslatestfive as $afive)
                             <div class="list-group">
-                                <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('landing.article.show' , ['id' => $afive->id]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
-                                        <img src="upload/garden_sq_09.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                                        <small>12 Jan, 2016</small>
+                                        {{-- <img src="{{ asset('/images/articles/' . $afive->image) }}" alt="" class="img-fluid float-left" width="50"> --}}
+                                        <h5 class="mb-1">{{ $afive->title }}</h5>
+                                        <small>{{ $afive->updated_at->format('d M, Y') }}</small>
                                     </div>
                                 </a>
-                                <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="upload/garden_sq_06.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Let's make an introduction for creative life</h5>
-                                        <small>11 Jan, 2016</small>
-                                    </div>
-                                </a>
-                                <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 last-item justify-content-between">
-                                        <img src="upload/garden_sq_02.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
-                                        <small>07 Jan, 2016</small>
-                                    </div>
-                                </a>
+                            @endforeach
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->
 
-                    <div class="widget pb-3 mb-4 border-bottom border-gray-300">
+                    <div class="widget pb-3 mb-4 mt-5 border-top border-bottom border-gray-300">
+                        <br>
                         <h2 class="widget-title">Popular Categories</h2>
                         <div class="link-widget">
                             <ul>

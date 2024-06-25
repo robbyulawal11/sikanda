@@ -15,7 +15,7 @@
 
 <section id="edit_article">
     <div class="container">
-      <form class="d-flex flex-column" method="post" action="{{ route('article.update', ['article'=> $article]) }}" enctype="multipart/form-data" onsubmit="return submitForm()">
+      <form class="d-flex flex-column" method="post" action="{{ route('article.update', $article->id) }}" enctype="multipart/form-data" onsubmit="return submitForm()">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -35,12 +35,12 @@
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Artikel</label>
           <div id="editor">{!! $article->body !!}</div>
-          <textarea class="form-control d-none" name="body" id="body" required></textarea>
+          <textarea class="form-control d-none" name="body" id="body"></textarea>
         </div>
         <div class="mb-3 form-group">
           <label for="images" class="form-label">Upload Gambar</label>
           <br>
-          <input type="file" name="image" id="images" class="form-control" required>
+          <input type="file" name="image" id="images" class="form-control">
           <div id="image_preview" style="width:30%" class="mb-3">
             @if($article->image)
               <div class='img-div' id='existing-img'>
@@ -53,9 +53,9 @@
               </div>
             @endif
           </div>
-          @if ($errors->has('image'))
+          {{-- @if ($errors->has('image'))
           <div class="text-danger">{{ $errors->first('image') }}</div>
-          @endif
+          @endif --}}
         </div>
         <button type="submit" class="btn btn-success w-25">Submit</button>
       </form>
@@ -70,7 +70,7 @@
 
     function submitForm() {
         // Get the HTML content from the Quill editor
-        var body = document.querySelector('textarea[name=body]');
+        var body = document.querySelector('#body');
         body.value = quill.root.innerHTML;
 
         return true; // Submit the form

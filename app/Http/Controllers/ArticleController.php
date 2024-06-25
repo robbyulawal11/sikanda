@@ -16,9 +16,10 @@ class ArticleController extends Controller
         $path = $request->path();
         $path = explode("/", $path);
         $article = Article::all();
-        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
+        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page 
 
-        return view('dashboard.pages.Article.show', ['article' => $article], compact('title', 'path', 'paginateArticles'));
+        return view('dashboard.pages.Article.show', compact('title', 'path', 'article', 'paginateArticles'));
+
     }
     
     public function showArticle($id)
@@ -34,13 +35,15 @@ class ArticleController extends Controller
         $path = $request->path();
         $path = explode("/", $path);
         $article = Article::all();
+        $articleslatestfive = Article::orderBy('id', 'desc')->take(5)->get();
 
         $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
     
         // Pass the articles to the view
         return view('landing-page.pages.Article.article', [
             'paginateArticles' => $paginateArticles,
-            'path' => $path
+            'path' => $path,
+            'articleslatestfive' => $articleslatestfive,
         ]);
     }
 
@@ -82,7 +85,7 @@ class ArticleController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'author' => 'required|string|max:255',
             'body' => 'required|min:50'
         ], 
@@ -103,37 +106,7 @@ class ArticleController extends Controller
 
         Article::create($data);
 
-
-        // // Update article details
-        // $article->title = $request->title;
-        // $article->author = $request->author;
-        // $article->body = $request->body;
-
-        // // Handle image deletion if requested
-        // if ($request->input('delete_image') == "1") {
-        //     // Delete existing image from storage and clear image attribute
-        //     if ($article->image && $article->image !== "1") {
-        //         Storage::delete('public/images/articles/' . $article->image);
-        //         $article->image = null;
-        //     }
-        // }
-
-        // // Handle image update
-        // if ($request->hasFile('image')) {
-        //     // Upload new image
-        //     $image = $request->file('image');
-        //     $imageName = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->storeAs('public/images/articles', $imageName);
-        //     $article->image = $imageName;
-
-        //     // Delete previous image if exists
-        //     if ($article->image && $article->image !== "1") {
-        //         Storage::delete('public/images/articles/' . $article->image);
-        //     }
-        // }
-
-        // $article->save();
-        return redirect('article')->with('success', 'Article created successfully.');
+        return redirect('admin/article')->with('success', 'Article created successfully.');
     }
 
 
@@ -167,7 +140,7 @@ class ArticleController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'author' => 'required|string',
             'slug' => 'nullable|string',
             'body' => 'required',
@@ -196,30 +169,19 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy(string $id)
     {
+        $article = Article::findOrFail($id); // Find the article by ID or fail if not found
+
         $imagePath = public_path('images/articles/' . $article->image);
         // cek file gambar, jika ada delete
         if (!empty($article->image) && is_file($imagePath) && file_exists($imagePath)) {
             unlink($imagePath);
         }
 
-        //menghapus data
+        // //menghapus data
         $article->delete();
-
         return redirect('admin/article');
     }
     
-    // public function deleteImage(Request $request)
-    // {
-    //     $article = Article::findOrFail($request->article_id);
-    
-    //     if ($article->image && $article->image !== "1") {
-    //         Storage::delete('public/images/articles/' . $article->image);
-    //         $article->image = null;
-    //         $article->save();
-    //     }
-    
-    //     return redirect('article');
-    // }
 }
