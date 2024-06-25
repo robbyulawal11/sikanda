@@ -8,11 +8,11 @@
     <meta content="Deskripsi" name="Website Kerajinan Tangan Kota Sukabumi">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
+    <link rel="shortcut icon" href="{{ asset('assets/media/images/logo.png') }}" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -29,14 +29,14 @@
 </head>
 
 <body>
-    
+
     @include('landing-page.partials.navbar')
 
     {{-- @include('landing-page.pages.Home.home') --}}
     @yield('content')
 
     @include('landing-page.partials.footer')
-    
+
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
