@@ -109,7 +109,8 @@
                     <!--begin:Menu item-->
                     <div class="menu-item menu-accordion">
                         <!--begin:Menu link-->
-                        <a class="menu-link">
+                        <a class="menu-link {{ Request::is('admin/category') ? 'active' : '' }}"
+                        href="{{ route('user.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>

@@ -7,6 +7,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\Status;
 use App\Http\Controllers\HomeController;
 
@@ -23,6 +24,9 @@ Route::get('/article/search', [ArticleController::class, 'searchArticles'])->nam
 // Landing page route for show
 Route::get('/article/show/{id}', [ArticleController::class, 'show'])->name('landing.article.show');
 
+// cek email
+Route::post('/check-email', [UserController::class, 'checkEmail'])->name('check.email');
+
 
 // Dashboard routes for authenticated users with status middleware
 Route::middleware(['auth', Status::class])->prefix('/admin')->group(function () {
@@ -32,6 +36,7 @@ Route::middleware(['auth', Status::class])->prefix('/admin')->group(function () 
     Route::resource('catalog', CatalogController::class);
     Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('user', UserController::class);
 });
 
 Auth::routes();
