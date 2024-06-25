@@ -8,7 +8,7 @@
     <meta content="Deskripsi" name="Website Kerajinan Tangan Kota Sukabumi">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('assets/media/images/logo.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">

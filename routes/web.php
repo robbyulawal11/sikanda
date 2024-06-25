@@ -7,12 +7,17 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Middleware\Status;
 use App\Http\Controllers\HomeController;
+use App\Http\Middleware\Status;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
 
-Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
+Route::get('/catalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/visimisi', [App\Http\Controllers\HomeController::class, 'visimisi'])->name('visimisi');
+Route::get('/sejarah', [App\Http\Controllers\HomeController::class, 'sejarah'])->name('sejarah');
+Route::get('/geografis', [App\Http\Controllers\HomeController::class, 'geografis'])->name('geografis');
+Route::get('/demografis', [App\Http\Controllers\HomeController::class, 'demografis'])->name('demografis');
 
 // Landing page route for articles
 Route::get('/article', [ArticleController::class, 'paginateArticles'])->name('paginate.articles');
