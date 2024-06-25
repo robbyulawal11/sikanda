@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\Catalog;
 use App\Models\Profile;
+use App\Models\Gallery;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ArticleSeeder::class,
             CatalogSeeder::class,
-            ProfileSeeder::class,
-            GalerySeeder::class
+            GalerySeeder::class,
+            ProfileSeeder::class
         ]);
     }
 }

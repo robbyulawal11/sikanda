@@ -152,12 +152,6 @@
             </div>
             <!--end::Menu item-->
             <!--begin::Menu item-->
-            <div class="menu-item px-5 my-1">
-                <a href="/dashboard" class="menu-link px-5">Account
-                    Settings</a>
-            </div>
-            <!--end::Menu item-->
-            <!--begin::Menu item-->
             <div class="menu-item px-5">
                 <div class="menu-link px-5">
                     <a href="{{ route('logout') }}"
@@ -181,16 +175,22 @@
     <!--begin::Action-->
     <div class="app-navbar-item ms-3 ms-lg-4 me-lg-6">
         <!--begin::Link-->
-        <a href="{{ route('login') }}"
+        <div
             class="btn btn-icon btn-custom btn-color-gray-600 btn-active-color-primary w-35px h-35px w-md-40px h-md-40px">
-            <i class="ki-duotone ki-setting-3 fs-1">
-                <span class="path1"></span>
-                <span class="path2"></span>
-                <span class="path3"></span>
-                <span class="path4"></span>
-                <span class="path5"></span>
-            </i>
-        </a>
+            <div class="menu-link px-5" title="Keluar" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                data-bs-dismiss="click" data-bs-placement="right">
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                    <img style="width: 32px; height: auto" src="{{ asset('assets/img/logout.png') }}"
+                        alt="log out">
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </div>
         <!--end::Link-->
     </div>
     <!--end::Action-->

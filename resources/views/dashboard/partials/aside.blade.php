@@ -2,7 +2,7 @@
     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto"
     data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_aside_mobile_toggle">
     <!--begin::Wrapper-->
-    <div id="kt_app_aside_wrapper" class="d-flex flex-column align-items-center hover-scroll-y py-5 py-lg-0 gap-4"
+    {{-- <div id="kt_app_aside_wrapper" class="d-flex flex-column align-items-center hover-scroll-y py-5 py-lg-0 gap-4"
         data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
         data-kt-scroll-dependencies="#kt_app_header" data-kt-scroll-wrappers="#kt_app_aside_wrapper"
         data-kt-scroll-offset="5px">
@@ -34,6 +34,6 @@
                 <span class="path3"></span>
             </i>
         </a>
-    </div>
+    </div> --}}
     <!--end::Wrapper-->
 </div>

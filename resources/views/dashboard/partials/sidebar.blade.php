@@ -26,149 +26,126 @@
                 <!--end:Menu link-->
             </div>
             <!--end:Menu item-->
+            <div>
+                <ul>
+                    <li class="separatorSideBar theme-light-show">
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #F5F7F8">
+                            Manajemen</div>
+                    </li>
+                    <li class="separatorSideBar theme-dark-show">
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #000000">
+                            Manajemen</div>
+                    </li>
+                </ul>
+            </div>
             <!--begin:Menu item-->
-            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+            <div class="menu-item here show">
                 <!--begin:Menu link-->
-                <a
-                    class="menu-link {{ Request::is('admin/article', 'admin/gallery', 'admin/catalog', 'admin/category', 'admin/profile/1/edit') ? 'active' : '' }}">
+                <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}"
+                    href="{{ route('article.index') }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-some-files fs-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>
                     </span>
-                    <span class="menu-title">Manajemen</span>
-                    <span class="menu-arrow"></span>
+                    <span class="menu-title">Artikel</span>
                 </a>
                 <!--end:Menu link-->
-                <!--begin:Menu sub-->
-                <div class="menu-sub menu-sub-accordion">
-                    <!--begin:Menu item-->
-                    <div class="menu-item menu-accordion">
-                        <!--begin:Menu link-->
-                        <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}"
-                            href="{{ route('article.index') }}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Artikel</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item menu-accordion">
-                        <!--begin:Menu link-->
-                        <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}"
-                            href="{{ route('gallery.index') }}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Galeri</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item menu-accordion">
-                        <!--begin:Menu link-->
-                        <a class="menu-link {{ Request::is('admin/catalog') ? 'active' : '' }}"
-                            href="{{ route('catalog.index') }}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Katalog</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <div class="menu-item menu-accordion">
-                        <!--begin:Menu link-->
-                        <a class="menu-link {{ Request::is('admin/profile/1/edit') ? 'active' : '' }}"
-                            href="{{ route('profile.edit', 1) }}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Profil</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <div class="menu-item menu-accordion">
-                        <!--begin:Menu link-->
-                        <a class="menu-link {{ Request::is('admin/category') ? 'active' : '' }}"
-                            href="{{ route('category.index') }}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title ">Kategori</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item menu-accordion">
-                        <!--begin:Menu link-->
-                        <a class="menu-link {{ Request::is('admin/category') ? 'active' : '' }}"
-                        href="{{ route('user.index') }}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Pengguna</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                </div>
-                <!--end:Menu sub-->
             </div>
             <!--end:Menu item-->
             <!--begin:Menu item-->
-            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+            <div class="menu-item here show">
                 <!--begin:Menu link-->
-                <a class="menu-link">
+                <a class="menu-link {{ Request::is('admin/catalog') ? 'active' : '' }}"
+                    href="{{ route('catalog.index') }}">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-some-files fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </span>
+                    <span class="menu-title">Katalog</span>
+                </a>
+                <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item here show">
+                <!--begin:Menu link-->
+                <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}"
+                    href="{{ route('gallery.index') }}">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-some-files fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </span>
+                    <span class="menu-title">Galeri</span>
+                </a>
+                <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item here show">
+                <!--begin:Menu link-->
+                <a class="menu-link {{ Request::is('admin/category') ? 'active' : '' }}"
+                    href="{{ route('category.index') }}">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-some-files fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </span>
+                    <span class="menu-title">Kategori</span>
+                </a>
+                <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item here show">
+                <!--begin:Menu link-->
+                <a class="menu-link {{ Request::is('admin/dashboard') ? 'active' : '' }}"
+                    href="{{ route('dashboard') }}">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-some-files fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </span>
+                    <span class="menu-title">Pengguna</span>
+                </a>
+                <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <div>
+                <ul>
+                    <li class="separatorSideBar theme-light-show">
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #F5F7F8">
+                            Pengaturan
+                        </div>
+                    </li>
+                    <li class="separatorSideBar theme-dark-show">
+                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #000000">
+                            Pengaturan
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--begin:Menu item-->
+            <div class="menu-item here show">
+                <!--begin:Menu link-->
+                <a class="menu-link {{ Request::is('admin/profile/1/edit') ? 'active' : '' }}"
+                    href="{{ route('profile.edit', 1) }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-rescue fs-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>
                     </span>
-                    <span class="menu-title">Pengaturan</span>
-                    <span class="menu-arrow"></span>
+                    <span class="menu-title">Profil</span>
                 </a>
                 <!--end:Menu link-->
-                <!--begin:Menu sub-->
-                <div class="menu-sub menu-sub-accordion">
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/dashboard" title="Check out over 200 in-house components"
-                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
-                            data-bs-placement="right">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Akun</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/dashboard" title="Check out the complete documentation"
-                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
-                            data-bs-placement="right">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Mode</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                </div>
-                <!--end:Menu sub-->
             </div>
             <!--end:Menu item-->
         </div>

@@ -13,7 +13,12 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
 
-Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
+Route::get('/catalog', [App\Http\Controllers\HomeController::class, 'detail_catalog'])->name('detail_catalog');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/visimisi', [App\Http\Controllers\HomeController::class, 'visimisi'])->name('visimisi');
+Route::get('/sejarah', [App\Http\Controllers\HomeController::class, 'sejarah'])->name('sejarah');
+Route::get('/geografis', [App\Http\Controllers\HomeController::class, 'geografis'])->name('geografis');
+Route::get('/demografis', [App\Http\Controllers\HomeController::class, 'demografis'])->name('demografis');
 
 // Landing page route for articles
 Route::get('/article', [ArticleController::class, 'paginateArticles'])->name('paginate.articles');
@@ -26,6 +31,12 @@ Route::get('/article/show/{id}', [ArticleController::class, 'show'])->name('land
 
 // cek email
 Route::post('/check-email', [UserController::class, 'checkEmail'])->name('check.email');
+
+// Landing page route for articles
+Route::get('/gallery', [GalleryController::class, 'paginateGalleries'])->name('paginate.galleries');
+
+// Landing page route for show
+Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('landing.gallery.show');
 
 
 // Dashboard routes for authenticated users with status middleware
