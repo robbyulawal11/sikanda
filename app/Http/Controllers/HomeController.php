@@ -11,9 +11,10 @@ class HomeController extends Controller
 {
     public function home (){
         $catalog = Catalog::all();
+        $profile = Profile::all();
         $articleslatesttwo = Article::orderBy('id', 'desc')->take(2)->get();
 
-        return view('landing-page.pages.Home.home', ['catalog' => $catalog, 'articleslatesttwo' => $articleslatesttwo]);
+        return view('landing-page.pages.Home.home', ['catalog' => $catalog, 'articleslatesttwo' => $articleslatesttwo, 'profile' => $profile]);
     }
 
     public function detail_catalog (){
