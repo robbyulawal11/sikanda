@@ -87,7 +87,7 @@ class UserController extends Controller
             'password' => 'required',
             'wa' => 'required',
             'alamat' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if ($request->hasFile('image')) {

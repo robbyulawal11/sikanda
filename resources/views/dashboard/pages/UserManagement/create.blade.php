@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">E-mail</label>
-                    <input type="text" name="email" id="email" class="form-control" required>
+                    <input type="email" name="email" id="email" class="form-control" required>
                     <div id="email-error" class="text-danger" style="display: none;">Maaf E-mail Telah digunakan!, Silahkan gunakan E-mail lain</div>
                 </div>
                 <div class="mb-1">

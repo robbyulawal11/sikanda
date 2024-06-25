@@ -14,7 +14,7 @@ class userSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = \App\Models\User::create([
+        $admin = \App\Models\User::insert([
         [
             'nama' => 'Admin',
             'email' => 'admin@sikanda.store',

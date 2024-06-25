@@ -105,8 +105,8 @@
             <!--begin:Menu item-->
             <div class="menu-item here show">
                 <!--begin:Menu link-->
-                <a class="menu-link {{ Request::is('admin/dashboard') ? 'active' : '' }}"
-                    href="{{ route('dashboard') }}">
+                <a class="menu-link {{ Request::is('admin/user') ? 'active' : '' }}"
+                    href="{{ route('user.index') }}">
                     <span class="menu-icon">
                         <i class="ki-duotone ki-some-files fs-1">
                             <span class="path1"></span>
