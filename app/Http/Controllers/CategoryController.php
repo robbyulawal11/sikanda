@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create(Request $request)
     {
-        $title = "Edit Kategori";
+        $title = "Buat Kategori";
         $path = $request->path();
         $path = explode("/", $path);
         return view('dashboard/pages/Category/create', compact('title', 'path'));
