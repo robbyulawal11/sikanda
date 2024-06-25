@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
             // UserSeeder::class,
             // ArticleSeeder::class,
             // CatalogSeeder::class,
-            // GalerySeeder::class,
-            // ProfileSeeder::class
+            // GalerySeeder::class,,
+            // ProfileSeeder::class,
+            // GalerySeeder::class
         ]);
     }
 }
