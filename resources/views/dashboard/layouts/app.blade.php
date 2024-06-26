@@ -28,6 +28,8 @@
     <!--end::Vendor Stylesheets-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -235,14 +237,14 @@
                                             <!--begin::Body-->
                                             @yield('content')
                                             <!--end::Body-->
-                                        </div>
+                                        {{-- </div> --}}
                                         <!--end::Chart widget 8-->
-                                    </div>
+                                    {{-- </div> --}}
                                     <!--end::Col-->
                                     <!--begin::Col-->
 
                                     <!--end::Col-->
-                                </div>
+                                {{-- </div> --}}
                                 <!--end::Row-->
                                 <!--begin::Row-->
 

@@ -800,14 +800,29 @@ var KTCardsWidget4 = function () {
 
         // Init 
         drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
-        drawCircle(KTUtil.getCssVariableValue('--bs-danger'), options.lineWidth, 100 / 150);
-        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 250);   
+        drawCircle(KTUtil.getCssVariableValue('--bs-blue'), options.lineWidth, 100 / 150);
+        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
     }
+
+    // Adding counters for penjual and copywriter
+    var updateCounters = function(penjualCount, copyWriterCount) {
+        var penjualElement = document.getElementById('penjual_count');
+        var copyWriterElement = document.getElementById('copywriter_count');
+
+        if (penjualElement) {
+            penjualElement.textContent = penjualCount;
+        }
+
+        if (copyWriterElement) {
+            copyWriterElement.textContent = copyWriterCount;
+        }
+    }	
 
     // Public methods
     return {
         init: function () {
             initChart();
+            updateCounters(1, 1, 1); // Example counts
         }   
     }
 }();
@@ -15057,6 +15072,7 @@ KTUtil.onDOMContentLoaded(function() {
 "use strict";
 
 // Class definition
+
 var KTChartsWidget5 = function () {
     var chart = {
         self: null,
@@ -15075,7 +15091,7 @@ var KTChartsWidget5 = function () {
         
         var options = {
             series: [{
-                data: [15, 12, 10, 8, 7, 4, 3],
+                data: [11, 5, 3],
                 show: false                                                                              
             }],
             chart: {
@@ -15099,12 +15115,12 @@ var KTChartsWidget5 = function () {
             legend: {
                 show: false
             },                               
-            colors: ['#3E97FF', '#F1416C', '#50CD89', '#FFC700', '#7239EA', '#50CDCD', '#3F4254'],                                                                      
+            colors: ['#3E97FF', '#50CD89', '#FFC700'],                                                                      
             xaxis: {
-                categories: ['Phones', 'Laptops', 'Headsets', 'Games', 'Keyboardsy', 'Monitors', 'Speakers'],
+                categories: ['Artikel', 'Galeri', 'Katalog'],
                 labels: {
                     formatter: function (val) {
-                      return val + "K"
+                      return val
                     },
                     style: {
                         colors: KTUtil.getCssVariableValue('--bs-gray-400'),
