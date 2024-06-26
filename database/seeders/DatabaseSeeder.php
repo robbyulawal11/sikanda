@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call([
-            // UserSeeder::class,
-            // ArticleSeeder::class,
-            // CatalogSeeder::class,
-            // GalerySeeder::class,
-            // ProfileSeeder::class,
+            UserSeeder::class,
+            ArticleSeeder::class,
+            CatalogSeeder::class,
+            GalerySeeder::class,
+            ProfileSeeder::class,
             CategorySeeder::class
         ]);
     }

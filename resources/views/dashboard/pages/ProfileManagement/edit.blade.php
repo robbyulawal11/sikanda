@@ -18,6 +18,38 @@
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <div class="form-group mb-3">
+                <img src="{{ asset('images/profiles/' . $data->gambarHero) }}" alt="{{ $data->gambarHero }}" width="75">
+                </td>
+                <label for="gambarHero" class="form-label">Upload Gambar Hero</label>
+                <br>
+                <input type="file" name="gambarHero">
+            </div>
+            <div class="form-group mb-3">
+                <img src="{{ asset('images/profiles/' . $data->gambarAbout) }}" alt="{{ $data->gambarAbout }}"
+                    width="75">
+                </td>
+                <label for="gambarAbout" class="form-label">Upload Gambar About</label>
+                <br>
+                <input type="file" name="gambarAbout">
+            </div>
+            <div class="form-group mb-3">
+                <img src="{{ asset('images/profiles/' . $data->gambarStrukturOrganisasi) }}"
+                    alt="{{ $data->gambarStrukturOrganisasi }}" width="75">
+                </td>
+                <label for="gambarStrukturOrganisasi" class="form-label">Upload Gambar Struktur Organisasi</label>
+                <br>
+                <input type="file" name="gambarStrukturOrganisasi">
+            </div>
+            <div class="form-group w-100">
+                <label class="w-100">Link Video Youtube
+                    <input type="text" class="form-control @error('videoYoutube') is-invalid @enderror"
+                        name="videoYoutube" value="{{ $data->videoYoutube }}">
+                </label>
+                @if ($errors->has('videoYoutube'))
+                    <p class="text-danger">{{ $errors->first('videoYoutube') }}</p>
+                @endif
+            </div>
             <div class="form-group w-100">
                 <label for="editor1" class="w-100 "><span class="text-xl font-semibold">Tentang</span>
                     <div id="editor1">{!! $data->tentang !!}</div>
