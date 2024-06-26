@@ -22,7 +22,7 @@ class userSeeder extends Seeder
             'role' => 'admin',
             'wa' => '',
             'alamat' => '',
-            'image' => '',
+            'image' => '300-1.jpg',
             'created_at' => now(),
             'updated_at' => now()
         ],
