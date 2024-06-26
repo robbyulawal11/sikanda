@@ -16,7 +16,7 @@ class userSeeder extends Seeder
     {
         $admin = \App\Models\User::insert([
         [
-            'nama' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@sikanda.store',
             'password' => Hash::make('admin123'),
             'role' => 'admin',
@@ -27,7 +27,7 @@ class userSeeder extends Seeder
             'updated_at' => now()
         ],
         [
-            'nama' => 'Ahmad Subagyo',
+            'name' => 'Ahmad Subagyo',
             'email' => 'subagyo123@gmail.com',
             'password' => Hash::make('subagyo123'),
             'role' => 'Penjual',
@@ -38,7 +38,7 @@ class userSeeder extends Seeder
             'updated_at' => now()
         ],
         [
-            'nama' => 'Putri Suhartini',
+            'name' => 'Putri Suhartini',
             'email' => 'putri123@gmail.com',
             'password' => Hash::make('putri123'),
             'role' => 'Copywriter',
