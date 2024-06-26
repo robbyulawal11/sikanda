@@ -11,10 +11,12 @@
                         <p class="fs-4 text-white mb-lg-4">Tumbuh Bersama, Majukan Warisan Bangsa</p>
                         <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                             <a href="" class="btn btn-outline-light border-2 py-md-3 px-md-5 me-5">Read More</a>
-                            <button type="button" class="btn-play" data-bs-toggle="modal"
-                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                                <span></span>
-                            </button>
+                            @foreach ($profile as $profil)
+                                <button type="button" class="btn-play" data-bs-toggle="modal"
+                                    data-src="{{ $profil->videoYoutube }}" data-bs-target="#videoModal">
+                                    <span></span>
+                                </button>
+                            @endforeach
                             <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">Play Video</h5>
                         </div>
                     </div>
@@ -51,8 +53,11 @@
                 <div class="row gx-5">
                     <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100 rounded" src="{{ asset('assets/img/about-us.jpeg') }}"
-                                style="object-fit: cover;">
+                            @foreach ($profile as $profil)
+                                <img class="position-absolute w-100 h-100 rounded"
+                                    src="{{ asset('images/profiles/' . $profil->gambarAbout) }}" style="object-fit: cover;">
+                            @endforeach
+
                         </div>
                     </div>
                     <div class="col-lg-7">

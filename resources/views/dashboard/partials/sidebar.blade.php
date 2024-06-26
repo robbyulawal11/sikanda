@@ -38,54 +38,58 @@
                     </li>
                 </ul>
             </div>
-            <!--begin:Menu item-->
-            <div class="menu-item here show">
-                <!--begin:Menu link-->
-                <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}"
-                    href="{{ route('article.index') }}">
-                    <span class="menu-icon">
-                        <i class="ki-duotone ki-some-files fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </span>
-                    <span class="menu-title">Artikel</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item here show">
-                <!--begin:Menu link-->
-                <a class="menu-link {{ Request::is('admin/catalog') ? 'active' : '' }}"
-                    href="{{ route('catalog.index') }}">
-                    <span class="menu-icon">
-                        <i class="ki-duotone ki-some-files fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </span>
-                    <span class="menu-title">Katalog</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item here show">
-                <!--begin:Menu link-->
-                <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}"
-                    href="{{ route('gallery.index') }}">
-                    <span class="menu-icon">
-                        <i class="ki-duotone ki-some-files fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </span>
-                    <span class="menu-title">Galeri</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
+            @if (Auth::user()->role == 'admin' || Auth::user()->role == 'Copywriter')
+                <!--begin:Menu item-->
+                <div class="menu-item here show">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}"
+                        href="{{ route('article.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-some-files fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Artikel</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+            @endif
+            @if (Auth::user()->role == 'admin' || Auth::user()->role == 'Penjual')
+                <!--begin:Menu item-->
+                <div class="menu-item here show">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{ Request::is('admin/catalog') ? 'active' : '' }}"
+                        href="{{ route('catalog.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-some-files fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Katalog</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item here show">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}"
+                        href="{{ route('gallery.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-some-files fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Galeri</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+            @endif
             <!--begin:Menu item-->
             <div class="menu-item here show">
                 <!--begin:Menu link-->
@@ -102,52 +106,56 @@
                 <!--end:Menu link-->
             </div>
             <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item here show">
-                <!--begin:Menu link-->
-                <a class="menu-link {{ Request::is('admin/user') ? 'active' : '' }}"
-                    href="{{ route('user.index') }}">
-                    <span class="menu-icon">
-                        <i class="ki-duotone ki-some-files fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </span>
-                    <span class="menu-title">Pengguna</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <div>
-                <ul>
-                    <li class="separatorSideBar theme-light-show">
-                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #F5F7F8">
-                            Pengaturan
-                        </div>
-                    </li>
-                    <li class="separatorSideBar theme-dark-show">
-                        <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #000000">
-                            Pengaturan
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!--begin:Menu item-->
-            <div class="menu-item here show">
-                <!--begin:Menu link-->
-                <a class="menu-link {{ Request::is('admin/profile/1/edit') ? 'active' : '' }}"
-                    href="{{ route('profile.edit', 1) }}">
-                    <span class="menu-icon">
-                        <i class="ki-duotone ki-rescue fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </span>
-                    <span class="menu-title">Profil</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
+            @if (Auth::user()->role == 'admin')
+                <!--begin:Menu item-->
+                <div class="menu-item here show">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{ Request::is('admin/user') ? 'active' : '' }}"
+                        href="{{ route('user.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-some-files fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Pengguna</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+            @endif
+            @if (Auth::user()->role == 'admin')
+                <div>
+                    <ul>
+                        <li class="separatorSideBar theme-light-show">
+                            <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #F5F7F8">
+                                Pengaturan
+                            </div>
+                        </li>
+                        <li class="separatorSideBar theme-dark-show">
+                            <div class="w-auto h-auto px-3 fw-medium fs-4 menu-title" style="background-color: #000000">
+                                Pengaturan
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--begin:Menu item-->
+                <div class="menu-item here show">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{ Request::is('admin/profile/1/edit') ? 'active' : '' }}"
+                        href="{{ route('profile.edit', 1) }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-rescue fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Profil</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+            @endif
         </div>
         <!--end::Sidebar menu-->
     </div>

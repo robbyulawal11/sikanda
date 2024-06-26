@@ -23,7 +23,7 @@
         <div class="form-group w-100">
             <label class="w-100">Author
                 <input type="text" class="form-control @error('author') is-invalid @enderror" name="author"
-                    value="{{ $gallery->author }}">
+                    value="{{ Auth::user()->name }}" disabled>
             </label>
             @if ($errors->has('author'))
                 <p class="text-danger">{{ $errors->first('author') }}</p>

@@ -42,7 +42,7 @@ class CategoryController extends Controller
         ]);
 
         Category::create($validator);
-        return redirect('category')->with('success', 'Data berhasil diinput');
+        return redirect('admin/category')->with('success', 'Data berhasil diinput');
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         ]);
 
         $data->update($validator);
-        return redirect('category')->with('success', 'Data berhasil diubah');
+        return redirect('admin/category')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -88,6 +88,6 @@ class CategoryController extends Controller
     {
         $data = Category::find($id);
         $data->delete();
-        return redirect('category')->with('success', 'Data berhasil dihapus');
+        return redirect('admin/category')->with('success', 'Data berhasil dihapus');
     }
 }
