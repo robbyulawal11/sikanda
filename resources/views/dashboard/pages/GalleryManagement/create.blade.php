@@ -24,15 +24,15 @@
             @endif
         </div>
         <div class="form-group w-100">
-            <label class="w-100">Author
+            <label class="w-100">Pemilik
                 <input type="text" class="form-control @error('author') is-invalid @enderror" name="author"
-                    value="{{ old('author') }}">
+                    value="{{ Auth::user()->name }}" disabled>
             </label>
             @if ($errors->has('author'))
                 <p class="text-danger">{{ $errors->first('author') }}</p>
             @endif
         </div>
-        <div class="d-flex gap-3 justify-content-end">
+        <div class="d-flex gap-3 justify-content-end mt-5">
             <button type="submit" class="btn btn-success">Submit</button>
             <a href="{{ route('gallery.index') }}" class="btn btn-secondary">Cancel</a>
         </div>
