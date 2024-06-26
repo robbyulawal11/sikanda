@@ -22,7 +22,7 @@
                     <th scope="row">{{ $u->id }}</th>
                     <td><img src="{{ asset('images/users/' . $u->image) }}" alt="{{ $u->id }}" width="75">
                     </td>
-                    <td>{{ $u->nama }}</td>
+                    <td>{{ $u->name }}</td>
                     <td>{{ $u->role }}</td>
                     <td>{{ $u->email }}</td>
                     <td><button type="button" class="btn btn-success"><a

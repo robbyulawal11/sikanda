@@ -34,7 +34,7 @@
             <!--end::Menu separator-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">    
-                <a href="/dashboard" class="menu-link px-5">Profil Saya</a>
+                <a href="{{ route('setting.profile', Auth::user()->id) }}" class="menu-link px-5">Profil Saya</a>
             </div>
             <!--end::Menu item-->
             <!--begin::Menu item-->
