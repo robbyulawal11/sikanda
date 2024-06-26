@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('gambarHero');
+            $table->string('gambarAbout');
+            $table->string('gambarStrukturOrganisasi');
+            $table->string('videoYoutube');
             $table->text('tentang');
             $table->text('sejarah');
             $table->text('visi');
