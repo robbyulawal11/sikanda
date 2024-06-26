@@ -130,4 +130,43 @@ class UserController extends Controller
     $emailExists = User::where('email', $request->email)->exists();
     return response()->json(['exists' => $emailExists]);
 }
+
+    public function settingProfile(Request $request, User $user){
+        $title = "Ubah Data Pengguna";
+        $path = $request->path();
+        $path = explode("/", $path);
+        $user = User::where('id', '!=', 1)->get();
+        return view('dashboard.pages.UserManagement.setting-user', compact('title', 'path'));
+    }
+
+    public function updateSetting(Request $request, User $user)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'role' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'wa' => 'required',
+            'alamat' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        if ($request->hasFile('image')) {
+            //menghapus gambar lama
+            $imagePath = public_path('images/users/' . $user->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            //menyimpan gambar baru
+            $fileName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/users/'), $fileName);
+            $data['image'] = $fileName;
+        }
+
+        //mengupdate data
+        $user->update($data);
+
+        return redirect()->route('setting.profile');
+    }
 }

@@ -42,6 +42,8 @@ Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('land
 // Dashboard routes for authenticated users with status middleware
 Route::middleware(['auth', Status::class])->prefix('/admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/user/setting-profile', [App\Http\Controllers\UserController::class, 'settingProfile'])->name('setting.profile');
+    Route::put('/user/setting-profile/{user}', [App\Http\Controllers\UserController::class, 'updateSetting'])->name('update.profile');
     Route::resource('article', ArticleController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('catalog', CatalogController::class);

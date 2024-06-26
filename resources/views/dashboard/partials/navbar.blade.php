@@ -33,8 +33,8 @@
             <div class="separator my-2"></div>
             <!--end::Menu separator-->
             <!--begin::Menu item-->
-            <div class="menu-item px-5">
-                <a href="/dashboard" class="menu-link px-5">Profil Saya</a>
+            <div class="menu-item px-5">    
+                <a href="{{ route('setting.profile', Auth::user()->id) }}" class="menu-link px-5">Profil Saya</a>
             </div>
             <!--end::Menu item-->
             @if (Auth::user()->role == 'admin' || Auth::user()->role == 'Copywriter')
