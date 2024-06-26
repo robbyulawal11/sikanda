@@ -8,7 +8,7 @@
                 @method('POST')
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-                    <input type="text" name="nama" class="form-control" required>
+                    <input type="text" name="name" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Role</label>

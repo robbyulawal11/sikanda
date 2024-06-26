@@ -16,7 +16,7 @@ class Status
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->role == 'admin' || Auth::user()->role == 'user') {
+        if (Auth::user()->role == 'admin' || Auth::user()->role == 'Copywriter' || Auth::user()->role == 'Penjual') {
             return $next($request);
         }
         return redirect('login');
