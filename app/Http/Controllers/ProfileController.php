@@ -65,7 +65,7 @@ class ProfileController extends Controller
         $data = Profile::find($id);
 
         $validator = $request->validate([
-            'gambarHero' => 'nullable',
+            'gambarHero' => 'nullable|image|mimes:jpg|max:2048',
             'gambarAbout' => 'nullable',
             'gambarStrukturOrganisasi' => 'nullable',
             'videoYoutube' => 'nullable',
@@ -86,7 +86,8 @@ class ProfileController extends Controller
             }
 
             //menyimpan gambar baru
-            $fileName = time().'.'.$request->gambarHero->extension();
+            $name="hero";
+            $fileName = $name.".".$request->gambarHero->extension();
             $request->gambarHero->move(public_path('images/profiles/'), $fileName);
             $validator['gambarHero'] = $fileName;
         }
