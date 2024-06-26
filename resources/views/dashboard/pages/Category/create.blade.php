@@ -13,6 +13,9 @@
             <input type="text" class="form-control @error('descKategori') is-invalid @enderror" name="descKategori"
                 value="{{ old('descKategori') }}">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="d-flex gap-3 justify-content-end mt-5">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a href="{{ route('category.index') }}" class="btn btn-secondary">Cancel</a>
+        </div>
     </form>
 @endsection
