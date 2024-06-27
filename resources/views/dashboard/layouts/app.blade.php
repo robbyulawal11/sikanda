@@ -231,19 +231,19 @@
                             <!--begin::Content container-->
                             <div id="kt_app_content_container" class="app-container container-fluid">
                                 <!--begin::Row-->
-                                            <!--begin::Header-->
+                                <!--begin::Header-->
 
-                                            <!--end::Header-->
-                                            <!--begin::Body-->
-                                            @yield('content')
-                                            <!--end::Body-->
-                                        {{-- </div> --}}
-                                        <!--end::Chart widget 8-->
-                                    {{-- </div> --}}
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
+                                <!--end::Header-->
+                                <!--begin::Body-->
+                                @yield('content')
+                                <!--end::Body-->
+                                {{-- </div> --}}
+                                <!--end::Chart widget 8-->
+                                {{-- </div> --}}
+                                <!--end::Col-->
+                                <!--begin::Col-->
 
-                                    <!--end::Col-->
+                                <!--end::Col-->
                                 {{-- </div> --}}
                                 <!--end::Row-->
                                 <!--begin::Row-->

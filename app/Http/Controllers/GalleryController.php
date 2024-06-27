@@ -22,9 +22,9 @@ class galleryController extends Controller
         $user = Auth::user(); // Get the authenticated user
         // Check user role and fetch galeri accordingly
         if ($user->role == 'admin') {
-            $data = Gallery::all();
+            $data = Gallery::orderBy('updated_at', 'desc')->paginate(10);
         } elseif ($user->role == 'Penjual') {
-            $data = Gallery::where('user_id', $user->id)->get(); // Fetch articles created by the penjual
+            $data = Gallery::where('user_id', $user->id)->orderBy('updated_at', 'desc')->paginate(10); // Fetch articles created by the penjual
         } else {
             $data = collect(); // Empty collection for 'Copywriter' role
         }

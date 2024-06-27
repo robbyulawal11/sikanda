@@ -6,14 +6,18 @@
         @csrf
         @method('PUT')
         <div class="form-group mb-3">
-            <img src="{{ asset('images/galeries/' . $gallery->gambar) }}" alt="{{ $gallery->id }}" width="75">
-            </td>
-            <label for="exampleInputEmail1" class="form-label">Upload Gambar</label>
-            <br>
-            <input type="file" name="gambar">
+            <div class="d-flex flex-column mb-3 ">
+                <label for="gambar" class="form-label">Gambar Produk <span class="text-danger">*</span></label>
+                <img src="{{ asset('images/galeries/' . $gallery->gambar) }}" alt="{{ $gallery->gambar }}" width="200"
+                    style="border-radius: 10px">
+            </div>
+            <div class="">
+                <input type="file" class="form-control" placeholder="Upload Gambar Galeri Produk" name="gambar">
+            </div>
+
         </div>
         <div class="form-group">
-            <label class="w-100" id="deskripsi">Deskripsi
+            <label class="w-100" id="deskripsi">Deskripsi <span class="text-danger">*</span>
                 <textarea type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi">{{ $gallery->deskripsi }}</textarea>
             </label>
             @if ($errors->has('deskripsi'))
@@ -39,8 +43,8 @@
             @endif
         </div>
         <div class="d-flex gap-3 justify-content-end mt-5">
-            <button type="submit" class="btn btn-success">Submit</button>
-            <a href="{{ route('gallery.index') }}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="{{ route('gallery.index') }}" class="btn btn-secondary">Batal</a>
         </div>
     </form>
 @endsection

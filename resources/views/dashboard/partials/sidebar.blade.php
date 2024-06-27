@@ -150,7 +150,7 @@
                                 <span class="path2"></span>
                             </i>
                         </span>
-                        <span class="menu-title">Profil</span>
+                        <span class="menu-title">Profil Dekranasda</span>
                     </a>
                     <!--end:Menu link-->
                 </div>
