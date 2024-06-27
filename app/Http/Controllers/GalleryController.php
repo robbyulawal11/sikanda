@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gallery;
+use Illuminate\Support\Facades\Auth;
+// use App\Models\Category;
 
 class galleryController extends Controller
 {
@@ -16,7 +18,17 @@ class galleryController extends Controller
         $title = "Galeri Produk";
         $path = $request->path();
         $path = explode("/", $path);
-        $data = Gallery::all();
+
+        $user = Auth::user(); // Get the authenticated user
+        // Check user role and fetch galeri accordingly
+        if ($user->role == 'admin') {
+            $data = Gallery::all();
+        } elseif ($user->role == 'Penjual') {
+            $data = Gallery::where('user_id', $user->id)->get(); // Fetch articles created by the penjual
+        } else {
+            $data = collect(); // Empty collection for 'Copywriter' role
+        }
+
         // dd($data);
         return view('dashboard/pages/GalleryManagement/show', compact('data', 'path', 'title'));
     }
@@ -29,6 +41,7 @@ class galleryController extends Controller
         $title = "Tambah Galeri";
         $path = $request->path();
         $path = explode("/", $path);
+        // $kategori = Category::all();
         return view('dashboard/pages/GalleryManagement/create', compact('path', 'title'));
     }
 
@@ -38,10 +51,12 @@ class galleryController extends Controller
     public function store(Request $request)
     {
         $gallery = new Gallery;
+
         $validator = $request->validate([
             'gambar' => 'required',
             'deskripsi' => 'required',
-            'author' => 'required'
+            'author' => 'nullable',
+            'user_id' => 'nullable'
         ]);
 
         if ($request->hasFile('gambar')) {
@@ -49,7 +64,6 @@ class galleryController extends Controller
             $request->gambar->move(public_path('images/galeries'), $filename);
             $validator['gambar'] = $filename;
         }
-
 
         Gallery::create($validator);
         return redirect('admin/gallery')->with('success', 'Data berhasil diinput');
@@ -103,7 +117,8 @@ class galleryController extends Controller
         $validator = $request->validate([
             'gambar' => 'nullable',
             'deskripsi' => 'required',
-            'author' => 'required'
+            'author' => 'nullable',
+            'user_id' => 'nullable'
         ]);
 
         if ($request->hasFile('gambar')) {

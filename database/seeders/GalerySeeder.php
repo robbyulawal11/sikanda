@@ -19,6 +19,7 @@ class GalerySeeder extends Seeder
                 'gambar' => '1718956415.jpg',
                 'deskripsi' => 'Toko kerajinan tangan',
                 'author' => 'admin',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -27,6 +28,7 @@ class GalerySeeder extends Seeder
                 'gambar' => '1718956431.jpg',
                 'deskripsi' => 'kerajinan batu',
                 'author' => 'admin',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -34,7 +36,8 @@ class GalerySeeder extends Seeder
                 'id' => 3,
                 'gambar' => '1718956462.jpg',
                 'deskripsi' => 'Toko kerajinan tangan 2',
-                'author' => 'admin',
+                'author' => 'Ahmad Subagyo',
+                'user_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ]

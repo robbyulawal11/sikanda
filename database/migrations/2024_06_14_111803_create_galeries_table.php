@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string("gambar");
             $table->string("deskripsi");
             $table->string("author");
+            // $table->foreignId('kategori_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
