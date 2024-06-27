@@ -31,10 +31,10 @@
                             <div class="text-danger">{{ $errors->first('title') }}</div>
                         @endif
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 visually-hidden">
                         <label for="author" class="form-label">Penulis</label>
-                        <input type="text" name="author" id="author" placeholder="Nama Penulis Artikel"
-                            class="form-control" value="{{ Auth::user()->name }}" disabled>
+                        <input type="hidden" name="author" id="author" placeholder="Nama Penulis Artikel"
+                            class="form-control" value="{{ Auth::user()->name }}">
                         @if ($errors->has('author'))
                             <div class="text-danger">{{ $errors->first('author') }}</div>
                         @endif

@@ -10,9 +10,9 @@
                     <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
                     <input type="text" name="nama" class="form-control" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 visually-hidden">
                     <label for="exampleFormControlInput1" class="form-label">Nama Penjual</label>
-                    <input type="text" name="seller" class="form-control" value="{{ Auth::user()->name }}" disabled>
+                    <input type="hidden" name="seller" class="form-control" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Harga</label>

@@ -28,12 +28,13 @@
                         <div class="text-danger">{{ $errors->first('title') }}</div>
                     @endif
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 visually-hidden">
                     <label for="exampleFormControlInput1" class="form-label">Nama Penulis</label>
-                    <input type="text" name="author" class="form-control" value="{{ Auth::user()->name }}" disabled>
-                    @if ($errors->has('author'))
-                        <div class="text-danger">{{ $errors->first('author') }}</div>
-                    @endif
+                    <input type="hidden" name="author" class="form-control" value="{{ Auth::user()->name }}">
+                </div>
+                <div class="mb-3 visually-hidden">
+                    <label for="exampleFormControlInput1" class="form-label">User ID</label>
+                    <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Artikel</label>
