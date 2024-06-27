@@ -4,13 +4,13 @@
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
                 <h6 class="text-primary text-uppercase">Katalog</h6>
                 <h1 class="display-5 text-uppercase mb-0">Barang Kerajinan Tangan dari Sukabumi</h1>
-                <a class="text-primary text-uppercase" href="{{ url('catalog') }}">Read More <i
+                <a class="text-primary text-uppercase" href="{{ url('catalog') }}">Katalog Lainnya<i
                         class="bi bi-chevron-right"></i></a>
             </div>
             <div class="owl-carousel product-carousel">
                 @foreach ($catalog as $c)
                     <div class="pb-5">
-                        <div class="product-item position-relative bg-light d-flex flex-column flex-fill text-center">
+                        <div class="product-item position-relative bg-light d-flex flex-column text-center justify-content-center align-items-center" style="min-height: 280px !important;">
                             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 data-image="{{ asset('images/catalogs/' . $c->image) }}" data-id="{{ $c->id }}"
                                 data-nama="{{ $c->nama }}" data-harga="{{ $c->harga }}"

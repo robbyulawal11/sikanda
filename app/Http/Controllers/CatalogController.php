@@ -20,14 +20,15 @@ class CatalogController extends Controller
         $user = Auth::user(); // Get the authenticated user
         // Check user role and fetch galeri accordingly
         if ($user->role == 'admin') {
-            $catalog = Catalog::all();
+            $paginateCatalogs = Catalog::orderBy('updated_at', 'desc')->paginate(10);
         } elseif ($user->role == 'Penjual') {
-            $catalog = Catalog::where('user_id', $user->id)->get(); // Fetch articles created by the penjual
+            $paginateCatalogs = Catalog::where('user_id', Auth::user()->id)
+            ->orderBy('updated_at', 'desc')->paginate(10); // Fetch articles created by the penjual
         } else {
             $catalog = collect(); // Empty collection for 'Copywriter' role
         }
 
-        return view('dashboard.pages.Catalog.show', ['catalog' => $catalog], compact('path', 'title'));
+        return view('dashboard.pages.Catalog.show', compact('path', 'title', 'paginateCatalogs'));
     }
 
     /**
