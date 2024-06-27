@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('slug')->default();
             $table->text('body');
-            $table->unsignedBigInteger('id_user')->default();
+            $table->integer('user_id')->default();
             $table->timestamps();
         });
     }

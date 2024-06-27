@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -15,10 +16,20 @@ class ArticleController extends Controller
         $title = "Artikel";
         $path = $request->path();
         $path = explode("/", $path);
-        $article = Article::all();
-        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page 
+        // $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page 
 
-        return view('dashboard.pages.Article.show', compact('title', 'path', 'article', 'paginateArticles'));
+        $user = Auth::user(); // Get the authenticated user
+        // Check user role and fetch articles accordingly
+        if (Auth::user()->role == 'admin') {
+            $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10);
+        } elseif (Auth::user()->role == 'Penjual') {
+            $paginateArticles = collect(); // Empty collection for 'penjual' role
+        } else {
+            $paginateArticles = Article::where('user_id', Auth::user()->id)
+            ->orderBy('updated_at', 'desc')->paginate(10); // Fetch articles created by the copywriter
+        }
+
+        return view('dashboard.pages.Article.show', compact('title', 'path', 'paginateArticles'));
 
     }
     
@@ -87,16 +98,12 @@ class ArticleController extends Controller
             'title' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'author' => 'required|string|max:255',
-            'body' => 'required|min:50'
-        ], 
-        [
-            'title.required' => 'The title field is required.',
-            'author.required' => 'The author field is required.',
-            'body.required' => 'The body field is required.',
-            'image.image' => 'The file must be an image.',
-            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-            'image.max' => 'The image must not be greater than 2048 kilobytes.',
+            'body' => 'required|min:50',
+            'user_id' => 'nullable'
         ]);
+
+        $data['user_id'] = Auth::user()->id;
+
 
         if ($request->hasFile('image')) {
             $filename = time() . '.' . $request->image->extension();
