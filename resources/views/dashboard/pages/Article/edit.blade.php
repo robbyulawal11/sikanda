@@ -22,14 +22,15 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Judul</label>
+                    <label for="exampleFormControlInput1" class="form-label">Judul<span class="text-danger">*</span></label>
                     <input type="text" name="title" class="form-control" value="{{ $article->title }}" required>
                     @if ($errors->has('title'))
                         <div class="text-danger">{{ $errors->first('title') }}</div>
                     @endif
                 </div>
                 <div class="mb-3 visually-hidden">
-                    <label for="exampleFormControlInput1" class="form-label">Nama Penulis</label>
+                    <label for="exampleFormControlInput1" class="form-label">Nama Penulis<span
+                            class="text-danger">*</span></label>
                     <input type="hidden" name="author" class="form-control" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="mb-3 visually-hidden">
@@ -37,15 +38,16 @@
                     <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Artikel</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Artikel<span
+                            class="text-danger">*</span></label>
                     <div id="editor">{!! $article->body !!}</div>
                     <textarea class="form-control d-none" name="body" id="body"></textarea>
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="images" class="form-label">Upload Gambar</label>
+                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control">
-                    <div id="image_preview" style="width:30%" class="mb-3">
+                    <div id="image_preview" style="width:500px" class="mb-3">
                         @if ($article->image)
                             <div class='img-div' id='existing-img'>
                                 <img src="{{ asset('images/articles/' . $article->image) }}"
@@ -64,8 +66,8 @@
           @endif --}}
                 </div>
                 <div class="d-flex gap-3 justify-content-end mt-5">
-                    <button type="submit" class="btn btn-success w-25">Submit</button>
-                    <a href="{{ route('article.index') }}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success w-25">Simpan</button>
+                    <a href="{{ route('article.index') }}" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>
