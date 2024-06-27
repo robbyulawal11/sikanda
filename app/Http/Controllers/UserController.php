@@ -16,7 +16,9 @@ class UserController extends Controller
         $title = "Managemen Pengguna";
         $path = $request->path();
         $path = explode("/", $path);
-        $user = User::where('id', '!=', 1)->get();
+        $user = User::where('id', '!=', 1)
+                    ->orderBy('updated_at', 'desc')
+                    ->paginate(10);
         return view('dashboard.pages.UserManagement.show', ['user'=> $user], compact( 'path', 'title'));
     }
 

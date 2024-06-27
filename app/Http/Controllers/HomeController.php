@@ -10,7 +10,7 @@ use App\Models\Profile;
 class HomeController extends Controller
 {
     public function home (){
-        $catalog = Catalog::all();
+        $catalog = Catalog::orderBy('created_at', 'desc')->take(5)->get();
         $profile = Profile::all();
         $articleslatesttwo = Article::orderBy('id', 'desc')->take(2)->get();
 

@@ -52,8 +52,8 @@
                     <input type="file" name="image">
                 </div>
                 <div class="d-flex gap-3 justify-content-end mt-5">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <a href="{{ route('catalog.index') }}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-danger">Simpan</button>
+                    <a href="{{ route('catalog.index') }}" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>

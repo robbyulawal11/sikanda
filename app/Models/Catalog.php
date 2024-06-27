@@ -16,7 +16,8 @@ class Catalog extends Model
         'deskripsi',
         'wa',
         'ig',
-        'image'
+        'image',
+        'user_id'
     ];
 
 }

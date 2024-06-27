@@ -216,7 +216,7 @@
                                     <!--begin::Actions-->
                                     @if ($path[1] != 'dashboard' && count($path) == 2)
                                         <a href="{{ route($path[1] . '.create') }}"
-                                            class="btn btn-sm btn-primary ms-3 px-4 py-3 text-capitalize">Create
+                                            class="btn btn-sm ms-3 px-4 py-3 text-capitalize" style="background-color: rgb(252, 36, 36); color: white;">Buat
                                             {{ $path[1] }}</a>
                                     @endif
                                     <!--end::Actions-->
