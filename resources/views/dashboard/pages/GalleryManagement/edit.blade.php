@@ -20,13 +20,22 @@
                 <p class="text-danger">{{ $errors->first('deskripsi') }}</p>
             @endif
         </div>
-        <div class="form-group w-100">
+        <div class="form-group w-100 visually-hidden">
             <label class="w-100">Author
-                <input type="text" class="form-control @error('author') is-invalid @enderror" name="author"
-                    value="{{ Auth::user()->name }}" disabled>
+                <input type="hidden" class="form-control @error('author') is-invalid @enderror" name="author"
+                    value="{{ Auth::user()->name }}">
             </label>
             @if ($errors->has('author'))
                 <p class="text-danger">{{ $errors->first('author') }}</p>
+            @endif
+        </div>
+        <div class="form-group w-100 visually-hidden">
+            <label class="w-100">User ID
+                <input type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id"
+                    value="{{ Auth::user()->id }}">
+            </label>
+            @if ($errors->has('user_id'))
+                <p class="text-danger">{{ $errors->first('user_id') }}</p>
             @endif
         </div>
         <div class="d-flex gap-3 justify-content-end mt-5">

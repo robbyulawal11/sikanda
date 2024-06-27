@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('wa');
             $table->string('ig')->nullable();
             $table->string('image');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
