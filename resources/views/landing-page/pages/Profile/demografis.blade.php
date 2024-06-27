@@ -41,10 +41,17 @@
 </style>
 
 @section('content')
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 800px;">
+                <h6 class="text-primary text-uppercase">Profil Dekranasda</h6>
+                <h2 class="display-5 text-uppercase mb-0">Demografis <br> Kota Sukabumi</h2>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
-        <p class="py-5">
-        <h1>Demografis Kota Sukabumi</h1>
-        </p>
         <div id="map" style="height: 400px;"></div>
         {{-- <div id="population-info"
             style="position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">

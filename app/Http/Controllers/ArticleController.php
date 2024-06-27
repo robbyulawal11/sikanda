@@ -16,12 +16,11 @@ class ArticleController extends Controller
         $title = "Artikel";
         $path = $request->path();
         $path = explode("/", $path);
-        // $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page 
 
         $user = Auth::user(); // Get the authenticated user
         // Check user role and fetch articles accordingly
         if (Auth::user()->role == 'admin') {
-            $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10);
+            $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page 
         } elseif (Auth::user()->role == 'Penjual') {
             $paginateArticles = collect(); // Empty collection for 'penjual' role
         } else {
@@ -36,8 +35,10 @@ class ArticleController extends Controller
     public function showArticle($id)
     {
         $showArticle = Article::findOrFail($id); // Fetch article by ID
+        $articleslatestfive = Article::orderBy('id', 'desc')->take(5)->get();
 
-        return view('landing-page.pages.Article.show', compact('showArticle'));
+
+        return view('landing-page.pages.Article.show', compact('showArticle', 'articleslatestfive'));
     }
 
     public function paginateArticles(Request $request)
