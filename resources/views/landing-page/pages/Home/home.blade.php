@@ -10,14 +10,15 @@
                         </h1>
                         <p class="fs-4 text-white mb-lg-4">Tumbuh Bersama, Majukan Warisan Bangsa</p>
                         <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                            <a href="" class="btn btn-outline-light border-2 py-md-3 px-md-5 me-5">Read More</a>
+                            <a href="{{ url('about') }}"
+                                class="btn btn-outline-light border-2 py-md-3 px-md-5 me-5">Selengkapnya</a>
                             @foreach ($profile as $profil)
                                 <button type="button" class="btn-play" data-bs-toggle="modal"
                                     data-src="{{ $profil->videoYoutube }}" data-bs-target="#videoModal">
                                     <span></span>
                                 </button>
                             @endforeach
-                            <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">Play Video</h5>
+                            <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">Mulai Video</h5>
                         </div>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                     </div>
                     <div class="col-lg-7">
                         <div class="border-start border-5 border-primary ps-5 mb-5">
-                            <h6 class="text-primary text-uppercase">About Us</h6>
+                            <h6 class="text-primary text-uppercase">Tentang Kami</h6>
                             <h1 class="display-5 text-uppercase mb-0">Visi Misi Dekranasda Kota Sukabumi</h1>
                         </div>
                         <h4 class="text-body mb-4">Dewan Kerajinan Nasional Daerah (DEKRANASDA)</h4>
@@ -71,12 +72,12 @@
                                 <li class="nav-item w-50" role="presentation">
                                     <button class="nav-link text-uppercase w-100 active" id="pills-1-tab"
                                         data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab"
-                                        aria-controls="pills-1" aria-selected="true">Our Mission</button>
+                                        aria-controls="pills-1" aria-selected="true">Visi</button>
                                 </li>
                                 <li class="nav-item w-50" role="presentation">
                                     <button class="nav-link text-uppercase w-100" id="pills-2-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2"
-                                        aria-selected="false">Our Vission</button>
+                                        aria-selected="false">Misi</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">

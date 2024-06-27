@@ -17,7 +17,7 @@
                                 <label for="email" class=" text-start mb-2 fw-semibold">{{ __('Email') }}</label>
 
                                 <div class="">
-                                    <input id="email" type="email" placeholder="Your Email Address"
+                                    <input id="email" type="email" placeholder="Alamat Email Anda"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -31,16 +31,16 @@
 
                             <div class="d-flex flex-column justify-content-start mb-3">
                                 <div class="d-flex justify-content-between">
-                                    <label for="password" class="text-start mb-2 fw-semibold">{{ __('Password') }}</label>
+                                    <label for="password" class="text-start mb-2 fw-semibold">{{ __('Kata Sandi') }}</label>
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link text-start p-0" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
+                                            {{ __('Lupa Kata Sandi?') }}
                                         </a>
                                     @endif
                                 </div>
 
                                 <div class="">
-                                    <input id="password" type="password" placeholder="Your Password"
+                                    <input id="password" type="password" placeholder="Kata Sandi Anda"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
 
@@ -59,7 +59,7 @@
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
+                                            {{ __('Ingat Saya') }}
                                         </label>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                             <div class="mb-5">
                                 <div class="d-flex flex-column justify-content-start">
                                     <button type="submit" class="btn btn-danger">
-                                        {{ __('Login') }}
+                                        {{ __('Masuk') }}
                                     </button>
                                 </div>
                             </div>

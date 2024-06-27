@@ -3,7 +3,7 @@
         <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
             <h6 class="text-primary text-uppercase">Artikel Terbaru</h6>
             <h1 class="display-5 text-uppercase mb-0">Artikel Terbaru Dekranasda <br>Kota Sukabumi</h1>
-            <a class="text-primary text-uppercase" href="{{ url('article') }}">Read More <i
+            <a class="text-primary text-uppercase" href="{{ url('article') }}">Artikel Lainnya<i
                     class="bi bi-chevron-right"></i></a>
         </div>
         <div class="row g-5">
@@ -29,7 +29,7 @@
                                 <div class="mt-1 ml-4">
                                     <p>{!! Str::limit($atwo->body, 100) !!}</p>
                                     <a class="text-primary text-uppercase"
-                                        href="{{ route('landing.article.show', ['id' => $atwo->id]) }}">Read More<i
+                                        href="{{ route('landing.article.show', ['id' => $atwo->id]) }}">Selengkapnya<i
                                             class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>

@@ -19,30 +19,46 @@
             @csrf
             @method('PUT')
             <div class="form-group mb-3">
-                <img src="{{ asset('images/profiles/' . $data->gambarHero) }}" alt="{{ $data->gambarHero }}" width="75">
-                </td>
-                <label for="gambarHero" class="form-label">Upload Gambar Hero</label>
-                <br>
-                <input type="file" name="gambarHero">
+                <div class="d-flex flex-column mb-3 ">
+                    <label for="gambarHero" class="form-label">Gambar Hero <span class="text-danger">*</span></label>
+                    <img src="{{ asset('images/profiles/' . $data->gambarHero) }}" alt="{{ $data->gambarHero }}"
+                        width="200" style="border-radius: 10px">
+                </div>
+                <div class="">
+                    <input type="file" class="form-control" placeholder="Upload Gambar Hero" name="gambarHero">
+                    <p class="text-danger">Edit gambar hero dengan gambar yang minimal memiliki 1600 x 1200 pixel</p>
+                </div>
+
             </div>
             <div class="form-group mb-3">
-                <img src="{{ asset('images/profiles/' . $data->gambarAbout) }}" alt="{{ $data->gambarAbout }}"
-                    width="75">
-                </td>
-                <label for="gambarAbout" class="form-label">Upload Gambar About</label>
-                <br>
-                <input type="file" name="gambarAbout">
+                <div class="d-flex flex-column mb-3 ">
+                    <label for="gambarAbout" class="form-label">Gambar About <span class="text-danger">*</span></label>
+                    <img src="{{ asset('images/profiles/' . $data->gambarAbout) }}" alt="{{ $data->gambarAbout }}"
+                        width="200" style="border-radius: 10px">
+                </div>
+                <div class="">
+                    <input type="file" class="form-control" placeholder="Upload Gambar About" name="gambarAbout">
+                    <p class="text-danger">Edit gambar about dengan gambar yang minimal memiliki 1600 x 1200 pixel</p>
+                </div>
+
             </div>
             <div class="form-group mb-3">
-                <img src="{{ asset('images/profiles/' . $data->gambarStrukturOrganisasi) }}"
-                    alt="{{ $data->gambarStrukturOrganisasi }}" width="75">
-                </td>
-                <label for="gambarStrukturOrganisasi" class="form-label">Upload Gambar Struktur Organisasi</label>
-                <br>
-                <input type="file" name="gambarStrukturOrganisasi">
+                <div class="d-flex flex-column mb-3 ">
+                    <label for="gambarStrukturOrganisasi" class="form-label">Gambar Struktur Organisasi <span
+                            class="text-danger">*</span></label>
+                    <img src="{{ asset('images/profiles/' . $data->gambarStrukturOrganisasi) }}"
+                        alt="{{ $data->gambarStrukturOrganisasi }}" width="200" style="border-radius: 10px">
+                </div>
+                <div class="">
+                    <input type="file" class="form-control" placeholder="Upload Gambar Struktur Organisasi"
+                        name="gambarStrukturOrganisasi">
+                    <p class="text-danger">Edit gambar struktur organisasi dengan gambar yang minimal memiliki 1600 x 1200
+                        pixel</p>
+                </div>
+
             </div>
-            <div class="form-group w-100">
-                <label class="w-100">Link Video Youtube
+            <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Link Video Youtube <span class="text-danger">*</span>
                     <input type="text" class="form-control @error('videoYoutube') is-invalid @enderror"
                         name="videoYoutube" value="{{ $data->videoYoutube }}">
                 </label>
@@ -50,8 +66,9 @@
                     <p class="text-danger">{{ $errors->first('videoYoutube') }}</p>
                 @endif
             </div>
-            <div class="form-group w-100">
-                <label for="editor1" class="w-100 "><span class="text-xl font-semibold">Tentang</span>
+            <div class="form-group w-100 mb-5">
+                <label for="editor1" class="w-100 "><span class="text-xl font-semibold mb-2">Tentang <span
+                            class="text-danger">*</span></span>
                     <div id="editor1">{!! $data->tentang !!}</div>
                     <textarea class="form-control d-none @error('tentang') is-invalid @enderror" name="tentang" id="tentang"
                         style="display:none;">{!! $data->tentang !!}</textarea>
@@ -60,8 +77,8 @@
                     <p class="text-danger">{{ $errors->first('tentang') }}</p>
                 @endif
             </div>
-            <div class="form-group w-100">
-                <label class="w-100">Sejarah
+            <div class="form-group w-100 mb-5">
+                <label class="w-100">Sejarah <span class="text-danger">*</span>
                     <div id="editor2">{!! $data->sejarah !!}</div>
                     <textarea class="form-control d-none @error('sejarah') is-invalid @enderror" name="sejarah" id="sejarah"
                         style="display:none;">{!! $data->sejarah !!}</textarea>
@@ -70,8 +87,8 @@
                     <p class="text-danger">{{ $errors->first('sejarah') }}</p>
                 @endif
             </div>
-            <div class="form-group w-100">
-                <label class="w-100">Visi
+            <div class="form-group w-100 mb-5">
+                <label class="w-100">Visi <span class="text-danger">*</span>
                     <div id="editor3">{!! $data->visi !!}</div>
                     <textarea class="form-control d-none @error('visi') is-invalid @enderror" name="visi" id="visi"
                         style="display:none;">{!! $data->visi !!}</textarea>
@@ -80,8 +97,8 @@
                     <p class="text-danger">{{ $errors->first('visi') }}</p>
                 @endif
             </div>
-            <div class="form-group w-100">
-                <label class="w-100">Misi
+            <div class="form-group w-100 mb-5">
+                <label class="w-100">Misi <span class="text-danger">*</span>
                     <div id="editor4">{!! $data->misi !!}</div>
                     <textarea class="form-control d-none @error('misi') is-invalid @enderror" name="misi" id="misi"
                         style="display:none;">{!! $data->misi !!}</textarea>
@@ -90,8 +107,8 @@
                     <p class="text-danger">{{ $errors->first('misi') }}</p>
                 @endif
             </div>
-            <div class="form-group w-100">
-                <label class="w-100">Demografi
+            <div class="form-group w-100 mb-5">
+                <label class="w-100">Demografi <span class="text-danger">*</span>
                     <div id="editor5">{!! $data->demografi !!}</div>
                     <textarea class="form-control d-none @error('demografi') is-invalid @enderror" name="demografi" id="demografi"
                         style="display:none;">{!! $data->demografi !!}</textarea>
@@ -100,8 +117,8 @@
                     <p class="text-danger">{{ $errors->first('demografi') }}</p>
                 @endif
             </div>
-            <div class="form-group w-100">
-                <label class="w-100">Geografi
+            <div class="form-group w-100 mb-5">
+                <label class="w-100">Geografi <span class="text-danger">*</span>
                     <div id="editor6">{!! $data->geografi !!}</div>
                     <textarea class="form-control d-none @error('geografi') is-invalid @enderror" name="geografi" id="geografi"
                         style="display:none;">{!! $data->geografi !!}</textarea>
@@ -110,7 +127,7 @@
                     <p class="text-danger">{{ $errors->first('geografi') }}</p>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
 

@@ -5,27 +5,24 @@
     </div>
     <table class="table mt-3">
         <thead>
-            <tr>
-                <th scope="col">id</th>
+            <tr class="fw-bold">
+                <th scope="col">No</th>
                 <th scope="col">Nama Kategori</th>
                 <th scope="col">Deskripsi</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($data as $item)
                 <tr>
-                    <th scope="row">{{ $item->id }}</th>
+                    <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $item->namaKategori }}</td>
                     <td>{{ $item->descKategori }}</td>
                     <td>
                         <a href="{{ route('category.edit', $item->id) }}" class="btn btn-success"><i
                                 class="bi bi-pencil-square fs-3"></i></a>
-                    </td>
-                    <td>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal{{ $item->id }}"><i class="bi bi-trash fs-3"></i></button>
+                            data-bs-target="#exampleModal{{ $item->id }}"><i class="bi bi-trash fs-3 ps-1"></i></button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1"
                             aria-labelledby="exampleModalLabel{{ $item->id }}" aria-hidden="true">
