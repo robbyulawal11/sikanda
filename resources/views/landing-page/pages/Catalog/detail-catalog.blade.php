@@ -7,8 +7,8 @@
 </div>
             <div class="row">
                 @foreach ($catalog as $c)
-                <div class="col-12 col-sm-4 pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                <div class="col-12 col-sm-4 pb-5 d-flex">
+                    <div class="product-item position-relative bg-light d-flex flex-column flex-fill text-center ">
                       <a data-bs-toggle="modal" 
                            data-bs-target="#staticBackdrop"
                            data-image="{{ asset('images/catalogs/' . $c->image) }}" 

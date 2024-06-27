@@ -14,6 +14,15 @@
                     <label for="exampleFormControlInput1" class="form-label">Nama Penjual</label>
                     <input type="hidden" name="seller" class="form-control" value="{{ Auth::user()->name }}">
                 </div>
+                <div class="form-group w-100 visually-hidden">
+                    <label class="w-100">User ID
+                        <input type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id"
+                            value="{{ Auth::user()->id }}">
+                    </label>
+                    @if ($errors->has('user_id'))
+                        <p class="text-danger">{{ $errors->first('user_id') }}</p>
+                    @endif
+                </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Harga</label>
                     <input type="text" name="harga" id="harga" class="form-control" required>

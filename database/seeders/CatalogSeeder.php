@@ -23,6 +23,7 @@ class CatalogSeeder extends Seeder
                 'wa' => '86738282728',
                 'ig' => 'ujang123',
                 'image' => '1718696802.jpg',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -35,6 +36,7 @@ class CatalogSeeder extends Seeder
                 'wa' => '86738282313',
                 'ig' => 'asep456',
                 'image' => '1718696858.jpg',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -47,6 +49,7 @@ class CatalogSeeder extends Seeder
                 'wa' => '86789738932',
                 'ig' => 'tatang01',
                 'image' => '1718698473.jpg',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -59,6 +62,7 @@ class CatalogSeeder extends Seeder
                 'wa' => '83892332392',
                 'ig' => 'budi123',
                 'image' => '1718696989.jpg',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -71,6 +75,7 @@ class CatalogSeeder extends Seeder
                 'wa' => '89032318293',
                 'ig' => 'budi123',
                 'image' => '1718697065.jpg',
+                'user_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -83,6 +88,7 @@ class CatalogSeeder extends Seeder
                 'wa' => '83923942934',
                 'ig' => 'jajang01',
                 'image' => '1718697178.jpg',
+                'user_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ]

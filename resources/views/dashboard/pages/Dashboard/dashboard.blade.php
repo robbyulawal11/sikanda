@@ -9,7 +9,8 @@
             <div class="d-flex flex-column justify-content-start gx-5 gx-xl-10">
                 <!--begin::Col-->
 
-                <h1>Selamat Datang {{ $user->name }}!</h1>
+                <h1>Selamat Datang {{ Auth::user()->name }}!</h1>
+
 
                 <!--begin::Row-->
                 <div class="d-flex flex-column justify-content-start g-5 g-xl-10 mb-xl-5">

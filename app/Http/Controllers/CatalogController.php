@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use Illuminate\Support\Facades\Auth;
 
 class CatalogController extends Controller
 {
@@ -15,7 +16,17 @@ class CatalogController extends Controller
         $title = "Katalog Produk";
         $path = $request->path();
         $path = explode("/", $path);
-        $catalog = Catalog::all();
+
+        $user = Auth::user(); // Get the authenticated user
+        // Check user role and fetch galeri accordingly
+        if ($user->role == 'admin') {
+            $catalog = Catalog::all();
+        } elseif ($user->role == 'Penjual') {
+            $catalog = Catalog::where('user_id', $user->id)->get(); // Fetch articles created by the penjual
+        } else {
+            $catalog = collect(); // Empty collection for 'Copywriter' role
+        }
+
         return view('dashboard.pages.Catalog.show', ['catalog' => $catalog], compact('path', 'title'));
     }
 
@@ -41,7 +52,8 @@ class CatalogController extends Controller
             'deskripsi' => 'nullable|string',
             'wa' => 'required',
             'ig' => 'nullable|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'user_id' => 'nullable'
         ]);
 
         if ($request->hasFile('image')) {
@@ -87,7 +99,8 @@ class CatalogController extends Controller
             'deskripsi' => 'nullable|string',
             'wa' => 'nullable|string',
             'ig' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'user_id' => 'nullable'
         ]);
 
         if ($request->hasFile('image')) {

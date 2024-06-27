@@ -10,7 +10,7 @@
             <div class="owl-carousel product-carousel">
                 @foreach ($catalog as $c)
                     <div class="pb-5">
-                        <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                        <div class="product-item position-relative bg-light d-flex flex-column flex-fill text-center">
                             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 data-image="{{ asset('images/catalogs/' . $c->image) }}" data-id="{{ $c->id }}"
                                 data-nama="{{ $c->nama }}" data-harga="{{ $c->harga }}"
