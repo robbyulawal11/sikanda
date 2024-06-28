@@ -54,15 +54,33 @@ class DashboardController extends Controller
             'data' => [$countArticles, $countGalleries, $countCatalogs],
         ];
 
+        // $chartPenjual = [
+        //     'labels' => ['Artikel', 'Galeri', 'Katalog'],
+        //     'data' => [$countArticles, $countGalleries, $countCatalogs],
+        // ];
+
         $chartUser = [
             'labels' => ['Penjual', 'Penulis Artikel', 'Lainnya'],
             'data' => [$penjualCount, $copyWriterCount, $otherCount],
         ];
 
+        // Statistic box
+        // if (Auth::user()->role == 'Penjual') {
+        //     $boxgallery = Gallery::where('user_id', Auth::user()->id);
+        //     $boxcatalog = Catalog::where('user_id', Auth::user()->id);
+        //     $boxarticle = 0;
+        // } else {
+        //     $boxgallery = 0;
+        //     $boxcatalog = 0;
+        //     $boxarticle = Article::where('user_id', Auth::user()->id);
+
+        // }
+
+
         $newCustomersThisMonth = User::whereMonth('created_at', date('m'))->count(); // Fetch the count of new customers this month
         $todayHeroes = User::whereDate('created_at', date('Y-m-d'))->count(); // Fetch the data for today's heroes
         $remainingHeroesCount = 1;   // Calculate the count of remaining heroes
     
-        return view('dashboard.pages.Dashboard.dashboard', compact('path', 'title', 'user', 'penjualCount', 'copyWriterCount', 'countUser','newCustomersThisMonth', 'todayHeroes', 'remainingHeroesCount', 'otherCount', 'chartData', 'chartUser'));
+        return view('dashboard.pages.Dashboard.dashboard', compact('path', 'title', 'user', 'penjualCount', 'copyWriterCount', 'countUser','newCustomersThisMonth', 'todayHeroes', 'remainingHeroesCount', 'otherCount', 'chartData', 'chartUser', 'boxgallery', 'boxarticle', 'boxcatalog'));
     }
 }

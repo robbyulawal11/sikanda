@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <div class="container">
-        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 800px;">
             <h6 class="text-primary text-uppercase">Artikel Terbaru</h6>
             <h1 class="display-5 text-uppercase mb-0">Artikel Terbaru Dekranasda <br>Kota Sukabumi</h1>
             <a class="text-primary text-uppercase" href="{{ url('article') }}">Artikel Lainnya<i
@@ -11,7 +11,8 @@
                 <div class="col-lg-6">
                     <div class="blog-item">
                         <div class="row g-0 bg-light overflow-hidden p-4" style="height: 100%;">
-                            <div class="col-12 col-sm-5 h-100 d-flex justify-content-center align-items-center">
+                            <div class="col-12 col-sm-5 h-100 d-flex justify-content-center align-items-center"
+                                style="min-height: 200px !important;">
                                 <img class="img-fluid mt-4 ml-4" src="{{ asset('/images/articles/' . $atwo->image) }}"
                                     alt="{{ $atwo->title }}"
                                     style="max-width: 100%; max-height: 100%; object-fit: cover;">

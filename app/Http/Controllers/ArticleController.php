@@ -103,9 +103,6 @@ class ArticleController extends Controller
             'user_id' => 'nullable'
         ]);
 
-        $data['user_id'] = Auth::user()->id;
-
-
         if ($request->hasFile('image')) {
             $filename = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/articles'), $filename);
@@ -114,7 +111,7 @@ class ArticleController extends Controller
 
         Article::create($data);
 
-        return redirect('admin/article')->with('success', 'Article created successfully.');
+        return redirect('admin/article')->with('success', 'Artikel Berhasil Disimpan.');
     }
 
 
@@ -138,7 +135,7 @@ class ArticleController extends Controller
         $title = "Edit Artikel";
         $parts = $request->path();
         $path = explode("/", $parts);
-        return view('dashboard.pages.Article.edit', ['article' => $article], compact('title', 'path'));
+        return view('dashboard.pages.Article.edit', ['article' => $article], compact('title', 'path'))->with('success', 'Artikel Berhasil Disimpan');
     }
 
     /**
@@ -171,7 +168,7 @@ class ArticleController extends Controller
         //mengupdate data
         $article->update($data);
 
-        return redirect('admin/article');
+        return redirect('admin/article')->with('success', 'Artikel Berhasil Disimpan');
     }
 
     /**
@@ -189,7 +186,6 @@ class ArticleController extends Controller
 
         // //menghapus data
         $article->delete();
-        return redirect('admin/article');
+        return redirect('admin/article')->with('success', 'Artikel Berhasil Dihapus');
     }
-    
 }

@@ -8,10 +8,24 @@
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
 @section('content')
+    {{-- Search box --}}
     <div class="d-flex flex-direction-row justify-content-end mb-3">
-        <input class="form-control me-2 w-25" id="search" type="search" placeholder="Pencarian..." aria-label="Search">
+        <input class="form-control me-2 w-25" id="search" type="search" placeholder="Cari" aria-label="Search">
     </div>
-    <table id="showarticle" class="table table-striped table-hover">
+
+    {{-- toast notification --}}
+    <div class="toast align-items-center text-bg-success border-0 " id="toast" data-delay="3000" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body text-white fs-5">
+                {{ session('success') }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+
+    <table id="showarticl" class="table table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col" class="text-center"><b>No</b></th>
@@ -50,12 +64,12 @@
                                         <p>Apakah anda yakin ingin menghapus data ini?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-success"
                                             data-bs-dismiss="modal">Tidak</button>
                                         <form action="{{ route('article.destroy', $article->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-primary">Ya! Saya yakin</button>
+                                            <button type="submit" class="btn btn-danger">Ya! Saya yakin</button>
                                         </form>
                                     </div>
                                 </div>
@@ -107,4 +121,12 @@
             $('#showarticle').DataTable();
         });
     </script>
+
+    @if (session('success'))
+        <script>
+            $(document).ready(function() {
+                $('#toast').toast('show');
+            });
+        </script>
+    @endif
 @endsection

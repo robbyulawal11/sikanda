@@ -1,35 +1,38 @@
 @extends('dashboard.layouts.app')
 
+
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="{{ asset('assets/css/index.css') }}" rel="stylesheet" />
+
 @section('content')
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link href="{{ asset('assets/css/index.css') }}" rel="stylesheet" />
-
-
     <section id="edit_article">
+
+
         <div class="container">
             <form class="d-flex flex-column" method="post" action="{{ route('article.update', $article->id) }}"
                 enctype="multipart/form-data" onsubmit="return submitForm()">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Judul<span class="text-danger">*</span></label>
+                    <label for="exampleFormControlInput1" class="form-label">Judul <span
+                            class="text-danger">*</span></label>
                     <input type="text" name="title" class="form-control" value="{{ $article->title }}" required>
                     @if ($errors->has('title'))
                         <div class="text-danger">{{ $errors->first('title') }}</div>
                     @endif
                 </div>
                 <div class="mb-3 visually-hidden">
-                    <label for="exampleFormControlInput1" class="form-label">Nama Penulis<span
+                    <label for="exampleFormControlInput1" class="form-label">Nama Penulis <span
                             class="text-danger">*</span></label>
                     <input type="hidden" name="author" class="form-control" value="{{ Auth::user()->name }}">
                 </div>
@@ -38,13 +41,13 @@
                     <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Artikel<span
+                    <label for="exampleFormControlTextarea1" class="form-label">Artikel <span
                             class="text-danger">*</span></label>
                     <div id="editor">{!! $article->body !!}</div>
                     <textarea class="form-control d-none" name="body" id="body"></textarea>
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
+                    <label for="images" class="form-label">Unggah Gambar <span class="text-danger">*</span></label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control">
                     <div id="image_preview" style="width:500px" class="mb-3">
