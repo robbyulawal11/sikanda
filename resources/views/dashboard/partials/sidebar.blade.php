@@ -90,7 +90,7 @@
                 </div>
                 <!--end:Menu item-->
             @endif
-            <!--begin:Menu item-->
+            {{-- <!--begin:Menu item-->
             <div class="menu-item here show">
                 <!--begin:Menu link-->
                 <a class="menu-link {{ Request::is('admin/category') ? 'active' : '' }}"
@@ -105,7 +105,7 @@
                 </a>
                 <!--end:Menu link-->
             </div>
-            <!--end:Menu item-->
+            <!--end:Menu item--> --}}
             @if (Auth::user()->role == 'admin')
                 <!--begin:Menu item-->
                 <div class="menu-item here show">

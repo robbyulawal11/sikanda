@@ -13,6 +13,16 @@
 
 
     <link href="{{ asset('assets/css/index.css') }}" rel="stylesheet" />
+    <div class="toast align-items-center text-bg-success border-0" id="toast" data-delay="3000" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body text-white fs-5">
+                {{ session('success') }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
     <div class="container">
         <form method="POST" onsubmit="return submitForm()" action="{{ route('profile.update', ['profile' => $data]) }}"
             enctype="multipart/form-data">
@@ -164,4 +174,11 @@
 
         // return true;
     </script>
+    @if (session('success'))
+        <script>
+            $(document).ready(function() {
+                $('#toast').toast('show');
+            });
+        </script>
+    @endif
 @endsection
