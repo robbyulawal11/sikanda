@@ -119,7 +119,7 @@ class ProfileController extends Controller
         }
 
         $data->update($validator);
-        return redirect('admin/profile/1/edit')->with('success', 'Data berhasil diinput');
+        return redirect('admin/profile/1/edit')->with('success', 'Data profil berhasil diubah');
     }
 
     /**
