@@ -66,7 +66,7 @@ class galleryController extends Controller
         }
 
         Gallery::create($validator);
-        return redirect('admin/gallery')->with('success', 'Data berhasil diinput');
+        return redirect('admin/gallery')->with('success', 'Data galeri berhasil disimpan');
     }
 
     /**
@@ -135,7 +135,7 @@ class galleryController extends Controller
         }
 
         $gallery->update($validator);
-        return redirect('admin/gallery')->with('success', 'Data berhasil diinput');
+        return redirect('admin/gallery')->with('success', 'Data galeri berhasil diubah');
     }
 
     /**
@@ -149,6 +149,6 @@ class galleryController extends Controller
             unlink($imagePath);
         }
         Gallery::destroy($id);
-        return redirect('admin/gallery')->with('success', 'Data berhasil dihapus');
+        return redirect('admin/gallery')->with('success', 'Data galeri berhasil dihapus');
     }
 }

@@ -3,8 +3,7 @@
     <!--begin::Copyright-->
     <div class="text-dark order-2 order-md-1">
         <span class="text-muted fw-semibold me-1">2024&copy;</span>
-        <a href="https://digitalservice.jabarprov.go.id" target="_blank"
-            class="text-gray-800 text-hover-primary">Sikanda</a>
+        <a href="{{ url('/') }}" target="_blank" class="text-gray-800 text-hover-primary">Sikanda</a>
     </div>
     <!--end::Copyright-->
     <!--begin::Menu-->
