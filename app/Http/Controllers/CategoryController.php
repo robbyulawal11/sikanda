@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $title = "Kategori";
         $path = $request->path();
         $path = explode("/", $path);
-        $data = Category::all();
+        $data = Category::orderBy('updated_at', 'desc')->paginate(10);
         // dd($data);
         return view('dashboard/pages/Category/show', compact('data', 'title', 'path'));
     }
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         ]);
 
         Category::create($validator);
-        return redirect('admin/category')->with('success', 'Data berhasil diinput');
+        return redirect('admin/category')->with('success', 'Data kategori berhasil disimpan');
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         ]);
 
         $data->update($validator);
-        return redirect('admin/category')->with('success', 'Data berhasil diubah');
+        return redirect('admin/category')->with('success', 'Data kategori berhasil diubah');
     }
 
     /**
@@ -88,6 +88,6 @@ class CategoryController extends Controller
     {
         $data = Category::find($id);
         $data->delete();
-        return redirect('admin/category')->with('success', 'Data berhasil dihapus');
+        return redirect('admin/category')->with('success', 'Data kategori berhasil dihapus');
     }
 }

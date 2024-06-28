@@ -30,6 +30,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -182,7 +187,22 @@
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item text-gray-700 fw-bold lh-1 text-capitalize">
-                                                {{ $path[1] }}
+                                                @if ($path[1] == 'dashboard')
+                                                    <a href="{{ route('dashboard') }}">{{ $path[1] }}</a>
+                                                @elseif ($path[1] == 'profile')
+                                                    <a href="{{ route('profile.edit', 1) }}">{{ $path[1] }}</a>
+                                                @elseif ($path[1] == 'user')
+                                                    @if (Auth::user()->role == 'admin')
+                                                        <a
+                                                            href="{{ route($path[1] . '.index') }}">{{ $path[1] }}</a>
+                                                    @else
+                                                        <a>{{ $path[1] }}</a>
+                                                    @endif
+                                                @else
+                                                    <a
+                                                        href="{{ route($path[1] . '.index') }}">{{ $path[1] }}</a>
+                                                @endif
+
                                             </li>
                                             <!--end::Item-->
                                             <!--begin::Item-->
@@ -216,7 +236,8 @@
                                     <!--begin::Actions-->
                                     @if ($path[1] != 'dashboard' && count($path) == 2)
                                         <a href="{{ route($path[1] . '.create') }}"
-                                            class="btn btn-sm ms-3 px-4 py-3 text-capitalize" style="background-color: rgb(252, 36, 36); color: white;">Buat
+                                            class="btn btn-sm ms-3 px-4 py-3 text-capitalize"
+                                            style="background-color: rgb(252, 36, 36); color: white;">Buat
                                             {{ $path[1] }}</a>
                                     @endif
                                     <!--end::Actions-->

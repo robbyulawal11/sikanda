@@ -39,10 +39,15 @@
                                     @endif
                                 </div>
 
-                                <div class="">
+                                <div class="input-group">
                                     <input id="password" type="password" placeholder="Kata Sandi Anda"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
+                                        class="form-control border border-end-0 @error('password') is-invalid @enderror"
+                                        name="password" required autocomplete="current-password">
+
+                                    <span class="rounded-end px-3 py-1 border border-start-0"><a type="button"
+                                            id="togglePassword" required>
+                                            <i class="bi bi-eye fs-5"></i>
+                                        </a></span>
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -78,4 +83,17 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.getElementById('togglePassword');
+            const password = document.getElementById('password');
+
+            togglePassword.addEventListener('click', function(e) {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('bi-eye-slash');
+                this.querySelector('i').classList.toggle('bi-eye');
+            });
+        });
+    </script>
 @endsection

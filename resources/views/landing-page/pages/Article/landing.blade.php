@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <div class="container">
-        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 800px;">
             <h6 class="text-primary text-uppercase">Artikel Terbaru</h6>
             <h1 class="display-5 text-uppercase mb-0">Artikel Terbaru Dekranasda <br>Kota Sukabumi</h1>
             <a class="text-primary text-uppercase" href="{{ url('article') }}">Artikel Lainnya<i
