@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('ig')->nullable();
             $table->string('image');
             $table->integer('user_id');
+            $table->string('user_alamat')->nullable();
             $table->timestamps();
         });
     }

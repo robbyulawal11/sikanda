@@ -54,7 +54,8 @@ class CatalogController extends Controller
             'wa' => 'required',
             'ig' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'user_id' => 'nullable'
+            'user_id' => 'nullable',
+            'user_alamat' => 'nullable'
         ]);
 
         if ($request->hasFile('image')) {
@@ -65,7 +66,7 @@ class CatalogController extends Controller
 
         Catalog::create($data);
 
-        return redirect('admin/catalog');
+        return redirect('admin/catalog')->with('success', 'Data Katalog berhasil disimpan');
     }
 
     /**
@@ -101,7 +102,8 @@ class CatalogController extends Controller
             'wa' => 'nullable|string',
             'ig' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'user_id' => 'nullable'
+            'user_id' => 'nullable',
+            'user_alamat' => 'nullable'
         ]);
 
         if ($request->hasFile('image')) {
@@ -120,7 +122,7 @@ class CatalogController extends Controller
         //mengupdate data
         $catalog->update($data);
 
-        return redirect('admin/catalog');
+        return redirect('admin/catalog')->with('success', 'Data Katalog berhasil dirubah');
     }
 
     /**
@@ -136,6 +138,6 @@ class CatalogController extends Controller
         //menhapus data
         $catalog->delete();
 
-        return redirect('admin/catalog');
+        return redirect('admin/catalog')->with('success', 'Data galeri berhasil dihapus');
     }
 }

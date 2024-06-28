@@ -39,7 +39,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nama' => 'required',
+            'name' => 'required',
             'role' => 'required',
             'email' => 'required',
             'password' => 'required',
@@ -55,7 +55,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect('admin/user');
+        return redirect('admin/user')->with('success', 'Data User berhasil disimpan');
     }
 
     /**
@@ -86,12 +86,18 @@ class UserController extends Controller
             'name' => 'required',
             'role' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'wa' => 'required',
             'alamat' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        } else {
+            // Pertahankan password yang sudah ada jika tidak ada password baru yang diberikan
+            $data['password'] = $user->password;
+        }
+        
         if ($request->hasFile('image')) {
             //menghapus gambar lama
             $imagePath = public_path('images/users/' . $user->image);
@@ -108,7 +114,7 @@ class UserController extends Controller
         //mengupdate data
         $user->update($data);
 
-        return redirect('admin/user');
+        return redirect('admin/user')->with('success', 'Data User berhasil dirubah');
     }
 
     /**
@@ -124,7 +130,7 @@ class UserController extends Controller
         //menhapus data
         $user->delete();
 
-        return redirect('admin/user');
+        return redirect('admin/user')->with('success', 'Data User berhasil dihapus');
     }
 
     public function checkEmail(Request $request)
@@ -169,6 +175,6 @@ class UserController extends Controller
         //mengupdate data
         $user->update($data);
 
-        return redirect()->route('setting.profile');
+        return redirect()->route('setting.profile')->with('success', 'Data User berhasil dirubah');
     }
 }

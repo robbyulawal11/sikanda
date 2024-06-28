@@ -2,13 +2,8 @@
 
 @section('content')
 
-<style>
-    .preview {
-        max-width: 100%;
-        max-height: 200px;
-        margin-top: 10px;
-    }
-</style>
+
+<link href="{{ asset('assets/css/index.css') }}" rel="stylesheet" />
 
     <section id="create_user">
         <div class="container">
@@ -20,9 +15,8 @@
                     <input type="text" name="name" class="form-control" placeholder="Masukan nama lengkap anda" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Role <span style="color: red;">*</span></label>
+                    <label for="exampleFormControlInput1" class="form-label">Peran <span style="color: red;">*</span></label>
                     <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="role" required>
-                        <option selected></option>
                         <option value="Copywriter">Copywriter</option>
                         <option value="Penjual">Penjual</option>
                       </select>
@@ -54,11 +48,10 @@
                     <textarea class="form-control" name="alamat" rows="3" placeholder="Masukan alamat lengkap anda" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Upload Foto Anda <span style="color: red;">*</span></label>
+                    <label for="images" class="form-label">Unggah Foto Anda <span style="color: red;">*</span></label>
                     <br>
-                    <img id="imagePreview" class="preview d-none" alt="Pratinjau Gambar">
-                    <br>
-                    <input type="file" id="imageInput" name="image" required>
+                    <input type="file" name="image" id="images" class="form-control" required>
+                    <div id="image_preview" style="width:300px" class="mb-3">
                 </div>
                 <div class="d-flex gap-3 justify-content-end mt-5">
                 <button type="submit" class="btn btn-success">Simpan</button>
@@ -84,9 +77,14 @@
         });
 
         document.getElementById('wa').addEventListener('input', function (e) {
-            if (e.target.value.match(/[^0-9.]/)) {
-                e.target.value = e.target.value.replace(/[^0-9.]/g, '');
-            }
+        // Get the current value and limit it to 13 characters
+        const limitedValue = e.target.value.substring(0, 12);
+
+        // Allow backspace key (keyCode 8) for deleting characters
+        if (e.keyCode !== 8) {
+        // Remove non-numeric characters using a regular expression
+        e.target.value = limitedValue.replace(/[^0-9]/g, '');
+        }
         });
 
         document.getElementById('userForm').addEventListener('submit', function(event) {
@@ -123,21 +121,30 @@
         });
     });
 
-    document.getElementById('imageInput').addEventListener('change', function(event) {
-            const imagePreview = document.getElementById('imagePreview');
-            const file = event.target.files[0];
+        $(document).ready(function() {
+                $("#images").change(function() {
+                    $('#image_preview').html("");
+                    var file = document.getElementById("images").files[0];
+                    if (!file) return;
+                    if (file.size > 2097152) {
+                        alert('File size must be less than 2MB');
+                        return false;
+                    } else {
+                        $('#image_preview').append("<div class='img-div' id='img-div'><img src='" + URL
+                            .createObjectURL(file) +
+                            "' class='img-responsive image img-thumbnail' title='" + file.name +
+                            "'><div class='middle'><button id='action-icon' value='img-div' class='btn btn-danger' role='" +
+                            file.name + "'><i class='fa fa-trash'></i></button></div></div>");
+                    }
+                });
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    imagePreview.classList.remove('d-none');
-                }
-                reader.readAsDataURL(file);
-            } else {
-                imagePreview.src = '';
-                imagePreview.classList.add('d-none');
-            }
-        });
-    </script>
+                $('body').on('click', '#action-icon', function(evt) {
+                    var divName = this.value;
+                    $(`#${divName}`).remove();
+                    $('#images').val(''); // Clear the file input
+                    evt.preventDefault();
+                });
+            });
+
+</script>
 @endsection

@@ -24,6 +24,7 @@ class CatalogSeeder extends Seeder
                 'ig' => 'ujang123',
                 'image' => '1718696802.jpg',
                 'user_id' => 1,
+                'user_alamat' => 'Jalan Raya Sukabumi 12',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -37,6 +38,7 @@ class CatalogSeeder extends Seeder
                 'ig' => 'asep456',
                 'image' => '1718696858.jpg',
                 'user_id' => 1,
+                'user_alamat' => 'Jalan Raya Sukabumi 12',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -50,6 +52,7 @@ class CatalogSeeder extends Seeder
                 'ig' => 'tatang01',
                 'image' => '1718698473.jpg',
                 'user_id' => 1,
+                'user_alamat' => 'Jalan Raya Sukabumi 12',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -63,6 +66,7 @@ class CatalogSeeder extends Seeder
                 'ig' => 'budi123',
                 'image' => '1718696989.jpg',
                 'user_id' => 1,
+                'user_alamat' => 'Jalan Raya Sukabumi 12',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -76,6 +80,7 @@ class CatalogSeeder extends Seeder
                 'ig' => 'budi123',
                 'image' => '1718697065.jpg',
                 'user_id' => 2,
+                'user_alamat' => 'Jalan Raya Sukabumi 12',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -89,6 +94,7 @@ class CatalogSeeder extends Seeder
                 'ig' => 'jajang01',
                 'image' => '1718697178.jpg',
                 'user_id' => 2,
+                'user_alamat' => 'Jalan Raya Sukabumi 12',
                 'created_at' => now(),
                 'updated_at' => now()
             ]
