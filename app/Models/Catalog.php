@@ -17,7 +17,8 @@ class Catalog extends Model
         'wa',
         'ig',
         'image',
-        'user_id'
+        'user_id',
+        'user_alamat'
     ];
 
 }

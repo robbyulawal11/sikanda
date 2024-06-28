@@ -1,7 +1,8 @@
 @extends('landing-page.layouts.app')
 @section('content')
 
-<div class="border-start border-5 border-primary ps-5 mt-3 ms-4 mb-2" style="max-width: 600px;">
+<div class="container">
+<div class="border-start border-5 border-primary ps-5 mt-4 ms-4 mb-5" style="max-width: 800px;">
   <h6 class="text-primary text-uppercase">Katalog</h6>
   <h1 class="display-5 text-uppercase mb-0">Barang Kerajinan Tangan dari Sukabumi</h1>
 </div>
@@ -78,7 +79,7 @@
         </div>
       </div>
     </div>
-    
+  </div>    
 
       <script>
           document.addEventListener('DOMContentLoaded', function () {

@@ -1,6 +1,21 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
+
+
+<link href="{{ asset('assets/css/index.css') }}" rel="stylesheet" />
+
+<div class="toast align-items-center text-bg-success border-0 " id="toast" data-delay="3000" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body text-white fs-5">
+                {{ session('success') }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+
     <section id="create_user">
         <div class="container">
             <form method="post" action="{{ route('update.profile', Auth::user()->id) }}" enctype="multipart/form-data">
@@ -42,14 +57,28 @@
                     <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
                     <textarea class="form-control" name="alamat" rows="3" required>{{ Auth::user()->alamat }}</textarea>
                 </div>
-                <div class="mb-3">
-                    <img src="{{ asset('images/users/'. Auth::user()->image) }}" alt="" width="75">
-                    </td>
-                    <label for="exampleInputEmail1" class="form-label">Upload Foto Anda</label>
+                <div class="mb-3 form-group">
+                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
                     <br>
-                    <input type="file" name="image">
+                    <input type="file" name="image" id="images" class="form-control">
+                    <div id="image_preview" style="width:300px" class="mb-3">
+                        @if (Auth::user()->image)
+                            <div class='img-div' id='existing-img'>
+                                <img src="{{ asset('images/users/' . Auth::user()->image) }}"
+                                    class='img-responsive image img-thumbnail' title='{{ Auth::user()->image }}'>
+                                <div class='middle'>
+                                    <button id='action-icon' value='existing-img' class='btn btn-danger'
+                                        role='{{ Auth::user()->image }}'>
+                                        <i class='fa fa-trash'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
+                <div class="d-flex gap-3 justify-content-end mt-5">
                 <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
             </form>
         </div>
     </section>
@@ -71,10 +100,45 @@
             this.classList.toggle('btn-danger');
         });
     });
-        document.getElementById('wa').addEventListener('input', function (e) {
-            if (e.target.value.match(/[^0-9.]/)) {
-                e.target.value = e.target.value.replace(/[^0-9.]/g, '');
-            }
+    document.getElementById('wa').addEventListener('input', function (e) {
+        // Get the current value and limit it to 13 characters
+        const limitedValue = e.target.value.substring(0, 14);
+
+        // Allow backspace key (keyCode 8) for deleting characters
+        if (e.keyCode !== 8) {
+        // Remove non-numeric characters using a regular expression
+        e.target.value = limitedValue.replace(/[^0-9]/g, '');
+        }
         });
+        $(document).ready(function() {
+                $("#images").change(function() {
+                    $('#image_preview').html("");
+                    var file = document.getElementById("images").files[0];
+                    if (!file) return;
+                    if (file.size > 2097152) {
+                        alert('File size must be less than 2MB');
+                        return false;
+                    } else {
+                        $('#image_preview').append("<div class='img-div' id='img-div'><img src='" + URL
+                            .createObjectURL(file) +
+                            "' class='img-responsive image img-thumbnail' title='" + file.name +
+                            "'><div class='middle'><button id='action-icon' value='img-div' class='btn btn-danger' role='" +
+                            file.name + "'><i class='fa fa-trash'></i></button></div></div>");
+                    }
+                });
+
+                $('body').on('click', '#action-icon', function(evt) {
+                    var divName = this.value;
+                    $(`#${divName}`).remove();
+                    $('#images').val(''); // Clear the file input
+                    evt.preventDefault();
+                });
+            });
+        @if (session('success'))
+        
+        $(document).ready(function() {
+            $('#toast').toast('show');
+        });
+        @endif
     </script>
 @endsection
