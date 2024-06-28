@@ -1,5 +1,7 @@
 @extends('dashboard.layouts.app')
 
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -11,7 +13,7 @@
 
                 <h1>Selamat Datang {{ Auth::user()->name }}!</h1>
 
-
+                {{-- @if (Auth::user()->role == 'admin') --}}
                 <!--begin::Row-->
                 <div class="d-flex flex-column justify-content-start g-5 g-xl-10 mb-xl-5">
                     <!--begin::Col-->
@@ -93,7 +95,45 @@
                 </div>
             </div>
             <!--end::Content-->
+            {{-- @endif --}}
+            {{-- @if (Auth::user()->role == 'Penjual')
+                <!--begin::List widget 6-->
+                <div class="card card-flush h-md-100 mt-10">
+                    <!--begin::Header-->
+                    <div class="card-header pt-7">
+                        <!--begin::Title-->
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold text-gray-800" style="text-center">Jumlah Total Unggahan</span>
 
+                            <canvas id="barChart" width="auto" height="350" style="min-width: 400px"></canvas>
+                    </div>
+                    <!--end::Row-->
+                </div>
+                <!--end::Content container-->
+        </div>
+    </div>
+    </div> --}}
+            <!--end::Content-->
+
+
+            {{-- <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <div class="counter">
+                    <i class="fa-solid fa-image fa-2xl" style="color: #74C0FC;"></i>
+                    <h1>{{ $boxgallery }}</h1>
+                    <p class="count-text ">Jumlah Galeri Diunggah</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter">
+                    <i class="fa fa-coffee fa-2x"></i>
+                    <p class="count-text ">Jumlah Produk Diunggah</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif --}}
 
             <script>
                 var ctx = document.getElementById('barChart').getContext('2d');

@@ -1,5 +1,16 @@
 @extends('landing-page.layouts.app')
 
+<style>
+    .no-spacing p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .no-spacing p:empty {
+        display: none;
+    }
+</style>
+
 @section('content')
     <div class="container-fluid py-5">
         <div class="container">
@@ -11,9 +22,9 @@
     </div>
 
 
-    <div class="container">
+    <div class="container no-spacing">
         @foreach ($profile as $profil)
-            <p>{!! $profil->sejarah !!}</p>
+            {!! $profil->sejarah !!}
         @endforeach
     </div>
 @endsection

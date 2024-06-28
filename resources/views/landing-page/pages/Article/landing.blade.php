@@ -11,7 +11,8 @@
                 <div class="col-lg-6">
                     <div class="blog-item">
                         <div class="row g-0 bg-light overflow-hidden p-4" style="height: 100%;">
-                            <div class="col-12 col-sm-5 h-100 d-flex justify-content-center align-items-center">
+                            <div class="col-12 col-sm-5 h-100 d-flex justify-content-center align-items-center"
+                                style="min-height: 200px !important;">
                                 <img class="img-fluid mt-4 ml-4" src="{{ asset('/images/articles/' . $atwo->image) }}"
                                     alt="{{ $atwo->title }}"
                                     style="max-width: 100%; max-height: 100%; object-fit: cover;">
