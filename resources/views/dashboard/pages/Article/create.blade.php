@@ -73,7 +73,7 @@
                         @endif
                     </div>
                     <div class="d-flex gap-3 justify-content-end mt-5">
-                        <button type="submit" class="btn btn-success w-25" id="liveToastBtn">Simpan</button>
+                        <button type="submit" class="btn btn-success" id="liveToastBtn">Simpan</button>
                         <a href="{{ route('article.index') }}" class="btn btn-secondary">Batal</a>
                     </div>
                 </form>

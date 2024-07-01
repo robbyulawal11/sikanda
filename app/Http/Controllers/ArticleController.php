@@ -18,6 +18,22 @@ class ArticleController extends Controller
         $path = $request->path();
         $path = explode("/", $path);
 
+        if ($request->ajax()) {
+            $data = Article::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('actions', function($row){
+                    $editUrl = route('article.edit', $row->id);
+                    $deleteUrl = route('article.destroy', $row->id);
+                    return "<a href='{$editUrl}' class='btn btn-success'><i class='bi bi-pencil-square fs-3 ms-1'></i></a>
+                            <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal{$row->id}'>
+                                <i class='bi bi-trash fs-3 ms-1'></i>
+                            </button>";
+                })
+                ->rawColumns(['actions'])
+                ->make(true);
+        }
+
         $user = Auth::user(); // Get the authenticated user
         // Check user role and fetch articles accordingly
         if (Auth::user()->role == 'admin') {
