@@ -35,18 +35,18 @@ class DashboardController extends Controller
 
         // Get the count of users with the role 'penjual'
         $penjualCount = User::where('role', 'penjual')->count();
-        
+
         // Get the count of users with the role 'copywriter'
         $copyWriterCount = User::where('role', 'copywriter')->count();
-        
+
         // Calculate the count of others
         $otherCount = User::whereNotIn('role', ['penjual', 'copywriter'])->count();
-        
+
         // Count users, articles, galleries, and catalogs
         $countUser = User::count();
         $countArticles = Article::count();
         $countGalleries = Gallery::count();
-        $countCatalogs = Catalog::count();        
+        $countCatalogs = Catalog::count();
 
         // Prepare data for chart
         $chartData = [
@@ -80,7 +80,7 @@ class DashboardController extends Controller
         $newCustomersThisMonth = User::whereMonth('created_at', date('m'))->count(); // Fetch the count of new customers this month
         $todayHeroes = User::whereDate('created_at', date('Y-m-d'))->count(); // Fetch the data for today's heroes
         $remainingHeroesCount = 1;   // Calculate the count of remaining heroes
-    
-        return view('dashboard.pages.Dashboard.dashboard', compact('path', 'title', 'user', 'penjualCount', 'copyWriterCount', 'countUser','newCustomersThisMonth', 'todayHeroes', 'remainingHeroesCount', 'otherCount', 'chartData', 'chartUser', 'boxgallery', 'boxarticle', 'boxcatalog'));
+
+        return view('dashboard.pages.Dashboard.dashboard', compact('path', 'title', 'user', 'penjualCount', 'copyWriterCount', 'countUser','newCustomersThisMonth', 'todayHeroes', 'remainingHeroesCount', 'otherCount', 'chartData', 'chartUser'));
     }
 }

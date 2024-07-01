@@ -77,6 +77,71 @@
                 @endif
             </div>
             <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Link Instagram <span class="text-danger">*</span>
+                    <input type="text" class="form-control @error('linkInstagram') is-invalid @enderror"
+                        name="linkInstagram" value="{{ $data->linkInstagram }}">
+                </label>
+                @if ($errors->has('linkInstagram'))
+                    <p class="text-danger">{{ $errors->first('linkInstagram') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Link Facebook <span class="text-danger">*</span>
+                    <input type="text" class="form-control @error('linkFacebook') is-invalid @enderror"
+                        name="linkFacebook" value="{{ $data->linkFacebook }}">
+                </label>
+                @if ($errors->has('linkFacebook'))
+                    <p class="text-danger">{{ $errors->first('linkFacebook') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Link Twitter <span class="text-danger">*</span>
+                    <input type="text" class="form-control @error('linkTwitter') is-invalid @enderror" name="linkTwitter"
+                        value="{{ $data->linkTwitter }}">
+                </label>
+                @if ($errors->has('linkTwitter'))
+                    <p class="text-danger">{{ $errors->first('linkTwitter') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Alamat Deskranasda <span class="text-danger">*</span>
+                    <input type="text" class="form-control @error('alamatDeskanasda') is-invalid @enderror"
+                        name="alamatDeskanasda" value="{{ $data->alamatDeskanasda }}">
+                </label>
+                @if ($errors->has('alamatDeskanasda'))
+                    <p class="text-danger">{{ $errors->first('alamatDeskanasda') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Email Deskranasda <span class="text-danger">*</span>
+                    <input type="text" class="form-control @error('emailDeskranasda') is-invalid @enderror"
+                        name="emailDeskranasda" value="{{ $data->emailDeskranasda }}">
+                </label>
+                @if ($errors->has('emailDeskranasda'))
+                    <p class="text-danger">{{ $errors->first('emailDeskranasda') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
+                <label class="w-100 mb-2">Nomor Telepon Deskranasda <span class="text-danger">*</span>
+                    <input type="text" class="form-control @error('noTeleponDeskranasda') is-invalid @enderror"
+                        name="noTeleponDeskranasda" value="{{ $data->noTeleponDeskranasda }}">
+                </label>
+                @if ($errors->has('noTeleponDeskranasda'))
+                    <p class="text-danger">{{ $errors->first('noTeleponDeskranasda') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
+                <label for="editor7" class="w-100 "><span class="text-xl font-semibold mb-2">Alamat Peta Deskranasda
+                        <span class="text-danger">*</span></span>
+                    <div id="editor7">{!! $data->alamatPetaDeskranasda !!}</div>
+                    <textarea class="form-control d-none @error('alamatPetaDeskranasda') is-invalid @enderror"
+                        name="alamatPetaDeskranasda" id="alamatPetaDeskranasda" style="display:none;">{!! $data->alamatPetaDeskranasda !!}</textarea>
+                </label>
+                @if ($errors->has('alamatPetaDeskranasda'))
+                    <p class="text-danger">{{ $errors->first('alamatPetaDeskranasda') }}</p>
+                @endif
+            </div>
+            <div class="form-group w-100 mb-5">
                 <label for="editor1" class="w-100 "><span class="text-xl font-semibold mb-2">Tentang <span
                             class="text-danger">*</span></span>
                     <div id="editor1">{!! $data->tentang !!}</div>
@@ -161,6 +226,9 @@
         var quill6 = new Quill('#editor6', {
             theme: 'snow'
         });
+        var quill7 = new Quill('#editor7', {
+            theme: 'snow'
+        });
 
         const submitForm = function(e) {
 
@@ -170,6 +238,7 @@
             document.querySelector('textarea[name=misi]').value = quill4.root.innerHTML;
             document.querySelector('textarea[name=demografi]').value = quill5.root.innerHTML;
             document.querySelector('textarea[name=geografi]').value = quill6.root.innerHTML;
+            document.querySelector('textarea[name=alamatPetaDeskranasda]').value = quill7.root.innerHTML;
         };
 
         // return true;

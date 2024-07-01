@@ -42,7 +42,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item here show">
                     <!--begin:Menu link-->
-                    <a class="menu-link {{ Request::is('admin/article') ? 'active' : '' }}"
+                    <a class="menu-link {{ Request::is('admin/article*') ? 'active' : '' }}"
                         href="{{ route('article.index') }}">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-some-files fs-1">
@@ -60,7 +60,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item here show">
                     <!--begin:Menu link-->
-                    <a class="menu-link {{ Request::is('admin/catalog') ? 'active' : '' }}"
+                    <a class="menu-link {{ Request::is('admin/catalog*') ? 'active' : '' }}"
                         href="{{ route('catalog.index') }}">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-some-files fs-1">
@@ -76,7 +76,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item here show">
                     <!--begin:Menu link-->
-                    <a class="menu-link {{ Request::is('admin/gallery') ? 'active' : '' }}"
+                    <a class="menu-link {{ Request::is('admin/gallery*') ? 'active' : '' }}"
                         href="{{ route('gallery.index') }}">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-some-files fs-1">
@@ -110,7 +110,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item here show">
                     <!--begin:Menu link-->
-                    <a class="menu-link {{ Request::is('admin/user') ? 'active' : '' }}"
+                    <a class="menu-link {{ Request::is('admin/user*') ? 'active' : '' }}"
                         href="{{ route('user.index') }}">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-some-files fs-1">

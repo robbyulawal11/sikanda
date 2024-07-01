@@ -20,7 +20,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Gambar</th>
                 <th scope="col">Deskripsi</th>
-                <th scope="col">Penjual</th>
+                <th scope="col">Pengunggah</th>
                 <th scope="col">Aksi</th>
                 <th scope="col"> </th>
             </tr>
