@@ -21,7 +21,7 @@
                                     <h3><a href="{{ route('landing.article.show', ['id' => $pa->id]) }}" class="read-more"
                                             style="color:black">{{ $pa->title }}</a></h3>
                                     <div class="article-meta big-meta">
-                                        <small>{{ $pa->updated_at->format('d M, Y') }} | ditulis oleh </small>
+                                        <small>{{ $pa->date_article->format('d M, Y') }} | ditulis oleh </small>
                                         <small><a href="{{ route('search.articles') }}?query={{ $pa->author }}"
                                                 title="">{{ $pa->author }}</a></small>
                                     </div><!-- end meta -->
@@ -71,7 +71,7 @@
                                             <div class="w-100 justify-content-between">
                                                 {{-- <img src="{{ asset('/images/articles/' . $afive->image) }}" alt="" class="img-fluid float-left" width="50"> --}}
                                                 <h6 class="mb-1">{{ $afive->title }}</h6>
-                                                <small>{{ $afive->updated_at->format('d M, Y') }}</small>
+                                                <small>{{ $afive->date_article->format('d M, Y') }}</small>
                                             </div>
                                         </a>
                                 @endforeach

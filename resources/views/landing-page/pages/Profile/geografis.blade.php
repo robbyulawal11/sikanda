@@ -24,13 +24,13 @@
             </div>
         </div>
 
-        <div class='widget-content full-width-map container'>
-            {!! $profil->alamatPetaDekranasda !!}
-        </div>
-        <div class="container">
-            @foreach ($profile as $profil)
+        @foreach ($profile as $profil)
+            <div class='widget-content full-width-map container bg-light p-3'>
+                {!! html_entity_decode($profil->alamatPetaDeskranasda) !!}
+            </div>
+            <div class="container bg-light p-3">
                 <p>{!! $profil->geografi !!}</p>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 @endsection

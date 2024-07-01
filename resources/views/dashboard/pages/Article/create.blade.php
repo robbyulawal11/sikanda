@@ -27,6 +27,13 @@
                     enctype="multipart/form-data" onsubmit="return submitForm()">
                     @csrf
                     @method('POST')
+                    <div class="mb-3 form-group">
+                        <label for="date" class="form-label">Tanggal <span class="text-danger">*</span></label>
+                        <input type="date" name="date_article" id="date_article" class="form-control" required>
+                        @if ($errors->has('date'))
+                            <div class="text-danger">{{ $errors->first('date') }}</div>
+                        @endif
+                    </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
                         <input type="text" name="title" id="title" placeholder="Judul Artikel" class="form-control"
@@ -119,6 +126,15 @@
                         $('#images').val(''); // Clear the file input
                         evt.preventDefault();
                     });
+
+                    // Set default value for the date input
+                    var today = new Date();
+                    var day = String(today.getDate()).padStart(2, '0');
+                    var month = String(today.getMonth() + 1).padStart(2, '0');
+                    var year = today.getFullYear();
+                    var formattedDate = year + '-' + month + '-' + day;
+
+                    $('#date_article').val(formattedDate);
                 });
             </script>
 

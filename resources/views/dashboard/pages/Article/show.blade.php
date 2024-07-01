@@ -29,6 +29,7 @@
         <thead>
             <tr>
                 <th scope="col" class="text-center"><b>No</b></th>
+                <th scope="col" class="text-center"><b>Tanggal</b></th>
                 <th scope="col" class="text-center"><b>Judul</b></th>
                 <th scope="col" class="text-center"><b>Penulis</b></th>
                 <th scope="col" class="text-center"><b>Aksi</b></th>
@@ -39,6 +40,7 @@
             @foreach ($paginateArticles as $article)
                 <tr>
                     <td scope="row">{{ $loop->iteration }}</td>
+                    <td>{{ $article->date_article->format('d M, Y') }}</td>
                     <td>{{ Str::limit($article->title, 75) }}</td>
                     <td>{{ $article->author }}</td>
                     <td class="text-nowrap"><a href="{{ route('article.edit', ['article' => $article->id]) }}"
