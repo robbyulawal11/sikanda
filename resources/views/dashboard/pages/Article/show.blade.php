@@ -25,25 +25,25 @@
         </div>
     </div>
 
-    <table id="showarticl" class="table table-striped table-hover">
+    <table id="showarticle" class="table table-striped table-hover fs-6">
         <thead>
             <tr>
                 <th scope="col" class="text-center"><b>No</b></th>
                 <th scope="col" class="text-center"><b>Judul</b></th>
                 <th scope="col" class="text-center"><b>Penulis</b></th>
-                <th scope="col" class="text-right"><b>Aksi</b></th>
-                <th scope="col"> </th>
+                <th scope="col" class="text-center"><b>Aksi</b></th>
+                {{-- <th scope="col"> </th> --}}
             </tr>
         </thead>
         <tbody>
             @foreach ($paginateArticles as $article)
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td scope="row">{{ $loop->iteration }}</td>
                     <td>{{ Str::limit($article->title, 75) }}</td>
                     <td>{{ $article->author }}</td>
-                    <td><a href="{{ route('article.edit', ['article' => $article->id]) }}" class="btn btn-success"><i
-                                class="bi bi-pencil-square fs-3 ms-1"></i></a></td>
-                    <td>
+                    <td class="text-nowrap"><a href="{{ route('article.edit', ['article' => $article->id]) }}"
+                            class="btn btn-success"><i class="bi bi-pencil-square fs-3 ms-1"></i></a>
+
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#deleteModal{{ $article->id }}">
@@ -78,11 +78,13 @@
                     </td>
                 </tr>
             @endforeach
-            <tr id="no-results" class="d-none">
-                <td colspan="5" class="text-center">Tidak ada hasil yang ditemukan</td>
-            </tr>
         </tbody>
     </table>
+    {{-- <table>
+        <tr id="no-results" class="d-none">
+            <td colspan="5" class="text-center">Tidak ada hasil yang ditemukan</td>
+        </tr>
+    </table> --}}
 
     <!-- Pagination Links -->
     <div class="pagination-links pagination-lg">
@@ -118,7 +120,26 @@
 
     <script>
         $(document).ready(function() {
-            $('#showarticle').DataTable();
+            $('#showarticle').DataTable({
+                "paging": false, // Disable default paging
+                "language": {
+                    "lengthMenu": "Menampilkan -- hasil per halaman",
+                    "zeroRecords": "Tidak ada hasil yang ditemukan",
+                    "infoEmpty": "Tidak ada hasil yang ditemukan",
+                    "emptyTable": "Tidak ada hasil yang ditemukan",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    "infoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
+                    "infoFiltered": "(Menyaring dari _MAX_ total data)",
+
+                }
+
+            });
+
+            // Handle search input
+            $('#search').on('keyup', function() {
+                $('#showarticle').DataTable().search(this.value).draw();
+            });
+
         });
     </script>
 

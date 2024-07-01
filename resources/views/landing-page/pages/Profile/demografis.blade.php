@@ -50,126 +50,118 @@
         </div>
     </div>
 
-
     <div class="container">
         <div id="map" style="height: 400px;"></div>
-        {{-- <div id="population-info"
-            style="position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-        </div> --}}
+    </div>
 
-        <script>
-            const map = L.map('map').setView([-6.9370139, 106.9173099], 12);
-            const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            }).addTo(map);
+    <script>
+        const map = L.map('map').setView([-6.9370139, 106.9173099], 12);
 
-            const info = L.control();
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
 
-            info.onAdd = function(map) {
-                this._div = L.DomUtil.create('div', 'info');
-                this.update();
-                return this._div;
+        const info = L.control();
+
+        info.onAdd = function(map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+
+        info.update = function(props) {
+            const contents = props ?
+                `<b>Kecamatan ${props.district}<br />Luas: ${props.luas} km²</b>` :
+                'Arahkan Kursor di Kecamatan yang Dipilih';
+            this._div.innerHTML = `<h4>Peta Kecamatan di Sukabumi</h4>${contents}`;
+        };
+
+        info.addTo(map);
+
+        function getBorderColor(district) {
+            switch (district) {
+                case 'Baros':
+                    return 'red';
+                case 'Lembursitu':
+                    return 'green';
+                case 'Cibeureum':
+                    return 'blue';
+                case 'Citamiang':
+                    return 'yellow';
+                case 'Warudoyong':
+                    return 'purple';
+                case 'Gunungpuyuh':
+                    return 'grey';
+                case 'Cikole':
+                    return 'orange';
+                default:
+                    return 'black';
+            }
+        }
+
+        function style(feature) {
+            return {
+                weight: 4,
+                opacity: 1,
+                color: getBorderColor(feature.properties.district), // Set border color based on district
+                dashArray: '3',
+                fillOpacity: 0, // No fill color
             };
+        }
 
-            info.update = function(props) {
-                const contents = props ? `<b>Kecamatan ${props.district}</b><br />${props.padat} penduduk / ha` :
-                    'Arahkan Kursor di Kecamatan yang Dipilih';
-                this._div.innerHTML = `<h4>Peta Kepadatan Penduduk</h4>${contents}`;
-            };
+        function highlightFeature(e) {
+            const layer = e.target;
 
-            info.addTo(map);
-
-            // Function to get color based on population density value
-            function getColor(d) {
-                return d > 130 ? '#800026' :
-                    d > 100 ? '#BD0026' :
-                    d > 80 ? '#E31A1C' :
-                    d > 50 ? '#FC4E2A' :
-                    '#FD8D3C';
-            }
-
-            function style(feature) {
-                return {
-                    weight: 2,
-                    opacity: 1,
-                    color: 'white',
-                    dashArray: '3',
-                    fillOpacity: 0.7,
-                    fillColor: getColor(feature.properties.padat)
-                };
-            }
-
-            function highlightFeature(e) {
-                const layer = e.target;
-
-                layer.setStyle({
-                    weight: 5,
-                    color: '#666',
-                    dashArray: '',
-                    fillOpacity: 0.7
-                });
-
-                layer.bringToFront();
-                info.update(layer.feature.properties);
-            }
-
-            function resetHighlight(e) {
-                geojson.resetStyle(e.target);
-                info.update();
-            }
-
-            function zoomToFeature(e) {
-                map.fitBounds(e.target.getBounds());
-            }
-
-            function onEachFeature(feature, layer) {
-                layer.on({
-                    mouseover: highlightFeature,
-                    mouseout: resetHighlight,
-                    click: zoomToFeature
-                });
-            }
-
-            fetch('https://raw.githubusercontent.com/hudiyaresa/sukabumi-geojson/main/sukabumikec.geojson')
-                .then(response => response.json())
-                .then(data => {
-                    geojson = L.geoJson(data, {
-                        style: style,
-                        onEachFeature: onEachFeature
-                    }).addTo(map);
-                });
-
-            const legend = L.control({
-                position: 'bottomright'
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0,
             });
 
-            legend.onAdd = function(map) {
-                const div = L.DomUtil.create('div', 'info legend');
-                const grades = [0, 50, 80, 100, 130];
-                const labels = ['Penduduk / HA'];
-                let from, to;
+            layer.bringToFront();
+            info.update(layer.feature.properties);
+        }
 
-                for (let i = 0; i < grades.length; i++) {
-                    from = grades[i];
-                    to = grades[i + 1];
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+            info.update();
+        }
 
-                    labels.push(
-                        `<i style="background:${getColor(from + 1)}"></i> ${from}${to ? `&ndash;${to}` : '+'}`
-                    );
-                }
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
 
-                div.innerHTML = labels.join('<br>');
-                return div;
-            };
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
 
-            legend.addTo(map);
-        </script>
+        fetch('https://raw.githubusercontent.com/hudiyaresa/sukabumi-geojson/main/sukabumikec.geojson')
+            .then(response => response.json())
+            .then(data => {
+                geojson = L.geoJson(data, {
+                    style: style,
+                    onEachFeature: onEachFeature
+                }).addTo(map);
+            });
 
+        const legend = L.control({
+            position: 'bottomright'
+        });
+    </script>
 
-        @foreach ($profile as $profil)
-            <p>{!! $profil->demografi !!}</p>
-        @endforeach
+    <div class="container-fluid py-5">
+        <div class="container">
 
+            @foreach ($profile as $profil)
+                <p>{!! $profil->demografi !!}</p>
+            @endforeach
+
+        </div>
     </div>
 @endsection

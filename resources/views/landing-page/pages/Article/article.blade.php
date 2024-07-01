@@ -13,7 +13,7 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 bg-light p-3">
                     <div class="page-wrapper">
                         @foreach ($paginateArticles as $pa)
                             <div class="article-wrapper pb-3 mb-4 border-bottom border-gray-300">
@@ -52,7 +52,7 @@
 
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div class="sidebar">
-                        <div class="widget pb-3 mb-4 border-bottom border-gray-300">
+                        <div class="widget pb-3 mb-4 border-bottom border-gray-300 bg-light p-3">
                             <h3 class="widget-title">Kolom Pencarian</h3>
                             <form action="{{ route('search.articles') }}" method="GET" class="search-form d-flex">
                                 <input type="text" name="query" class="form-control me-2"
@@ -61,7 +61,7 @@
                             </form>
                         </div><!-- end widget -->
 
-                        <div class="widget pb-3 mb-4 border-bottom border-gray-300">
+                        <div class="widget pb-3 mb-4 border-bottom border-gray-300 bg-light p-3">
                             <h3 class="widget-title">Artikel Terbaru</h3>
                             <div class="blog-list-widget">
                                 @foreach ($articleslatestfive as $afive)
@@ -78,7 +78,7 @@
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->
-
+                    {{-- 
                     <div class="widget pb-3 mb-4 mt-5 border-top border-bottom border-gray-300">
                         <br>
                         <h4 class="widget-title">Kategori Populer</h4>
@@ -91,7 +91,7 @@
                                 <li><a href="#">Pool Design <span>(66)</span></a></li>
                             </ul>
                         </div><!-- end link-widget -->
-                    </div><!-- end widget -->
+                    </div><!-- end widget --> --}}
                 </div><!-- end sidebar -->
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->
