@@ -48,7 +48,9 @@
                     <textarea class="form-control" name="alamat" rows="3" placeholder="Masukan alamat lengkap anda" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="images" class="form-label">Unggah Foto Anda <span style="color: red;">*</span></label>
+                    <label for="images" class="form-label">Unggah Foto Anda (Format harus: JPEG,PNG,JPG) <span style="color: red;">*</span></label>
+                    <br>
+                    <label for="" class="form-label">Ukuran maks. 2 mb</label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control" required>
                     <div id="image_preview" style="width:300px" class="mb-3">

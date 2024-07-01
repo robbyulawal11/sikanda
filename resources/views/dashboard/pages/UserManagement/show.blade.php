@@ -20,7 +20,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Gambar</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Role</th>
+                <th scope="col">Peran</th>
                 <th scope="col">Email</th>
                 <th scope="col">Aksi</th>
             </tr>

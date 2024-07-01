@@ -46,7 +46,9 @@
                     <textarea class="form-control" name="alamat" rows="3" required>{{ $user->alamat }}</textarea>
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
+                    <label for="images" class="form-label">Unggah Foto Anda (Format harus: JPEG,PNG,JPG) <span style="color: red;">*</span></label>
+                    <br>
+                    <label for="" class="form-label">Ukuran maks. 2 mb</label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control">
                     <div id="image_preview" style="width:300px" class="mb-3">
