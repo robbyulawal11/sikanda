@@ -19,7 +19,8 @@ class HomeController extends Controller
 
     public function detail_catalog (){
         $catalog = Catalog::all();
-        return view('landing-page.pages.Catalog.detail-catalog', ['catalog' => $catalog]);
+        $profile = Profile::all();
+        return view('landing-page.pages.Catalog.detail-catalog', ['catalog' => $catalog, 'profile' => $profile]);
     }
 
     public function about (){

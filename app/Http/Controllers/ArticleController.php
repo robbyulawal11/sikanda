@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,7 @@ class ArticleController extends Controller
         $user = Auth::user(); // Get the authenticated user
         // Check user role and fetch articles accordingly
         if (Auth::user()->role == 'admin') {
-            $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page 
+            $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
         } elseif (Auth::user()->role == 'Penjual') {
             $paginateArticles = collect(); // Empty collection for 'penjual' role
         } else {
@@ -31,7 +32,7 @@ class ArticleController extends Controller
         return view('dashboard.pages.Article.show', compact('title', 'path', 'paginateArticles'));
 
     }
-    
+
     public function showArticle($id)
     {
         $showArticle = Article::findOrFail($id); // Fetch article by ID
@@ -47,21 +48,24 @@ class ArticleController extends Controller
         $path = $request->path();
         $path = explode("/", $path);
         $article = Article::all();
+        $profile = Profile::all();
         $articleslatestfive = Article::orderBy('id', 'desc')->take(5)->get();
 
-        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
-    
+        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(5); // Fetch 10 articles per page
+
         // Pass the articles to the view
         return view('landing-page.pages.Article.article', [
             'paginateArticles' => $paginateArticles,
             'path' => $path,
             'articleslatestfive' => $articleslatestfive,
+            'profile' => $profile,
         ]);
     }
 
     public function searchArticles(Request $request)
     {
         $query = $request->input('query');
+        $profile = Profile::all();
 
         // Perform search query
         $searchArticles = Article::where('title', 'LIKE', "%$query%")
@@ -75,10 +79,10 @@ class ArticleController extends Controller
                             ->orWhere('author', 'LIKE', "%$query%")
                             ->count();
 
-        return view('landing-page.pages.Article.search', compact('searchArticles', 'query', 'countArticles'));
+        return view('landing-page.pages.Article.search', compact('searchArticles', 'query', 'countArticles', 'profile'));
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -121,8 +125,8 @@ class ArticleController extends Controller
     public function show(string $id)
     {
         $showArticle = Article::findOrFail($id); // Fetch article by ID
-
-        return view('landing-page.pages.Article.show', compact('showArticle'));
+        $profile = Profile::all();
+        return view('landing-page.pages.Article.show', compact('showArticle', 'profile'));
     }
 
 
@@ -160,7 +164,7 @@ class ArticleController extends Controller
             }
 
             //menyimpan gambar baru
-            $fileName = time().'.'.$request->image->extension();  
+            $fileName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/articles/'), $fileName);
             $data['image'] = $fileName;
         }

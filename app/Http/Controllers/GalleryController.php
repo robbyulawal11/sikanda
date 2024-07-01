@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gallery;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 // use App\Models\Category;
 
@@ -78,21 +79,24 @@ class galleryController extends Controller
         $path = $request->path();
         $path = explode("/", $path);
         $gallery = Gallery::all();
+        $profile = Profile::all();
 
         $paginateGalleries = Gallery::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
 
         // Pass the articles to the view
         return view('landing-page.pages.Gallery.galleries', [
             'paginateGalleries' => $paginateGalleries,
-            'path' => $path
+            'path' => $path,
+            'profile' => $profile,
         ]);
     }
 
     public function show(string $id)
     {
         $showGallery = Gallery::findOrFail($id); // Fetch article by ID
+        $profile = Profile::all();
 
-        return view('landing-page.pages.Gallery.show', compact('showGallery'));
+        return view('landing-page.pages.Gallery.show', compact('showGallery', 'profile'));
     }
 
     /**

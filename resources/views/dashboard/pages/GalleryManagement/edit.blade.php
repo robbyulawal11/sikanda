@@ -30,7 +30,6 @@
                 <input type="file" id="images" class="form-control" placeholder="Upload Gambar Galeri Produk"
                     name="gambar">
             </div>
-
         </div>
         <div class="form-group">
             <label class="w-100" id="deskripsi">Deskripsi <span class="text-danger">*</span>

@@ -13,16 +13,23 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('gambarHero');
-            $table->string('gambarAbout');
-            $table->string('gambarStrukturOrganisasi');
-            $table->string('videoYoutube');
-            $table->text('tentang');
-            $table->text('sejarah');
-            $table->text('visi');
-            $table->text('misi');
-            $table->text('demografi');
-            $table->text('geografi');
+            $table->string('gambarHero')->nullable();
+            $table->string('gambarAbout')->nullable();
+            $table->string('gambarStrukturOrganisasi')->nullable();
+            $table->string('videoYoutube')->nullable();
+            $table->string('linkInstagram')->nullable();
+            $table->string('linkFacebook')->nullable();
+            $table->string('linkTwitter')->nullable();
+            $table->string('alamatDeskanasda')->nullable();
+            $table->string('emailDeskranasda')->nullable();
+            $table->string('noTeleponDeskranasda')->nullable();
+            $table->text('alamatPetaDeskranasda')->nullable();
+            $table->text('tentang')->nullable();
+            $table->text('sejarah')->nullable();
+            $table->text('visi')->nullable();
+            $table->text('misi')->nullable();
+            $table->text('demografi')->nullable();
+            $table->text('geografi')->nullable();
             $table->timestamps();
         });
     }

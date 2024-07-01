@@ -26,9 +26,20 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background:
+                url({{ asset('assets/img/bg.jpg') }});
+            background-size: cover;
+            background-repeat: repeat-y;
+            background-position: center center;
+            height: 200vh;
+            margin: 0;
+        }
+    </style>
 </head>
 
-<body>
+<body class="body">
 
     @include('landing-page.partials.navbar')
 

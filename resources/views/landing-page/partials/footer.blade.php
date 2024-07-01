@@ -6,10 +6,17 @@
                     <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">DEKRANASDA</h5>
                     <p class="mb-4"><b>DEWAN KERAJINAN NASIONAL DAERAH KOTA SUKABUMI</b></br>
                         Pusat Informasi Promosi dan Perdagangan Hasil Kerajinan Kota Sukabumi</p>
-                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Jl. Cikiray Kidul, Sukamanah, Kec.
-                        Cisaat, Kabupaten Sukabumi, Jawa Barat 43152</p>
-                    <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>info@example.com</p>
-                    <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+012 345 67890</p>
+                    @foreach ($profile as $profil)
+                        <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>{!! $profil->alamatDeskanasda !!}</p>
+                    @endforeach
+                    @foreach ($profile as $profil)
+                        <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>{!! $profil->emailDeskranasda !!}</p>
+                    @endforeach
+                    @foreach ($profile as $profil)
+                        <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>{!! $profil->noTeleponDeskranasda !!}</p>
+                    @endforeach
+
+
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Profil</h5>
@@ -42,12 +49,15 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Ikuti Kami</h5>
                     <div class="d-flex">
-                        <a class="btn btn-outline-primary btn-square me-2"
-                            href="https://www.instagram.com/dekranasda_kotsi/"><i class="bi bi-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square me-2" href="#"><i
-                                class="bi bi-facebook"></i></a>
-                        <a class="btn btn-outline-primary btn-square me-2" href="#"><i
-                                class="bi bi-twitter"></i></a>
+                        @foreach ($profile as $profil)
+                            <a class="btn btn-outline-primary btn-square me-2" href="{{ $profil->linkInstagram }}"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square me-2" href="{{ $profil->linkFacebook }}"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a class="btn btn-outline-primary btn-square me-2" href="{{ $profil->linkTwitter }}"><i
+                                    class="bi bi-twitter"></i></a>
+                        @endforeach
+
                     </div>
                 </div>
                 {{-- <div class="col-12 text-center text-body">
