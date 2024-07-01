@@ -50,7 +50,9 @@
                     <input type="hidden" name="user_alamat" class="form-control" value="{{ Auth::user()->alamat }}">
                 </div>
                 <div class="mb-3">
-                    <label for="images" class="form-label">Unggah Foto Produk Anda <span style="color: red;">*</span></label>
+                    <label for="images" class="form-label">Unggah Foto Produk Anda (Format harus: JPEG,PNG,JPG) <span style="color: red;">*</span></label>
+                    <br>
+                    <label for="" class="form-label">Ukuran maks. 5 mb</label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control" required>
                     <div id="image_preview" style="width:500px" class="mb-3">

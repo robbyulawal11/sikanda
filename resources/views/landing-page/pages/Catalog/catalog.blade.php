@@ -11,12 +11,12 @@
                 @foreach ($catalog as $c)
                     <div class="pb-5">
                         <div class="product-item position-relative bg-light d-flex flex-column text-center justify-content-center align-items-center"
-                            style="min-height: 280px !important;">
+                            style="min-height: 400px !important; min-height: 400px !important;">
                             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 data-image="{{ asset('images/catalogs/' . $c->image) }}" data-id="{{ $c->id }}"
                                 data-nama="{{ $c->nama }}" data-harga="{{ $c->harga }}"
                                 data-seller="{{ $c->seller }}" data-deskripsi="{{ $c->deskripsi }}"
-                                data-wa="{{ $c->wa }}" data-ig="{{ $c->ig }}">
+                                data-wa="{{ $c->wa }}" data-ig="{{ $c->ig }}" data-alamat="{{ $c->user_alamat }}">
                                 <img class="img-fluid mb-4" src="{{ asset('images/catalogs/' . $c->image) }}"
                                     alt="{{ $c->id }}">
                             </a>
@@ -31,7 +31,7 @@
                                     data-id="{{ $c->id }}" data-nama="{{ $c->nama }}"
                                     data-harga="{{ $c->harga }}" data-seller="{{ $c->seller }}"
                                     data-deskripsi="{{ $c->deskripsi }}" data-wa="{{ $c->wa }}"
-                                    data-ig="{{ $c->ig }}"><i class="bi bi-eye"></i></a>
+                                    data-ig="{{ $c->ig }}" data-alamat="{{ $c->user_alamat }}"><i class="bi bi-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -63,6 +63,7 @@
                                         <h5 id="modalHarga"></h5>
                                         <p id="modalDeskripsi" class="card-text"></p>
                                         <h5 id="modalSeller"></h5>
+                                        <p id="modalAlamat" class="card-text"></p>
                                         <div>
                                             <a id="modalWa" class="btn btn-primary py-2 px-3" href=""><i
                                                     class="bi bi-whatsapp"></i></a>
@@ -95,6 +96,7 @@
                 var deskripsi = button.getAttribute('data-deskripsi');
                 var wa = button.getAttribute('data-wa');
                 var ig = button.getAttribute('data-ig');
+                var alamat = button.getAttribute('data-alamat');
 
                 // Update the modal's content.
                 var modalImage = staticBackdrop.querySelector('#modalImage');
@@ -102,6 +104,7 @@
                 var modalHarga = staticBackdrop.querySelector('#modalHarga');
                 var modalDeskripsi = staticBackdrop.querySelector('#modalDeskripsi');
                 var modalSeller = staticBackdrop.querySelector('#modalSeller');
+                var modalAlamat = staticBackdrop.querySelector('#modalAlamat');
                 var modalWa = staticBackdrop.querySelector('#modalWa');
                 var modalIg = staticBackdrop.querySelector('#modalIg');
 
@@ -111,6 +114,7 @@
                 modalHarga.textContent = 'Rp. ' + harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 modalDeskripsi.textContent = '' + deskripsi;
                 modalSeller.textContent = 'Penjual: ' + seller;
+                modalAlamat.textContent = 'Alamat: ' + alamat;
                 modalWa.href = 'https://wa.me/+62' + wa;
                 modalIg.href = 'https://instagram.com/' + ig;
             });

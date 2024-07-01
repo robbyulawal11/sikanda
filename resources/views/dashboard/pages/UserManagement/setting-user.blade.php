@@ -22,11 +22,11 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
+                    <label for="exampleFormControlInput1" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
                     <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" required>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Role</label>
+                <div class="mb-3 visually-hidden">
+                    <label for="exampleFormControlInput1" class="form-label">Peran <span class="text-danger">*</span></label>
                     <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="role" required>
                         <option selected >{{ Auth::user()->role }}</option>
                         <option value="Copywriter">Copywriter</option>
@@ -34,31 +34,33 @@
                       </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                    <label for="exampleFormControlInput1" class="form-label">E-mail <span class="text-danger">*</span></label>
                     <input type="text" name="email" id="email" class="form-control" value="{{ Auth::user()->email }}" required>
                 </div>
                 <div class="mb-1">
                     <label for="exampleFormControlInput1" class="form-label">Password</label>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="password" id="password" class="form-control" value="{{ Auth::user()->password }}" required>
-                    <span class="input-group-text p-0"><button type="button" id="togglePassword" class="btn btn-success btn-md" required>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Masukan password baru anda">
+                    <span class="input-group-text p-0"><button type="button" id="togglePassword" class="btn btn-success btn-md" >
                         <i class="bi bi-eye-slash fs-4"></i>
                     </button></span>
                   </div>
                 </div>
                 <div class="mb-1">
-                    <label for="exampleFormControlInput1" class="form-label">Whatsapp</label>
+                    <label for="exampleFormControlInput1" class="form-label">Whatsapp <span class="text-danger">*</span></label>
                 </div>
                 <div class="input-group mb-3">
                     <input type="text" name="wa" id="wa" class="form-control" value="{{ Auth::user()->wa }}" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap <span class="text-danger">*</span></label>
                     <textarea class="form-control" name="alamat" rows="3" required>{{ Auth::user()->alamat }}</textarea>
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
+                    <label for="images" class="form-label">Unggah Foto Anda (Format harus: JPEG,PNG,JPG) <span style="color: red;">*</span></label>
+                    <br>
+                    <label for="" class="form-label">Ukuran maks. 2 mb</label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control">
                     <div id="image_preview" style="width:300px" class="mb-3">

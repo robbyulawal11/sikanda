@@ -53,7 +53,7 @@ class CatalogController extends Controller
             'deskripsi' => 'nullable|string',
             'wa' => 'required',
             'ig' => 'nullable|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'user_id' => 'nullable',
             'user_alamat' => 'nullable'
         ]);
@@ -101,7 +101,7 @@ class CatalogController extends Controller
             'deskripsi' => 'nullable|string',
             'wa' => 'nullable|string',
             'ig' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'user_id' => 'nullable',
             'user_alamat' => 'nullable'
         ]);
@@ -138,6 +138,6 @@ class CatalogController extends Controller
         //menhapus data
         $catalog->delete();
 
-        return redirect('admin/catalog')->with('success', 'Data galeri berhasil dihapus');
+        return redirect('admin/catalog')->with('success', 'Data Katalog berhasil dihapus');
     }
 }

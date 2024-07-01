@@ -153,11 +153,17 @@ class UserController extends Controller
             'name' => 'required',
             'role' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'wa' => 'required',
             'alamat' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        } else {
+            // Pertahankan password yang sudah ada jika tidak ada password baru yang diberikan
+            $data['password'] = $user->password;
+        }
 
         if ($request->hasFile('image')) {
             //menghapus gambar lama

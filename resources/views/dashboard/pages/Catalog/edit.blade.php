@@ -10,11 +10,11 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
+                    <label for="exampleFormControlInput1" class="form-label">Nama Produk <span class="text-danger">*</span></label>
                     <input type="text" name="nama" class="form-control" value="{{ $catalog->nama }}" required>
                 </div>
                 <div class="mb-3 visually-hidden">
-                    <label for="exampleFormControlInput1" class="form-label">Nama Penjual</label>
+                    <label for="exampleFormControlInput1" class="form-label">Nama Penjual <span class="text-danger">*</span></label>
                     <input type="hidden" name="seller" class="form-control" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="form-group w-100 visually-hidden">
@@ -27,16 +27,16 @@
                     @endif
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Harga</label>
+                    <label for="exampleFormControlInput1" class="form-label">Harga <span class="text-danger">*</span></label>
                     <input type="text" name="harga" id="harga" class="form-control" value="{{ $catalog->harga }}"
                         required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Produk</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Produk <span class="text-danger">*</span></label>
                     <textarea class="form-control" name="deskripsi" rows="3" required>{{ $catalog->deskripsi }}</textarea>
                 </div>
                 <div class="mb-1">
-                    <label for="exampleFormControlInput1" class="form-label">Whatsapp</label>
+                    <label for="exampleFormControlInput1" class="form-label">Whatsapp <span class="text-danger">*</span></label>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">+62</span>
@@ -52,7 +52,9 @@
                     <input type="hidden" name="user_alamat" class="form-control" value="{{ Auth::user()->alamat }}">
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
+                    <label for="images" class="form-label">Unggah Foto Produk Anda (Format harus: JPEG,PNG,JPG) <span style="color: red;">*</span></label>
+                    <br>
+                    <label for="" class="form-label">Ukuran maks. 5 mb</label>
                     <br>
                     <input type="file" name="image" id="images" class="form-control">
                     <div id="image_preview" style="width:500px" class="mb-3">
