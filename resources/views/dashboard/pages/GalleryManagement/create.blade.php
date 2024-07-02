@@ -23,7 +23,7 @@
                 @method('POST')
 
                 <div class="form-group mb-3">
-                    <label for="images" class="form-label">Upload Gambar <span class="text-danger">*</span></label>
+                    <label for="images" class="form-label">Unggah Gambar<span class="text-danger">*</span></label>
                     <br>
                     <input type="file" id="images" class="form-control @error('deskripsi') is-invalid @enderror"
                         name="gambar" placeholder="Masukkan gambar galeri">
@@ -34,7 +34,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label class="w-100" id="deskripsi">Deskripsi <span class="text-danger">*</span>
+                    <label class="w-100" id="deskripsi">Deskripsi Gambar<span class="text-danger">*</span>
                         <textarea rows="5" type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi"
                             value="{{ old('deskripsi') }}" placeholder="Masukkan deskripsi dari gambar yang sudah diinput"></textarea>
                     </label>

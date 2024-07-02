@@ -111,7 +111,7 @@
                 modalImage.src = image;
                 modalImage.alt = id;
                 modalDeskripsi.textContent = '' + deskripsi;
-                modalPenerbit.textContent = 'Foto by ' + penerbit;
+                modalPenerbit.textContent = 'Foto oleh ' + penerbit;
             });
         });
     </script>
