@@ -202,7 +202,7 @@
                     <p class="text-danger">{{ $errors->first('geografi') }}</p>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-danger">Simpan</button>
         </form>
     </div>
 

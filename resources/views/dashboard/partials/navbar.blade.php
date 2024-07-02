@@ -33,7 +33,7 @@
             <div class="separator my-2"></div>
             <!--end::Menu separator-->
             <!--begin::Menu item-->
-            <div class="menu-item px-5">    
+            <div class="menu-item px-5">
                 <a href="{{ route('setting.profile', Auth::user()->id) }}" class="menu-link px-5">Profil Saya</a>
             </div>
             <!--end::Menu item-->
@@ -118,7 +118,7 @@
                                     <span class="path10"></span>
                                 </i>
                             </span>
-                            <span class="menu-title">Light</span>
+                            <span class="menu-title">Cerah</span>
                         </a>
                     </div>
                     <!--end::Menu item-->
@@ -131,7 +131,7 @@
                                     <span class="path2"></span>
                                 </i>
                             </span>
-                            <span class="menu-title">Dark</span>
+                            <span class="menu-title">Gelap</span>
                         </a>
                     </div>
                     <!--end::Menu item-->
@@ -146,7 +146,7 @@
                                     <span class="path4"></span>
                                 </i>
                             </span>
-                            <span class="menu-title">System</span>
+                            <span class="menu-title">Sistem</span>
                         </a>
                     </div>
                     <!--end::Menu item-->
@@ -160,7 +160,7 @@
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        Keluar
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
