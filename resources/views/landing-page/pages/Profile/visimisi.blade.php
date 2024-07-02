@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container bg-light p-3">
         @foreach ($profile as $profil)
             <p>
             <h2>Visi Dekranasda Kota Sukabumi:</h2>

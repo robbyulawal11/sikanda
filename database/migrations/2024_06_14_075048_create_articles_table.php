@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->default();
             $table->text('body');
             $table->integer('user_id')->default();
+            $table->date('date_article');
             $table->timestamps();
         });
     }

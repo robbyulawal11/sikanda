@@ -21,7 +21,7 @@
                                 <div class="p-4">
                                     <div class="d-flex mb-3">
                                         <small><i
-                                                class="bi bi-calendar-date me-2"></i>{{ $atwo->updated_at->format('d M, Y') }}</small>
+                                                class="bi bi-calendar-date me-2"></i>{{ $atwo->date_article->format('d M, Y') }}</small>
                                     </div>
                                     <h5 class="text-uppercase mb-3">{{ $atwo->title }}</h5>
                                 </div>

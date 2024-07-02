@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function home (){
         $catalog = Catalog::orderBy('created_at', 'desc')->take(5)->get();
         $profile = Profile::all();
-        $articleslatesttwo = Article::orderBy('id', 'desc')->take(2)->get();
+        $articleslatesttwo = Article::orderBy('date_article', 'desc')->take(2)->get();
 
         return view('landing-page.pages.Home.home', ['catalog' => $catalog, 'articleslatesttwo' => $articleslatesttwo, 'profile' => $profile]);
     }
@@ -40,6 +40,9 @@ class HomeController extends Controller
 
     public function geografis (){
         $profile = Profile::all();
+        foreach ($profile as $profil) {
+            $profil->alamatPetaDeskranasda = html_entity_decode($profil->alamatPetaDeskranasda);
+        }
         return view('landing-page.pages.Profile.geografis', ['profile' => $profile]);
     }
 

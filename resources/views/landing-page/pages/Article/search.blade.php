@@ -15,9 +15,10 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-12 d-flex justify-content-between align-items-center">
-                    <div>
-                        <h3>{{ $countArticles }} artikel ditemukan untuk pencarian "{{ $query }}"</h3>
+                <div class="col-12 d-flex justify-content-between align-items-left">
+                    <div style="width:75.7%">
+                        <h3 class="bg-light p-3">{{ $countArticles }} artikel ditemukan untuk pencarian
+                            "{{ $query }}"</h3>
                     </div>
                     <div>
                         <div class="widget pb-3 mb-4 border-bottom border-gray-300">
@@ -33,7 +34,7 @@
             </div><!-- end row -->
 
             <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 bg-light p-3">
                     <div class="page-wrapper">
                         <div class="article-wrapper">
 
@@ -46,7 +47,7 @@
                                                     class="read-more" style="color:black">{{ $sa->title }}</a>
                                             </h3>
                                             <div class="article-meta big-meta">
-                                                <small>{{ $sa->updated_at->format('d M, Y') }} | ditulis oleh </small>
+                                                <small>{{ $sa->date_article->format('d M, Y') }} | ditulis oleh </small>
                                                 <small>
                                                     <a href="{{ route('search.articles') }}?query={{ $sa->author }}"
                                                         title="">{{ $sa->author }}</a>

@@ -17,7 +17,11 @@ class Article extends Model
         'slug',
         'body',
         'user_id',
+        'date_article',
         'timestamp'
     ];
 
+    protected $casts = [
+        'date_article' => 'datetime:Y-m-d',
+    ];
 }

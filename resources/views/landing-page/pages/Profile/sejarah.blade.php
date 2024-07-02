@@ -22,7 +22,7 @@
     </div>
 
 
-    <div class="container no-spacing">
+    <div class="container no-spacing bg-light p-3">
         @foreach ($profile as $profil)
             {!! $profil->sejarah !!}
         @endforeach

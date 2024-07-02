@@ -37,12 +37,12 @@ class ArticleController extends Controller
         $user = Auth::user(); // Get the authenticated user
         // Check user role and fetch articles accordingly
         if (Auth::user()->role == 'admin') {
-            $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(10); // Fetch 10 articles per page
+            $paginateArticles = Article::orderBy('date_article', 'desc')->paginate(10); // Fetch 10 articles per page
         } elseif (Auth::user()->role == 'Penjual') {
             $paginateArticles = collect(); // Empty collection for 'penjual' role
         } else {
             $paginateArticles = Article::where('user_id', Auth::user()->id)
-            ->orderBy('updated_at', 'desc')->paginate(10); // Fetch articles created by the copywriter
+            ->orderBy('date_article', 'desc')->paginate(10); // Fetch articles created by the copywriter
         }
 
         return view('dashboard.pages.Article.show', compact('title', 'path', 'paginateArticles'));
@@ -52,7 +52,7 @@ class ArticleController extends Controller
     public function showArticle($id)
     {
         $showArticle = Article::findOrFail($id); // Fetch article by ID
-        $articleslatestfive = Article::orderBy('id', 'desc')->take(5)->get();
+        $articleslatestfive = Article::orderBy('date_article', 'desc')->take(5)->get();
 
 
         return view('landing-page.pages.Article.show', compact('showArticle', 'articleslatestfive'));
@@ -65,9 +65,9 @@ class ArticleController extends Controller
         $path = explode("/", $path);
         $article = Article::all();
         $profile = Profile::all();
-        $articleslatestfive = Article::orderBy('id', 'desc')->take(5)->get();
+        $articleslatestfive = Article::orderBy('date_article', 'desc')->take(5)->get();
 
-        $paginateArticles = Article::orderBy('updated_at', 'desc')->paginate(5); // Fetch 10 articles per page
+        $paginateArticles = Article::orderBy('date_article', 'desc')->paginate(5); // Fetch 10 articles per page
 
         // Pass the articles to the view
         return view('landing-page.pages.Article.article', [
@@ -87,8 +87,8 @@ class ArticleController extends Controller
         $searchArticles = Article::where('title', 'LIKE', "%$query%")
                             ->orWhere('body', 'LIKE', "%$query%")
                             ->orWhere('author', 'LIKE', "%$query%")
-                            ->orderBy('created_at', 'desc')
-                            ->paginate(10);
+                            ->orderBy('date_article', 'desc')
+                            ->paginate(5);
 
         $countArticles = Article::where('title', 'LIKE', "%$query%")
                             ->orWhere('body', 'LIKE', "%$query%")

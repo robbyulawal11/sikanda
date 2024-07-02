@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container bg-light p-3">
         <p class=>
         <h1>Tentang Dekranasda Kota Sukabumi</h1>
         </p>

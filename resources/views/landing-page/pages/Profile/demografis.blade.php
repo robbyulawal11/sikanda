@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container bg-light p-3">
         <div id="map" style="height: 400px;"></div>
     </div>
 
@@ -156,7 +156,7 @@
     </script>
 
     <div class="container-fluid py-5">
-        <div class="container">
+        <div class="container bg-light p-3">
 
             @foreach ($profile as $profil)
                 <p>{!! $profil->demografi !!}</p>

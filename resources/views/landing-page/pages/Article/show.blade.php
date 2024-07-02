@@ -12,13 +12,13 @@
     <section class="section wb py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 bg-light p-3">
                     <div class="page-wrapper">
                         <div class="article-wrapper pb-3 mb-4 border-bottom border-gray-300">
                             <div class="article-title-area">
                                 <h3>{{ $showArticle->title }}</h3>
                                 <div class="article-meta big-meta">
-                                    <small>{{ $showArticle->updated_at->format('d M, Y') }} | ditulis oleh </small>
+                                    <small>{{ $showArticle->date_article->format('d M, Y') }} | ditulis oleh </small>
                                     <small><a href="{{ route('search.articles') }}?query={{ $showArticle->author }}"
                                             title="">{{ $showArticle->author }}</a></small>
                                 </div><!-- end meta -->
@@ -42,7 +42,7 @@
 
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div class="sidebar">
-                        <div class="widget pb-3 mb-4 border-bottom border-gray-300">
+                        <div class="widget pb-3 mb-4 border-bottom border-gray-300 bg-light p-3">
                             <h4 class="widget-title">Kolom Pencarian</h4>
                             <form action="{{ route('search.articles') }}" method="GET" class="search-form d-flex">
                                 <input type="text" name="query" class="form-control me-2"
@@ -62,7 +62,7 @@
                                                 <img src="upload/garden_sq_09.jpg" alt=""
                                                     class="img-fluid float-left">
                                                 <h5 class="mb-1">{{ $afive->title }}</h5>
-                                                <small>{{ $afive->updated_at->format('d M, Y') }}</small>
+                                                <small>{{ $afive->date_article->format('d M, Y') }}</small>
                                             </div>
                                         </a>
                                     </div>

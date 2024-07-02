@@ -24,6 +24,12 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tanggal <span
+                            class="text-danger">*</span></label>
+                    <input type="date" name="date_article" id="date_article" class="form-control"
+                        value="{{ $article->date_article->format('Y-m-d') }}" required>
+                </div>
+                <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Judul <span
                             class="text-danger">*</span></label>
                     <input type="text" name="title" class="form-control" value="{{ $article->title }}" required>
