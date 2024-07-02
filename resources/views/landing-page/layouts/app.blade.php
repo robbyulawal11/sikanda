@@ -27,19 +27,66 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <style>
+        /* opsi satu top satu warna */
         body {
             background:
-                url({{ asset('assets/img/bg.jpg') }});
-            background-size: cover;
-            background-repeat: repeat-y;
-            background-position: center center;
-            height: 200vh;
+                url({{ asset('assets/img/back_top_right.png') }}) no-repeat top right,
+                linear-gradient(to bottom, #E8EBA1, #C5CB5C) no-repeat;
+            background-size: cover, auto;
+            background-position: top, right;
+            margin: 0;
+            /* height: 550vh; */
+        }
+
+
+        /* opsi dua top beda warna */
+        /* body {
+            background:
+                url({{ asset('assets/img/floral_top_right2.png') }}) no-repeat top right,
+                linear-gradient(to bottom, #E8EBA1, #C5CB5C) no-repeat;
+            background-size: cover, auto;
+            background-position: top left, right;
+            margin: 0;
+            height: 550vh;
+        } */
+
+        /* opsi tiga bottom left */
+        /* body {
+            background:
+                url({{ asset('assets/img/floral_bottom_left.png') }}) no-repeat bottom left,
+                linear-gradient(to bottom, #E8EBA1, #C5CB5C) no-repeat;
+            background-size: cover, auto;
+            background-position: top left, right;
+            margin: 0;
+            height: 550vh;
+        } */
+
+        /* html,
+        body {
+            height: 100%;
             margin: 0;
         }
+
+        body {
+            background: linear-gradient(to bottom, #E8EBA1, #C5CB5C) no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100%;
+            position: relative;
+        }
+
+        .background-image {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: auto;
+            background: url('{{ asset('assets/img/floral_top_right2.png') }}') no-repeat;
+        } */
+        /* top: calc(100px + 600px); */
     </style>
 </head>
 
-<body class="body">
+<body class="body background-image">
 
     @include('landing-page.partials.navbar')
 
