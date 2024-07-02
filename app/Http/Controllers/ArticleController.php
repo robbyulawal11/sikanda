@@ -120,7 +120,8 @@ class ArticleController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'author' => 'required|string|max:255',
             'body' => 'required|min:50',
-            'user_id' => 'nullable'
+            'user_id' => 'nullable',
+            'date_article' => 'required|date'
         ]);
 
         if ($request->hasFile('image')) {
