@@ -35,8 +35,10 @@
             background-size: cover, auto;
             background-position: top, right;
             margin: 0;
-            /* height: 550vh; */
         }
+
+        */
+        /* height: 550vh;
 
 
         /* opsi dua top beda warna */
@@ -83,10 +85,44 @@
             background: url('{{ asset('assets/img/floral_top_right2.png') }}') no-repeat;
         } */
         /* top: calc(100px + 600px); */
+
+        /* html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            height: auto;
+            width: 100%;
+        }
+
+        .pattern-backgroundd {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+
+        }
+
+        .pattern-backgroundd::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('{{ asset('assets/img/pattern_home.jpg') }}') repeat;
+            opacity: 0.50;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .pattern-backgroundd>* {
+            position: relative;
+            z-index: 2;
+        } */
     </style>
 </head>
 
-<body class="body background-image">
+<body class="body pattern-backgroundd">
 
     @include('landing-page.partials.navbar')
 

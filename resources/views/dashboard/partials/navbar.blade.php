@@ -1,4 +1,4 @@
-<div class="app-navbar flex-grow-1 justify-content-end" id="kt_app_header_navbar">
+<div class="app-navbar flex-grow-1 justify-content-end fixed-top" id="kt_app_header_navbar">
     <!--begin::User menu-->
     <div class="app-navbar-item ms-3 ms-lg-4 me-lg-2" id="kt_header_user_menu_toggle">
         <!--begin::Menu wrapper-->
@@ -33,7 +33,7 @@
             <div class="separator my-2"></div>
             <!--end::Menu separator-->
             <!--begin::Menu item-->
-            <div class="menu-item px-5">    
+            <div class="menu-item px-5">
                 <a href="{{ route('setting.profile', Auth::user()->id) }}" class="menu-link px-5">Profil Saya</a>
             </div>
             <!--end::Menu item-->
