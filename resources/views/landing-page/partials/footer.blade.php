@@ -34,7 +34,7 @@
 <div class="container-fluid bg-light mt-5 py-5 pattern-background">
     <div class="container pt-5">
         <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">DEKRANASDA</h5>
                 <p class="mb-4"><b>DEWAN KERAJINAN NASIONAL DAERAH KOTA SUKABUMI</b></br>
                     Pusat Informasi Promosi dan Perdagangan Hasil Kerajinan Kota Sukabumi</p>
@@ -50,7 +50,7 @@
 
 
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-2 col-md-6">
                 <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Profil</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-body mb-2" href="about"><i
